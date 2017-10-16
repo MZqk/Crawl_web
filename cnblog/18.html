@@ -1,0 +1,187 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Python简单爬虫爬取自己博客园所有文章 - Sunnier - 博客园</title>
+<link type="text/css" rel="stylesheet" href="/bundles/blog-common.css?v=ChDk9h03-S75WEqNhGvXkWireJ5cCWdK1xRM9NIXfnM1"/>
+<link id="MainCss" type="text/css" rel="stylesheet" href="/skins/SimpleBlue/bundle-SimpleBlue.css?v=jJERBFSojhmgst84aaRDal9S3q1WoO-WcNudmMzGJS81"/>
+<link id="mobile-style" media="only screen and (max-width: 768px)" type="text/css" rel="stylesheet" href="/skins/SimpleBlue/bundle-SimpleBlue-mobile.css?v=z0BacpCfWeLlXDCM0C158kTP_DMqMbGBapID4f-QztI1"/>
+<link title="RSS" type="application/rss+xml" rel="alternate" href="http://www.cnblogs.com/sunniest/rss"/>
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="http://www.cnblogs.com/sunniest/rsd.xml"/>
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="http://www.cnblogs.com/sunniest/wlwmanifest.xml"/>
+<script src="//common.cnblogs.com/script/jquery.js" type="text/javascript"></script>  
+<script type="text/javascript">var currentBlogApp = 'sunniest', cb_enable_mathjax=false;var isLogined=false;</script>
+<script src="/bundles/blog-common.js?v=wUUQbLTt-LocHM-6RVSAUwAYdrfA1Lt3ool1ZdiICfI1" type="text/javascript"></script>
+</head>
+<body>
+<a name="top"></a>
+
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+		
+<!--done-->
+<div class="title"><a id="Header1_HeaderTitle" class="headermaintitle" href="http://www.cnblogs.com/sunniest/">Sunnier</a></div>
+<div class="subtitle"></div>
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li id="nav_sitehome"><a id="blog_nav_sitehome" class="menu" href="http://www.cnblogs.com/">博客园</a></li>
+<li id="nav_myhome"><a id="blog_nav_myhome" class="menu" href="http://www.cnblogs.com/sunniest/">首页</a></li>
+<li id="nav_newpost"><a id="blog_nav_newpost" class="menu" rel="nofollow" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a></li>
+<li id="nav_contact"><a id="blog_nav_contact" class="menu" rel="nofollow" href="https://msg.cnblogs.com/send/Sunnier">联系</a></li>
+<li id="nav_rss"><a id="blog_nav_rss" class="menu" href="http://www.cnblogs.com/sunniest/rss">订阅</a>
+<!--<a id="blog_nav_rss_image" class="aHeaderXML" href="http://www.cnblogs.com/sunniest/rss"><img src="//www.cnblogs.com/images/xml.gif" alt="订阅" /></a>--></li>
+<li id="nav_admin"><a id="blog_nav_admin" class="menu" rel="nofollow" href="https://i.cnblogs.com/">管理</a></li>
+</ul>
+
+		<div class="blogStats">
+			
+			<div id="blog_stats">
+<!--done-->
+随笔-50&nbsp;
+文章-0&nbsp;
+评论-226&nbsp;
+</div>
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		
+<div id="post_detail">
+<!--done-->
+<div id="topics">
+	<div class = "post">
+		<h1 class = "postTitle">
+			<a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/sunniest/p/6065490.html">Python简单爬虫爬取自己博客园所有文章</a>
+		</h1>
+		<div class="clear"></div>
+		<div class="postBody">
+			<div id="cnblogs_post_body"><p><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px">初学Python，用python写的一个简单爬虫，爬取自己博客园上面的所有文章。</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080"> 1</span> <span style="color: #008000">#</span><span style="color: #008000">coding=utf-8</span>
+<span style="color: #008080"> 2</span> <span style="color: #0000ff">import</span><span style="color: #000000"> re
+</span><span style="color: #008080"> 3</span> <span style="color: #0000ff">import</span><span style="color: #000000"> urllib
+</span><span style="color: #008080"> 4</span> 
+<span style="color: #008080"> 5</span> <span style="color: #0000ff">def</span><span style="color: #000000"> getHtml(url):
+</span><span style="color: #008080"> 6</span>     page =<span style="color: #000000"> urllib.urlopen(url)
+</span><span style="color: #008080"> 7</span>     html =<span style="color: #000000"> page.read()
+</span><span style="color: #008080"> 8</span>     <span style="color: #0000ff">return</span><span style="color: #000000"> html
+</span><span style="color: #008080"> 9</span> 
+<span style="color: #008080">10</span> <span style="color: #0000ff">def</span><span style="color: #000000"> getPage(html):
+</span><span style="color: #008080">11</span>     reg = r<span style="color: #800000">'</span><span style="color: #800000">随笔-([0-9]+)</span><span style="color: #800000">'</span>
+<span style="color: #008080">12</span>     pageCount =<span style="color: #000000"> re.findall(reg,html)
+</span><span style="color: #008080">13</span>     <span style="color: #0000ff">return</span><span style="color: #000000"> pageCount[0]
+</span><span style="color: #008080">14</span> 
+<span style="color: #008080">15</span> <span style="color: #0000ff">def</span><span style="color: #000000"> getArticleUrl(html):
+</span><span style="color: #008080">16</span>     reg = r<span style="color: #800000">'</span><span style="color: #800000">(http://www.cnblogs.com/sunniest/p/[0-9]+.html)</span><span style="color: #800000">'</span>
+<span style="color: #008080">17</span>     articleUrl =<span style="color: #000000"> re.findall(reg,html)
+</span><span style="color: #008080">18</span>     <span style="color: #0000ff">return</span><span style="color: #000000"> articleUrl
+</span><span style="color: #008080">19</span> 
+<span style="color: #008080">20</span> <span style="color: #0000ff">def</span><span style="color: #000000"> downloadPage(urlList):
+</span><span style="color: #008080">21</span>     x =<span style="color: #000000"> 0
+</span><span style="color: #008080">22</span>     <span style="color: #0000ff">for</span> article <span style="color: #0000ff">in</span><span style="color: #000000"> urlList:
+</span><span style="color: #008080">23</span>         urllib.urlretrieve(article,<span style="color: #800000">'</span><span style="color: #800000">%s.html</span><span style="color: #800000">'</span> %<span style="color: #000000"> x)
+</span><span style="color: #008080">24</span>         x+=1
+<span style="color: #008080">25</span> 
+<span style="color: #008080">26</span> article =<span style="color: #000000"> []
+</span><span style="color: #008080">27</span> htmlStr = getHtml(<span style="color: #800000">"</span><span style="color: #800000">http://www.cnblogs.com/sunniest/default.html</span><span style="color: #800000">"</span><span style="color: #000000">)
+</span><span style="color: #008080">28</span> pageCount =<span style="color: #000000"> getPage(htmlStr)
+</span><span style="color: #008080">29</span> page = int(pageCount)/40+1
+<span style="color: #008080">30</span> <span style="color: #0000ff">for</span> i <span style="color: #0000ff">in</span> range(1,page+1<span style="color: #000000">):
+</span><span style="color: #008080">31</span>     html = getHtml(<span style="color: #800000">"</span><span style="color: #800000">http://www.cnblogs.com/sunniest/default.html?page=</span><span style="color: #800000">"</span>+<span style="color: #000000">str(i))
+</span><span style="color: #008080">32</span>     articleUrl =<span style="color: #000000"> getArticleUrl(html)
+</span><span style="color: #008080">33</span>     article = article.<span style="color: #800080">__add__</span><span style="color: #000000">(articleUrl)
+</span><span style="color: #008080">34</span> 
+<span style="color: #008080">35</span> article =<span style="color: #000000"> list(set(article))
+</span><span style="color: #008080">36</span> downloadPage(article)</pre>
+</div>
+<p><span style="font-family: &quot;Microsoft YaHei&quot;; font-size: 15px">爬取后的网页会保存在项目的根目录下，暂时未支持js、css等文件的爬取，所以页面显示效果会比较差。</span></p></div><div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory"></div>
+<div id="EntryTag"></div>
+<div id="blog_post_info">
+</div>
+<div class="clear"></div>
+<div id="post_next_prev"></div>
+</div>
+
+
+		</div>
+		<div class = "postDesc">posted @ <span id="post-date">2016-11-15 14:10</span> <a href='http://www.cnblogs.com/sunniest/'>Sunnier</a> 阅读(<span id="post_view_count">...</span>) 评论(<span id="post_comment_count">...</span>)  <a href ="https://i.cnblogs.com/EditPosts.aspx?postid=6065490" rel="nofollow">编辑</a> <a href="#" onclick="AddToWz(6065490);return false;">收藏</a></div>
+	</div>
+	<script type="text/javascript">var allowComments=true,cb_blogId=205616,cb_entryId=6065490,cb_blogApp=currentBlogApp,cb_blogUserGuid='43282244-7c70-e411-b908-9dcfd8948a71',cb_entryCreatedDate='2016/11/15 14:10:00';loadViewCount(cb_entryId);</script>
+	
+</div><!--end: topics 文章、评论容器-->
+</div><a name="!comments"></a><div id="blog-comments-placeholder"></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id='comment_form' class='commentform'>
+<a name='commentform'></a>
+<div id='divCommentShow'></div>
+<div id='comment_nav'><span id='span_refresh_tips'></span><a href='javascript:void(0);' onclick='return RefreshCommentList();' id='lnk_RefreshComments' runat='server' clientidmode='Static'>刷新评论</a><a href='#' onclick='return RefreshPage();'>刷新页面</a><a href='#top'>返回顶部</a></div>
+<div id='comment_form_container'></div>
+<div class='ad_text_commentbox' id='ad_text_under_commentbox'></div>
+<div id='ad_t2'></div>
+<div id='opt_under_post'></div>
+<div id='cnblogs_c1' class='c_ad_block'></div>
+<div id='under_post_news'></div>
+<div id='cnblogs_c2' class='c_ad_block'></div>
+<div id='under_post_kb'></div>
+<div id='HistoryToday' class='c_ad_block'></div>
+<script type='text/javascript'>
+    fixPostBody();
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);   
+</script>
+</div>
+
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<!--done-->
+<div class="newsItem">
+<h3 class="catListTitle">公告</h3>
+	<div id="blog-news"></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+
+			<div id="calendar"><div id="blog-calendar" style="display:none"></div><script type="text/javascript">loadBlogDefaultCalendar();</script></div>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div><script type="text/javascript">loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		
+<!--done-->
+Copyright &copy;2017 Sunnier
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+</body>
+</html>

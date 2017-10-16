@@ -1,0 +1,1219 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Spring详细教程 - Sunnier - 博客园</title>
+<link type="text/css" rel="stylesheet" href="/bundles/blog-common.css?v=ChDk9h03-S75WEqNhGvXkWireJ5cCWdK1xRM9NIXfnM1"/>
+<link id="MainCss" type="text/css" rel="stylesheet" href="/skins/SimpleBlue/bundle-SimpleBlue.css?v=jJERBFSojhmgst84aaRDal9S3q1WoO-WcNudmMzGJS81"/>
+<link id="mobile-style" media="only screen and (max-width: 768px)" type="text/css" rel="stylesheet" href="/skins/SimpleBlue/bundle-SimpleBlue-mobile.css?v=z0BacpCfWeLlXDCM0C158kTP_DMqMbGBapID4f-QztI1"/>
+<link title="RSS" type="application/rss+xml" rel="alternate" href="http://www.cnblogs.com/sunniest/rss"/>
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="http://www.cnblogs.com/sunniest/rsd.xml"/>
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="http://www.cnblogs.com/sunniest/wlwmanifest.xml"/>
+<script src="//common.cnblogs.com/script/jquery.js" type="text/javascript"></script>  
+<script type="text/javascript">var currentBlogApp = 'sunniest', cb_enable_mathjax=false;var isLogined=false;</script>
+<script src="/bundles/blog-common.js?v=wUUQbLTt-LocHM-6RVSAUwAYdrfA1Lt3ool1ZdiICfI1" type="text/javascript"></script>
+</head>
+<body>
+<a name="top"></a>
+
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+		
+<!--done-->
+<div class="title"><a id="Header1_HeaderTitle" class="headermaintitle" href="http://www.cnblogs.com/sunniest/">Sunnier</a></div>
+<div class="subtitle"></div>
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li id="nav_sitehome"><a id="blog_nav_sitehome" class="menu" href="http://www.cnblogs.com/">博客园</a></li>
+<li id="nav_myhome"><a id="blog_nav_myhome" class="menu" href="http://www.cnblogs.com/sunniest/">首页</a></li>
+<li id="nav_newpost"><a id="blog_nav_newpost" class="menu" rel="nofollow" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a></li>
+<li id="nav_contact"><a id="blog_nav_contact" class="menu" rel="nofollow" href="https://msg.cnblogs.com/send/Sunnier">联系</a></li>
+<li id="nav_rss"><a id="blog_nav_rss" class="menu" href="http://www.cnblogs.com/sunniest/rss">订阅</a>
+<!--<a id="blog_nav_rss_image" class="aHeaderXML" href="http://www.cnblogs.com/sunniest/rss"><img src="//www.cnblogs.com/images/xml.gif" alt="订阅" /></a>--></li>
+<li id="nav_admin"><a id="blog_nav_admin" class="menu" rel="nofollow" href="https://i.cnblogs.com/">管理</a></li>
+</ul>
+
+		<div class="blogStats">
+			
+			<div id="blog_stats">
+<!--done-->
+随笔-50&nbsp;
+文章-0&nbsp;
+评论-226&nbsp;
+</div>
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		
+<div id="post_detail">
+<!--done-->
+<div id="topics">
+	<div class = "post">
+		<h1 class = "postTitle">
+			<a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/sunniest/p/4543271.html">Spring详细教程</a>
+		</h1>
+		<div class="clear"></div>
+		<div class="postBody">
+			<div id="cnblogs_post_body"><h1><span style="font-family: 'Microsoft YaHei'; background-color: #ffff00; color: #ff0000;"><strong>Spring学习总结----</strong></span></h1>
+<h2><span style="font-family: 'Microsoft YaHei'; background-color: #ffff00;">一、导入Spring必须的jar包</span></h2>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><img src="http://images0.cnblogs.com/blog2015/694841/201505/312138223291801.png" alt="" /></span></p>
+<h2><span style="font-family: 'Microsoft YaHei'; background-color: #ffff00;">二、简单示例入门注入一个User</span></h2>
+<p><strong><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">1.编写User实体类</span></strong></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">package</span><span style="color: #000000;"> test.Spring.helloworld;
+
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> java.util.List;
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> java.util.Map;
+
+</span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> User {</span><span style="color: #000000;">
+    @Override
+    </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> String toString() {
+        </span><span style="color: #0000ff;">return</span> "User [id=" + id + ", name=" + name + "]"<span style="color: #000000;">;
+    }
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">int</span><span style="color: #000000;"> getId() {
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> id;
+    }
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span> setId(<span style="color: #0000ff;">int</span><span style="color: #000000;"> id) {
+        </span><span style="color: #0000ff;">this</span>.id =<span style="color: #000000;"> id;
+    }
+    </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> String getName() {
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> name;
+    }
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> setName(String name) {
+        </span><span style="color: #0000ff;">this</span>.name =<span style="color: #000000;"> name;
+    }
+    </span><span style="color: #0000ff;">private</span> <span style="color: #0000ff;">int</span><span style="color: #000000;"> id;
+    </span><span style="color: #0000ff;">private</span><span style="color: #000000;"> String name;</span><span style="color: #000000;">
+    
+}</span></pre>
+</div>
+<p><strong><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">2.编写Spring配置文件，类型为xml，<span style="color: #ff0000;">文件名可以自定义</span></span></strong></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">&lt;?</span><span style="color: #ff00ff;">xml version="1.0" encoding="UTF-8"</span><span style="color: #0000ff;">?&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">beans </span><span style="color: #ff0000;">xmlns</span><span style="color: #0000ff;">="http://www.springframework.org/schema/beans"</span><span style="color: #ff0000;">
+    xmlns:xsi</span><span style="color: #0000ff;">="http://www.w3.org/2001/XMLSchema-instance"</span><span style="color: #ff0000;">
+    xsi:schemaLocation</span><span style="color: #0000ff;">="http://www.springframework.org/schema/beans  
+        http://www.springframework.org/schema/beans/spring-beans.xsd"</span> 
+        <span style="color: #0000ff;">&gt;</span>
+    
+      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">bean </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="User"</span><span style="color: #ff0000;"> class</span><span style="color: #0000ff;">="test.Spring.helloworld.User"</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">property </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="id"</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">="1"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">property</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">property </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="name"</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">="jayjay"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">property</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">bean</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">beans</span><span style="color: #0000ff;">&gt;</span></pre>
+</div>
+<p><strong><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">3.利用Spring容器创建托管对象User</span></strong></p>
+<div class="cnblogs_code">
+<pre>        ApplicationContext context =<span style="color: #0000ff;">new</span> ClassPathXmlApplicationContext("applicationContext.xml"<span style="color: #000000;">);
+        User u </span>= (User)context.getBean("User"<span style="color: #000000;">);
+        System.out.println(u);</span></pre>
+</div>
+<h2><span style="font-family: 'Microsoft YaHei';"><strong><span style="background-color: #ffff00;">三、Bean的配置深入</span></strong></span></h2>
+<p><strong><span style="font-size: 15px; font-family: 'Microsoft YaHei';">1.bean引用其他bean</span></strong></p>
+<p><span style="font-size: 15px; font-family: 'Microsoft YaHei';">实体类示例：</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">package</span><span style="color: #000000;"> test.Spring.helloworld;
+
+</span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> HelloWorld {
+    </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> User getUser() {
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> user;
+    }
+
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> setUser(User user) {
+        </span><span style="color: #0000ff;">this</span>.user =<span style="color: #000000;"> user;
+    }
+
+    @Override
+    </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> String toString() {
+        </span><span style="color: #0000ff;">return</span> "HelloWorld [name=" + name + ", user=" + user + "]"<span style="color: #000000;">;
+    }
+
+    </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> String getName() {
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> name;
+    }
+
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> setName(String name) {
+        </span><span style="color: #0000ff;">this</span>.name =<span style="color: #000000;"> name;
+    }
+
+    </span><span style="color: #0000ff;">private</span><span style="color: #000000;"> String name;
+    </span><span style="color: #0000ff;">private</span><span style="color: #000000;"> User user;
+    
+    </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> HelloWorld(){
+        
+    }
+    
+    </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> HelloWorld(String name){
+        </span><span style="color: #0000ff;">this</span>.name =<span style="color: #000000;"> name;
+    }
+}</span></pre>
+</div>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">配置示例：</span></p>
+<div class="cnblogs_code">
+<pre>    <span style="color: #008000;">&lt;!--</span><span style="color: #008000;"> reference other bean </span><span style="color: #008000;">--&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">bean </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="HelloWorld"</span><span style="color: #ff0000;"> class</span><span style="color: #0000ff;">="test.Spring.helloworld.HelloWorld"</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #008000;">&lt;!--</span><span style="color: #008000;"> &lt;property name="name" value="spring1"&gt;&lt;/property&gt; </span><span style="color: #008000;">--&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">constructor-arg </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">="spring2"</span><span style="color: #ff0000;"> type</span><span style="color: #0000ff;">="java.lang.String"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">constructor-arg</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">property </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="user"</span><span style="color: #0000ff;">&gt;</span>
+            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">ref </span><span style="color: #ff0000;">bean</span><span style="color: #0000ff;">="User"</span><span style="color: #0000ff;">/&gt;</span>
+        <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">property</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">bean</span><span style="color: #0000ff;">&gt;</span></pre>
+</div>
+<p><span style="font-size: 15px; font-family: 'Microsoft YaHei';">调用方法依然是根据bean中的id</span></p>
+<p><strong><span style="font-size: 15px; font-family: 'Microsoft YaHei';">2.集合bean配置</span></strong></p>
+<p><span style="font-size: 15px; font-family: 'Microsoft YaHei';">实体类示例：</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">package</span><span style="color: #000000;"> test.Spring.helloworld;
+
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> java.util.List;
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> java.util.Map;
+
+</span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> User {
+    </span><span style="color: #0000ff;">public</span> Map&lt;String, Integer&gt;<span style="color: #000000;"> getMap() {
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> map;
+    }
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span> setMap(Map&lt;String, Integer&gt;<span style="color: #000000;"> map) {
+        </span><span style="color: #0000ff;">this</span>.map =<span style="color: #000000;"> map;
+    }
+    </span><span style="color: #0000ff;">public</span> List&lt;String&gt;<span style="color: #000000;"> getList() {
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> list;
+    }
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span> setList(List&lt;String&gt;<span style="color: #000000;"> list) {
+        </span><span style="color: #0000ff;">this</span>.list =<span style="color: #000000;"> list;
+    }
+    @Override
+    </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> String toString() {
+        </span><span style="color: #0000ff;">return</span> "User [id=" + id + ", name=" + name + ", list=" +<span style="color: #000000;"> list
+                </span>+ ", map=" + map + "]"<span style="color: #000000;">;
+    }
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">int</span><span style="color: #000000;"> getId() {
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> id;
+    }
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span> setId(<span style="color: #0000ff;">int</span><span style="color: #000000;"> id) {
+        </span><span style="color: #0000ff;">this</span>.id =<span style="color: #000000;"> id;
+    }
+    </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> String getName() {
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> name;
+    }
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> setName(String name) {
+        </span><span style="color: #0000ff;">this</span>.name =<span style="color: #000000;"> name;
+    }
+    </span><span style="color: #0000ff;">private</span> <span style="color: #0000ff;">int</span><span style="color: #000000;"> id;
+    </span><span style="color: #0000ff;">private</span><span style="color: #000000;"> String name;
+    </span><span style="color: #0000ff;">private</span> List&lt;String&gt;<span style="color: #000000;"> list;
+    </span><span style="color: #0000ff;">private</span> Map&lt;String,Integer&gt;<span style="color: #000000;"> map;
+    
+}</span></pre>
+</div>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">配置示例：</span></p>
+<div class="cnblogs_code">
+<pre>    <span style="color: #008000;">&lt;!--</span><span style="color: #008000;"> Configure the list bean </span><span style="color: #008000;">--&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">bean </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="testList"</span><span style="color: #ff0000;"> class</span><span style="color: #0000ff;">="test.Spring.helloworld.User"</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">property </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="list"</span><span style="color: #0000ff;">&gt;</span>
+            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">list</span><span style="color: #0000ff;">&gt;</span>
+                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">value</span><span style="color: #0000ff;">&gt;</span>list1<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">value</span><span style="color: #0000ff;">&gt;</span>
+                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">value</span><span style="color: #0000ff;">&gt;</span>list2<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">value</span><span style="color: #0000ff;">&gt;</span>
+                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">value</span><span style="color: #0000ff;">&gt;</span>list3<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">value</span><span style="color: #0000ff;">&gt;</span>
+            <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">list</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">property</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">bean</span><span style="color: #0000ff;">&gt;</span>
+    
+    <span style="color: #008000;">&lt;!--</span><span style="color: #008000;"> configure the map </span><span style="color: #008000;">--&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">bean </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="testMap"</span><span style="color: #ff0000;"> class</span><span style="color: #0000ff;">="test.Spring.helloworld.User"</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">property </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="map"</span><span style="color: #0000ff;">&gt;</span>
+            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">map</span><span style="color: #0000ff;">&gt;</span>
+                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">entry </span><span style="color: #ff0000;">key</span><span style="color: #0000ff;">="first"</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">="1"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">entry</span><span style="color: #0000ff;">&gt;</span>
+                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">entry </span><span style="color: #ff0000;">key</span><span style="color: #0000ff;">="second"</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">="2"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">entry</span><span style="color: #0000ff;">&gt;</span>
+                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">entry </span><span style="color: #ff0000;">key</span><span style="color: #0000ff;">="third"</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">="3"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">entry</span><span style="color: #0000ff;">&gt;</span>
+            <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">map</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">property</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">bean</span><span style="color: #0000ff;">&gt;</span></pre>
+</div>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><strong>3.Properties类型的bean</strong></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">实体类示例：</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">package</span><span style="color: #000000;"> test.Spring.helloworld;
+
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> java.util.Properties;
+
+</span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> DataSource {
+    @Override
+    </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> String toString() {
+        </span><span style="color: #0000ff;">return</span> "Properties [properties=" + properties + "]"<span style="color: #000000;">;
+    }
+
+    </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> Properties getProperties() {
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> properties;
+    }
+
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> setProperties(Properties properties) {
+        </span><span style="color: #0000ff;">this</span>.properties =<span style="color: #000000;"> properties;
+    }
+
+    </span><span style="color: #0000ff;">private</span><span style="color: #000000;"> Properties properties;
+    
+}</span></pre>
+</div>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">配置示例：</span></p>
+<div class="cnblogs_code">
+<pre>    <span style="color: #008000;">&lt;!--</span><span style="color: #008000;"> configure the properties </span><span style="color: #008000;">--&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">bean </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="dataSource1"</span><span style="color: #ff0000;"> class</span><span style="color: #0000ff;">="test.Spring.helloworld.DataSource"</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">property </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="properties"</span><span style="color: #0000ff;">&gt;</span>
+            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">props</span><span style="color: #0000ff;">&gt;</span>
+                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">prop </span><span style="color: #ff0000;">key</span><span style="color: #0000ff;">="user"</span><span style="color: #0000ff;">&gt;</span>root<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">prop</span><span style="color: #0000ff;">&gt;</span>
+                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">prop </span><span style="color: #ff0000;">key</span><span style="color: #0000ff;">="password"</span><span style="color: #0000ff;">&gt;</span>1234<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">prop</span><span style="color: #0000ff;">&gt;</span>
+                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">prop </span><span style="color: #ff0000;">key</span><span style="color: #0000ff;">="jdbcUrl"</span><span style="color: #0000ff;">&gt;</span>jdbc:mysql:///test<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">prop</span><span style="color: #0000ff;">&gt;</span>
+                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">prop </span><span style="color: #ff0000;">key</span><span style="color: #0000ff;">="driverClass"</span><span style="color: #0000ff;">&gt;</span>com.mysql.jdbc.Driver<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">prop</span><span style="color: #0000ff;">&gt;</span>
+            <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">props</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">property</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">bean</span><span style="color: #0000ff;">&gt;</span></pre>
+</div>
+<p><strong><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">4.使用Util定义引用其他bean的公共集合</span></strong></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">需要先在xml导入命名空间</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">&lt;?</span><span style="color: #ff00ff;">xml version="1.0" encoding="UTF-8"</span><span style="color: #0000ff;">?&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">beans </span><span style="color: #ff0000;">xmlns</span><span style="color: #0000ff;">="http://www.springframework.org/schema/beans"</span><span style="color: #ff0000;">
+    xmlns:xsi</span><span style="color: #0000ff;">="http://www.w3.org/2001/XMLSchema-instance"</span><span style="color: #ff0000;">
+    xsi:schemaLocation</span><span style="color: #0000ff;">="http://www.springframework.org/schema/beans  
+        http://www.springframework.org/schema/beans/spring-beans.xsd 
+        http://www.springframework.org/schema/util 
+        http://www.springframework.org/schema/util/spring-util-4.0.xsd"</span><span style="color: #ff0000;">
+        xmlns:util</span><span style="color: #0000ff;">="http://www.springframework.org/schema/util"</span>    
+        <span style="color: #0000ff;">&gt;</span>    
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">beans</span><span style="color: #0000ff;">&gt;</span></pre>
+</div>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">集合以及调用的xml配置</span></p>
+<div class="cnblogs_code">
+<pre>    <span style="color: #008000;">&lt;!--</span><span style="color: #008000;"> if properties of collection are beans </span><span style="color: #008000;">--&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">util:list </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="users"</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">ref </span><span style="color: #ff0000;">bean</span><span style="color: #0000ff;">="User"</span><span style="color: #0000ff;">/&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">ref </span><span style="color: #ff0000;">bean</span><span style="color: #0000ff;">="User"</span><span style="color: #0000ff;">/&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">ref </span><span style="color: #ff0000;">bean</span><span style="color: #0000ff;">="User"</span><span style="color: #0000ff;">/&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">util:list</span><span style="color: #0000ff;">&gt;</span>
+    
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">bean </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="Users"</span><span style="color: #ff0000;"> class</span><span style="color: #0000ff;">="test.Spring.helloworld.Users"</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">property </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="list"</span><span style="color: #0000ff;">&gt;</span>
+            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">ref </span><span style="color: #ff0000;">bean</span><span style="color: #0000ff;">="users"</span><span style="color: #0000ff;">/&gt;</span>
+        <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">property</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">bean</span><span style="color: #0000ff;">&gt;</span></pre>
+</div>
+<p><strong><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">5.使用p简化bean的属性赋值</span></strong></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">首先，导入p的命名空间</span></p>
+<div class="cnblogs_code">
+<pre>xmlns:p="http://www.springframework.org/schema/p"</pre>
+</div>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">实体类实例：</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">package</span><span style="color: #000000;"> test.Spring.helloworld;
+
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> java.util.List;
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> java.util.Map;
+
+</span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> User {
+    @Override
+    </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> String toString() {
+        </span><span style="color: #0000ff;">return</span> "User [id=" + id + ", name=" + name + "]"<span style="color: #000000;">;
+    }
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">int</span><span style="color: #000000;"> getId() {
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> id;
+    }
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span> setId(<span style="color: #0000ff;">int</span><span style="color: #000000;"> id) {
+        </span><span style="color: #0000ff;">this</span>.id =<span style="color: #000000;"> id;
+    }
+    </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> String getName() {
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> name;
+    }
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> setName(String name) {
+        </span><span style="color: #0000ff;">this</span>.name =<span style="color: #000000;"> name;
+    }
+    </span><span style="color: #0000ff;">private</span> <span style="color: #0000ff;">int</span><span style="color: #000000;"> id;
+    </span><span style="color: #0000ff;">private</span><span style="color: #000000;"> String name;
+    
+}</span></pre>
+</div>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">配置示例：</span></p>
+<div class="cnblogs_code">
+<pre>    <span style="color: #008000;">&lt;!--</span><span style="color: #008000;"> use p to write the bean quickly and conveniently </span><span style="color: #008000;">--&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">bean </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="User1"</span><span style="color: #ff0000;"> class</span><span style="color: #0000ff;">="test.Spring.helloworld.User"</span><span style="color: #ff0000;"> p:id</span><span style="color: #0000ff;">="2"</span><span style="color: #ff0000;"> p:name</span><span style="color: #0000ff;">="jayjay2"</span> <span style="color: #0000ff;">/&gt;</span></pre>
+</div>
+<p><strong><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">6.abstract模板bean</span></strong></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">设置abstract=true表明此bean是模板bean，为其他bean提供属性值模板</span></p>
+<div class="cnblogs_code">
+<pre>    <span style="color: #008000;">&lt;!--</span><span style="color: #008000;"> template bean </span><span style="color: #008000;">--&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">bean </span><span style="color: #ff0000;">abstract</span><span style="color: #0000ff;">="true"</span><span style="color: #ff0000;">  id</span><span style="color: #0000ff;">="template"</span><span style="color: #ff0000;"> p:id</span><span style="color: #0000ff;">="50"</span><span style="color: #ff0000;"> p:name</span><span style="color: #0000ff;">="fromTemplate"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">bean</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">bean </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="User2"</span><span style="color: #ff0000;"> parent</span><span style="color: #0000ff;">="template"</span><span style="color: #ff0000;"> class</span><span style="color: #0000ff;">="test.Spring.helloworld.User"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">bean</span><span style="color: #0000ff;">&gt;</span></pre>
+</div>
+<p><strong><span style="font-size: 15px; font-family: 'Microsoft YaHei';">7.单例bean和原型bean</span></strong></p>
+<div class="cnblogs_code">
+<pre>    <span style="color: #008000;">&lt;!--</span><span style="color: #008000;"> use scope to build singleton/prototype bean </span><span style="color: #008000;">--&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">bean </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="User3"</span><span style="color: #ff0000;"> parent</span><span style="color: #0000ff;">="template"</span><span style="color: #ff0000;"> scope</span><span style="color: #0000ff;">="singleton"</span><span style="color: #ff0000;"> class</span><span style="color: #0000ff;">="test.Spring.helloworld.User"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">bean</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">bean </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="User4"</span><span style="color: #ff0000;"> parent</span><span style="color: #0000ff;">="template"</span><span style="color: #ff0000;"> scope</span><span style="color: #0000ff;">="prototype"</span><span style="color: #ff0000;"> class</span><span style="color: #0000ff;">="test.Spring.helloworld.User"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">bean</span><span style="color: #0000ff;">&gt;</span></pre>
+</div>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">singleton:此bean为单例，在context创建时已经创建，并且只有一个实例。</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">prototype:当需要时创建实例。</span></p>
+<p><strong><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">8.静态工厂方法配置bean</span></strong></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">静态工厂类示例：</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">package</span><span style="color: #000000;"> test.Spring.FactoryBean;
+
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> java.util.HashMap;
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> java.util.Map;
+
+</span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> StaticFactoryMethod {
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">static</span> Map&lt;String,Person&gt; map = <span style="color: #0000ff;">new</span> HashMap&lt;String,Person&gt;<span style="color: #000000;">();
+    
+    </span><span style="color: #0000ff;">static</span><span style="color: #000000;"> {
+        map.put(</span>"first", <span style="color: #0000ff;">new</span> Person(1,"jayjay1"<span style="color: #000000;">));
+        map.put(</span>"second", <span style="color: #0000ff;">new</span> Person(2,"jayjay2"<span style="color: #000000;">));
+    }
+    
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">static</span><span style="color: #000000;"> Person getPerson(String key){
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> map.get(key);
+    }
+}</span></pre>
+</div>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">配置示例：</span></p>
+<div class="cnblogs_code">
+<pre>    <span style="color: #008000;">&lt;!--</span><span style="color: #008000;"> static factory method </span><span style="color: #008000;">--&gt;</span>    
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">bean </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="person"</span><span style="color: #ff0000;"> factory-method</span><span style="color: #0000ff;">="getPerson"</span><span style="color: #ff0000;"> class</span><span style="color: #0000ff;">="test.Spring.FactoryBean.StaticFactoryMethod"</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">constructor-arg </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">="first"</span><span style="color: #ff0000;"> type</span><span style="color: #0000ff;">="java.lang.String"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">constructor-arg</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">bean</span><span style="color: #0000ff;">&gt;</span></pre>
+</div>
+<p><strong><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">9.实例工厂方法配置bean</span></strong></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">工厂类示例：</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">package</span><span style="color: #000000;"> test.Spring.FactoryBean;
+
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> java.util.HashMap;
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> java.util.Map;
+
+</span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> InstanceFactoryMethod {
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">static</span> Map&lt;String,Person&gt; map = <span style="color: #0000ff;">new</span> HashMap&lt;String,Person&gt;<span style="color: #000000;">();
+    
+    </span><span style="color: #0000ff;">static</span><span style="color: #000000;"> {
+        map.put(</span>"first", <span style="color: #0000ff;">new</span> Person(1,"jayjay1"<span style="color: #000000;">));
+        map.put(</span>"second", <span style="color: #0000ff;">new</span> Person(2,"jayjay2"<span style="color: #000000;">));
+    }
+    
+    </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> Person getPerson(String key){
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> map.get(key);
+    }
+}</span></pre>
+</div>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">配置示例：</span></p>
+<div class="cnblogs_code">
+<pre>    <span style="color: #008000;">&lt;!--</span><span style="color: #008000;"> instance factory method </span><span style="color: #008000;">--&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">bean </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="InstanceFactoryMethod"</span><span style="color: #ff0000;"> class</span><span style="color: #0000ff;">="test.Spring.FactoryBean.InstanceFactoryMethod"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">bean</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">bean </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="person1"</span><span style="color: #ff0000;"> factory-bean</span><span style="color: #0000ff;">="InstanceFactoryMethod"</span><span style="color: #ff0000;"> factory-method</span><span style="color: #0000ff;">="getPerson"</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">constructor-arg </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">="second"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">constructor-arg</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">bean</span><span style="color: #0000ff;">&gt;</span></pre>
+</div>
+<p><strong><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">10.通过实现FactoryBean完成bean的配置</span></strong></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">需要对FactoryBean接口的3个方法进行适当重写</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">PersonFactoryBean类示例：</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">package</span><span style="color: #000000;"> test.Spring.FactoryBean;
+
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> org.springframework.beans.factory.FactoryBean;
+
+</span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span> PersonFactoryBean <span style="color: #0000ff;">implements</span> FactoryBean&lt;Person&gt;<span style="color: #000000;">{
+    
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">int</span><span style="color: #000000;"> getId() {
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> id;
+    }
+
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span> setId(<span style="color: #0000ff;">int</span><span style="color: #000000;"> id) {
+        </span><span style="color: #0000ff;">this</span>.id =<span style="color: #000000;"> id;
+    }
+
+    </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> String getName() {
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> name;
+    }
+
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> setName(String name) {
+        </span><span style="color: #0000ff;">this</span>.name =<span style="color: #000000;"> name;
+    }
+
+    </span><span style="color: #0000ff;">private</span> <span style="color: #0000ff;">int</span><span style="color: #000000;"> id;
+    </span><span style="color: #0000ff;">private</span><span style="color: #000000;"> String name;
+    
+    @Override
+    </span><span style="color: #0000ff;">public</span> Person getObject() <span style="color: #0000ff;">throws</span><span style="color: #000000;"> Exception {
+        </span><span style="color: #008000;">//</span><span style="color: #008000;"> TODO Auto-generated method stub</span>
+        <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">new</span><span style="color: #000000;"> Person(id,name);
+    }
+
+    @Override
+    </span><span style="color: #0000ff;">public</span> Class&lt;?&gt;<span style="color: #000000;"> getObjectType() {
+        </span><span style="color: #008000;">//</span><span style="color: #008000;"> TODO Auto-generated method stub</span>
+        <span style="color: #0000ff;">return</span> Person.<span style="color: #0000ff;">class</span><span style="color: #000000;">;
+    }
+
+    @Override
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">boolean</span><span style="color: #000000;"> isSingleton() {
+        </span><span style="color: #008000;">//</span><span style="color: #008000;"> TODO Auto-generated method stub</span>
+        <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">false</span><span style="color: #000000;">;
+    }
+
+
+}</span></pre>
+</div>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">配置示例：</span></p>
+<div class="cnblogs_code">
+<pre>    <span style="color: #008000;">&lt;!--</span><span style="color: #008000;"> use factory bean to get a instance </span><span style="color: #008000;">--&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">bean </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="person2"</span><span style="color: #ff0000;"> class</span><span style="color: #0000ff;">="test.Spring.FactoryBean.PersonFactoryBean"</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">property </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="id"</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">="3"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">property</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">property </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="name"</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">="FactoryBean"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">property</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">bean</span><span style="color: #0000ff;">&gt;</span></pre>
+</div>
+<h2><span style="font-family: 'Microsoft YaHei'; background-color: #ffff00;">四、通过注解配置bean</span></h2>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">加上注解的类会被Spring容器管理</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px; color: #ff0000;">@Component</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">　　　　标注于通用实体类</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px; color: #ff0000;">@Controller</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">　　　　标注于Controller/Action</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px; color: #ff0000;">@Service</span></p>
+<p><span style="font-size: 15px; font-family: 'Microsoft YaHei';">　　　　标注于Service</span></p>
+<p><span style="font-size: 15px; font-family: 'Microsoft YaHei'; color: #ff0000;">@Respository</span></p>
+<p><span style="font-size: 15px; font-family: 'Microsoft YaHei';">　　　　标注于RespositoryImpl/DaoImlp</span></p>
+<p><span style="font-size: 15px; font-family: 'Microsoft YaHei'; color: #ff0000;">@Autowired</span></p>
+<p><span style="font-size: 15px; font-family: 'Microsoft YaHei';">　　　　依据类型自动装配</span></p>
+<p><span style="font-size: 15px; font-family: 'Microsoft YaHei'; color: #ff0000;">@Qualifier</span></p>
+<p><span style="font-size: 15px; font-family: 'Microsoft YaHei';">　　　　指定自动装载的bean的name</span></p>
+<p><strong><span style="font-size: 15px; font-family: 'Microsoft YaHei';">1.在Spring配置文件中导入context命名空间，并加入</span></strong></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">context:component-scan </span><span style="color: #ff0000;">base-package</span><span style="color: #0000ff;">="test.Spring.Annotation"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">context:component-scan</span><span style="color: #0000ff;">&gt;</span></pre>
+</div>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">表示Spring将扫描test.Spring.Annotation及其子包中所有java文件，并将带有注解的类加入Spring容器进行管理。</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">例如：</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">&lt;?</span><span style="color: #ff00ff;">xml version="1.0" encoding="UTF-8"</span><span style="color: #0000ff;">?&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">beans </span><span style="color: #ff0000;">xmlns</span><span style="color: #0000ff;">="http://www.springframework.org/schema/beans"</span><span style="color: #ff0000;">
+    xmlns:xsi</span><span style="color: #0000ff;">="http://www.w3.org/2001/XMLSchema-instance"</span><span style="color: #ff0000;">
+    xsi:schemaLocation</span><span style="color: #0000ff;">="http://www.springframework.org/schema/beans  
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd"</span><span style="color: #ff0000;"> 
+        xmlns:context</span><span style="color: #0000ff;">="http://www.springframework.org/schema/context"</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">context:component-scan </span><span style="color: #ff0000;">base-package</span><span style="color: #0000ff;">="test.Spring.Annotation"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">context:component-scan</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">beans</span><span style="color: #0000ff;">&gt;</span></pre>
+</div>
+<p><strong><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">2.模拟三层，并用Spring注解方式注入</span></strong></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">项目结构：</span></p>
+<p><img src="http://images0.cnblogs.com/blog2015/694841/201506/010908129739383.png" alt="" /></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">Person实体类</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">package</span><span style="color: #000000;"> test.Spring.Annotation;
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> org.springframework.stereotype.Component;
+
+@Component
+</span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> Person {
+    @Override
+    </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> String toString() {
+        </span><span style="color: #0000ff;">return</span> "Person [id=" + id + ", name=" + name + "]"<span style="color: #000000;">;
+    }
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">int</span><span style="color: #000000;"> getId() {
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> id;
+    }
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span> setId(<span style="color: #0000ff;">int</span><span style="color: #000000;"> id) {
+        </span><span style="color: #0000ff;">this</span>.id =<span style="color: #000000;"> id;
+    }
+    </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> String getName() {
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> name;
+    }
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> setName(String name) {
+        </span><span style="color: #0000ff;">this</span>.name =<span style="color: #000000;"> name;
+    }
+    
+    </span><span style="color: #0000ff;">private</span> <span style="color: #0000ff;">int</span><span style="color: #000000;"> id;    
+    </span><span style="color: #0000ff;">private</span><span style="color: #000000;"> String name;
+}</span></pre>
+</div>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">PersonController</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">package</span><span style="color: #000000;"> test.Spring.Annotation.Controller;
+
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> org.springframework.stereotype.Controller;
+
+@Controller
+</span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> PersonController {
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> excute(){
+        System.out.println(</span>"PersonController.excute()..."<span style="color: #000000;">);
+    }
+}</span></pre>
+</div>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">PersonService</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">package</span><span style="color: #000000;"> test.Spring.Annotation.Service;
+
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> org.springframework.stereotype.Service;
+
+@Service
+</span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> PersonService {
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> add(){
+        System.out.println(</span>"PersonService.add()..."<span style="color: #000000;">);
+    }
+}</span></pre>
+</div>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">PersonRepository接口</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">package</span><span style="color: #000000;"> test.Spring.Annotation.Repository;
+
+</span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">interface</span><span style="color: #000000;"> PersonRepository {
+    </span><span style="color: #0000ff;">void</span><span style="color: #000000;"> add();
+}</span></pre>
+</div>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">PersonRepositoryImpl接口实现类</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">package</span><span style="color: #000000;"> test.Spring.Annotation.Repository;
+
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> org.springframework.stereotype.Repository;
+
+@Repository
+</span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span> PersonRepositoryImpl <span style="color: #0000ff;">implements</span><span style="color: #000000;"> PersonRepository {
+
+    @Override
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> add() {
+        System.out.println(</span>"PersonRepositoryImpl.add()..."<span style="color: #000000;">);    
+    }
+
+}</span></pre>
+</div>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">Main类中测试</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">package</span><span style="color: #000000;"> test.Spring.Annotation;
+
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> org.springframework.context.ApplicationContext;
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> org.springframework.context.support.ClassPathXmlApplicationContext;
+
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> test.Spring.Annotation.Controller.PersonController;
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> test.Spring.Annotation.Repository.PersonRepository;
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> test.Spring.Annotation.Service.PersonService;
+
+</span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> Main {
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">static</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> main(String[] args) {
+        ApplicationContext context </span>=<span style="color: #0000ff;">new</span> ClassPathXmlApplicationContext("applicationContextForAnnotation.xml"<span style="color: #000000;">);
+        
+        </span><span style="color: #008000;">//</span><span style="color: #008000;">inject the common bean</span>
+        System.out.println(context.getBean("testAutowired"<span style="color: #000000;">));
+        
+        </span><span style="color: #008000;">//</span><span style="color: #008000;">inject the repository</span>
+        PersonRepository pr = (PersonRepository)context.getBean("personRepositoryImpl"<span style="color: #000000;">);
+        pr.add();
+        
+        </span><span style="color: #008000;">//</span><span style="color: #008000;">inject the controller</span>
+        PersonController pc = (PersonController)context.getBean("personController"<span style="color: #000000;">);
+        pc.excute();
+        
+        </span><span style="color: #008000;">//</span><span style="color: #008000;">inject the service</span>
+        PersonService ps = (PersonService)context.getBean("personService"<span style="color: #000000;">);
+        ps.add();
+        
+        
+    }
+}</span></pre>
+</div>
+<p><strong><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">3.泛型三层的注入</span></strong></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">Spring配置文件</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">&lt;?</span><span style="color: #ff00ff;">xml version="1.0" encoding="UTF-8"</span><span style="color: #0000ff;">?&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">beans </span><span style="color: #ff0000;">xmlns</span><span style="color: #0000ff;">="http://www.springframework.org/schema/beans"</span><span style="color: #ff0000;">
+    xmlns:xsi</span><span style="color: #0000ff;">="http://www.w3.org/2001/XMLSchema-instance"</span><span style="color: #ff0000;">
+    xsi:schemaLocation</span><span style="color: #0000ff;">="http://www.springframework.org/schema/beans  
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        "</span><span style="color: #ff0000;"> 
+        xmlns:context</span><span style="color: #0000ff;">="http://www.springframework.org/schema/context"</span>    
+        <span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">context:component-scan </span><span style="color: #ff0000;">base-package</span><span style="color: #0000ff;">="test.Spring.Generic.di"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">context:component-scan</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">beans</span><span style="color: #0000ff;">&gt;</span></pre>
+</div>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">BaseRespository</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">package</span><span style="color: #000000;"> test.Spring.Generic.di;
+
+</span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span> BaseRepository&lt;T&gt;<span style="color: #000000;"> {
+    
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> save() {
+        System.out.println(</span>"repository.save()..."<span style="color: #000000;">);
+    }
+}</span></pre>
+</div>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">PersonRepository</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">package</span><span style="color: #000000;"> test.Spring.Generic.di;
+
+</span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">interface</span><span style="color: #000000;"> PersonRespository {
+    </span><span style="color: #0000ff;">void</span><span style="color: #000000;"> save();
+}</span></pre>
+</div>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">PersonRepositoryImpl</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">继承BaseRepository就不需要再写一次save方法，且同时实现了PersonRepository接口</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">package</span><span style="color: #000000;"> test.Spring.Generic.di;
+
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> org.springframework.stereotype.Repository;
+
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> test.Spring.Annotation.Person;
+
+@Repository
+</span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span> PersonRespositoryImpl <span style="color: #0000ff;">extends</span> BaseRepository&lt;Person&gt; <span style="color: #0000ff;">implements</span><span style="color: #000000;"> PersonRespository {
+
+}</span></pre>
+</div>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">BaseService对Dao进行自动装配，子类继承后装配的是子类Respository</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">package</span><span style="color: #000000;"> test.Spring.Generic.di;
+
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> org.springframework.beans.factory.annotation.Autowired;
+
+</span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span> BaseService&lt;T&gt;<span style="color: #000000;"> {
+    
+    @Autowired
+    </span><span style="color: #0000ff;">protected</span> BaseRepository&lt;T&gt;<span style="color: #000000;"> baseRespository;
+    
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> save(){
+        System.out.println(</span>"service.save()..."<span style="color: #000000;">);
+        System.out.println(baseRespository);
+    }
+}</span></pre>
+</div>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">PersonService继承了BaseService，<span style="color: #ff0000;">就不需要再写实现save方法，定义Repository字段了</span></span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">package</span><span style="color: #000000;"> test.Spring.Generic.di;
+
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> org.springframework.stereotype.Service;
+
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> test.Spring.Annotation.Person;
+
+@Service
+</span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span> PersonService <span style="color: #0000ff;">extends</span> BaseService&lt;Person&gt;<span style="color: #000000;">{
+    
+}</span></pre>
+</div>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">Main类中调用</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">package</span><span style="color: #000000;"> test.Spring.Generic.di;
+
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> org.springframework.context.ApplicationContext;
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> org.springframework.context.support.ClassPathXmlApplicationContext;
+
+</span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> Main {
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">static</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> main(String[] args) {
+        ApplicationContext context </span>=<span style="color: #0000ff;">new</span> ClassPathXmlApplicationContext("applicationContextForGeneric.xml"<span style="color: #000000;">);
+        PersonService ps </span>= (PersonService)context.getBean("personService"<span style="color: #000000;">);
+        ps.save();
+    }
+}</span></pre>
+</div>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">输出为</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><img src="http://images0.cnblogs.com/blog2015/694841/201506/010938561291510.png" alt="" /></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><span style="color: #ff0000;">第二句说明调用的是继承BaseService的PersonService拿到的Respository是PersonRepositoryImpl，说明泛型注入成功。</span>　</span>　　　</p>
+<p>&nbsp;</p>
+<h2><span style="font-family: 'Microsoft YaHei'; background-color: #ffff00;">&nbsp;十、使用SpringAOP完成简单的程序</span></h2>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">1.导入SpringAOP所需jar包</span></p>
+<p><img src="http://images0.cnblogs.com/blog2015/694841/201507/050911174669357.png" alt="" /></p>
+<p style="text-align: left;"><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">2.编写spring的配置文件applicationContext.xml</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">&lt;?</span><span style="color: #ff00ff;">xml version="1.0" encoding="UTF-8"</span><span style="color: #0000ff;">?&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">beans </span><span style="color: #ff0000;">xmlns</span><span style="color: #0000ff;">="http://www.springframework.org/schema/beans"</span><span style="color: #ff0000;">
+    xmlns:xsi</span><span style="color: #0000ff;">="http://www.w3.org/2001/XMLSchema-instance"</span><span style="color: #ff0000;">
+    
+    xsi:schemaLocation</span><span style="color: #0000ff;">="http://www.springframework.org/schema/beans  
+        http://www.springframework.org/schema/beans/spring-beans.xsd 
+        http://www.springframework.org/schema/util 
+        http://www.springframework.org/schema/util/spring-util-4.0.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop 
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        "</span><span style="color: #ff0000;">
+        xmlns:util</span><span style="color: #0000ff;">="http://www.springframework.org/schema/util"</span><span style="color: #ff0000;">
+        xmlns:p</span><span style="color: #0000ff;">="http://www.springframework.org/schema/p"</span><span style="color: #ff0000;">
+        xmlns:context</span><span style="color: #0000ff;">="http://www.springframework.org/schema/context"</span><span style="color: #ff0000;">
+        xmlns:aop</span><span style="color: #0000ff;">="http://www.springframework.org/schema/aop"</span>    
+        <span style="color: #0000ff;">&gt;</span>
+    <span style="color: #008000;">&lt;!--</span><span style="color: #008000;"> configure the package for spring to scan </span><span style="color: #008000;">--&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">context:component-scan </span><span style="color: #ff0000;">base-package</span><span style="color: #0000ff;">="test.Spring.AOP"</span> <span style="color: #0000ff;">/&gt;</span>
+    
+    <span style="color: #008000;">&lt;!--</span><span style="color: #008000;"> make the aspectj annotation to be used </span><span style="color: #008000;">--&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">aop:aspectj-autoproxy</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">aop:aspectj-autoproxy</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">beans</span><span style="color: #0000ff;">&gt;</span></pre>
+</div>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">3.创建一个HelloWord接口以及它的实现类HelloWordImpl</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">interface</span><span style="color: #000000;"> HelloWord {
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">int</span> sayHello(<span style="color: #0000ff;">int</span><span style="color: #000000;"> num);
+}</span></pre>
+</div>
+<div class="cnblogs_code">
+<pre><span style="color: #000000;">@Component
+</span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span> HelloWordImpl <span style="color: #0000ff;">implements</span><span style="color: #000000;"> HelloWord{
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">int</span> sayHello(<span style="color: #0000ff;">int</span><span style="color: #000000;"> num){
+        System.out.println(</span>"hello word"<span style="color: #000000;">);
+        </span><span style="color: #0000ff;">return</span> 100/<span style="color: #000000;">num;
+    }
+}</span></pre>
+</div>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">4.SpringAOP注释的类型有5种</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><span style="color: #ff0000;">@Before</span>&nbsp;前置通知&nbsp;在方法执行前执行</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><span style="color: #ff0000;">@After</span>&nbsp;后置通知&nbsp;在方法执行后执行</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><span style="color: #ff0000;">@AfterThrowing</span>&nbsp;异常通知&nbsp;在方法抛出异常之后执行</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><span style="color: #ff0000;">@AfterReturning</span>&nbsp;返回通知&nbsp;在方法返回结果之后执行</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><span style="color: #ff0000;">@Around</span>&nbsp;环绕通知&nbsp;环绕着方法执行</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">5.创建一个切面类（包含@Before&nbsp;@After&nbsp;@AfterThrowing&nbsp;@AfterReturning）</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #000000;">@Component
+@Aspect
+</span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> HelloWordAspect {
+    
+    @Before(value</span>="execution(* test.Spring.AOP.HelloWord.sayHello(..))"<span style="color: #000000;">)
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> beforeMethod(JoinPoint jp){
+        String methodName </span>=<span style="color: #000000;"> jp.getSignature().getName();
+        System.out.println(methodName);
+        System.out.println(</span>"before method execute,args are "+<span style="color: #000000;">Arrays.toString(jp.getArgs()));
+    }
+
+    @After(</span>"execution(* test.Spring.AOP.HelloWord.sayHello(..))"<span style="color: #000000;">)
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> afterMethod(JoinPoint jp){
+        System.out.println(</span>"after method execute,args are "+<span style="color: #000000;">Arrays.toString(jp.getArgs()));
+    }
+    
+    @AfterThrowing(value</span>="execution(* test.Spring.AOP.HelloWord.sayHello(..))",throwing="ex"<span style="color: #000000;">)
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> afterThrow(Exception ex){
+        System.out.println(</span>"afterThrow"+<span style="color: #000000;">ex.getMessage());    
+    }
+    
+    @AfterReturning(value</span>="execution(* test.Spring.AOP.HelloWord.sayHello(..))",returning="result"<span style="color: #000000;">)
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> afterReturn(Object result){
+        System.out.println(</span>"the result is "+<span style="color: #000000;">result);
+    }
+}</span></pre>
+</div>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">6.在主函数调用</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> Main {
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">static</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> main(String[] args) {
+        ApplicationContext context </span>= <span style="color: #0000ff;">new</span> ClassPathXmlApplicationContext("applicationContextForAOP.xml"<span style="color: #000000;">);
+        
+        HelloWord hw </span>= (HelloWord) context.getBean("helloWordImpl"<span style="color: #000000;">);
+        hw.sayHello(</span>10<span style="color: #000000;">);
+    }
+}</span></pre>
+</div>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">7.调用结果</span></p>
+<p><img src="http://images0.cnblogs.com/blog2015/694841/201507/050921070622063.png" alt="" /></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">结果说明，在sayHello方法是被Spring代理执行了，执行前后加上了一些切面类中定义的信息。</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">8.使用Around环绕通知切面类实现类似效果</span></p>
+<p>&nbsp;</p>
+<div class="cnblogs_code">
+<pre><span style="color: #000000;">@Component
+@Aspect
+</span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> HelloWordAspectAround {
+    @Around(value</span>="execution(* test.Spring.AOP.HelloWord.sayHello(..)))"<span style="color: #000000;">)
+    </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> Object aroundMethod(ProceedingJoinPoint pjp){
+        Object result </span>= <span style="color: #0000ff;">null</span><span style="color: #000000;">;
+        String methodName </span>=<span style="color: #000000;"> pjp.getSignature().getName();
+        </span><span style="color: #0000ff;">try</span><span style="color: #000000;"> {
+            result </span>=<span style="color: #000000;"> pjp.proceed();        
+            System.out.println(</span>"the result is "+<span style="color: #000000;">result);
+        } </span><span style="color: #0000ff;">catch</span><span style="color: #000000;"> (Throwable e) {
+            System.out.println(</span>"Exception occurs : "+<span style="color: #000000;">e.getMessage());
+            </span><span style="color: #0000ff;">throw</span> <span style="color: #0000ff;">new</span><span style="color: #000000;"> RuntimeException(e);
+        }
+        System.out.println(methodName</span>+" end"<span style="color: #000000;">);
+        
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> result;
+    }
+}</span></pre>
+</div>
+<p>&nbsp;</p>
+<h2><span style="font-family: 'Microsoft YaHei'; background-color: #ffff00;">十一、SpringAOP整合Hibernate并使用事务(模拟买书的过程)</span></h2>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">1.内容准备</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">①.编写实体类</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">Book</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> Book {
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">int</span><span style="color: #000000;"> getId() {
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> id;
+    }
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span> setId(<span style="color: #0000ff;">int</span><span style="color: #000000;"> id) {
+        </span><span style="color: #0000ff;">this</span>.id =<span style="color: #000000;"> id;
+    }
+    </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> String getName() {
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> name;
+    }
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> setName(String name) {
+        </span><span style="color: #0000ff;">this</span>.name =<span style="color: #000000;"> name;
+    }
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">int</span><span style="color: #000000;"> getPrice() {
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> price;
+    }
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span> setPrice(<span style="color: #0000ff;">int</span><span style="color: #000000;"> price) {
+        </span><span style="color: #0000ff;">this</span>.price =<span style="color: #000000;"> price;
+    }
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">int</span><span style="color: #000000;"> getCount() {
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> count;
+    }
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span> setCount(<span style="color: #0000ff;">int</span><span style="color: #000000;"> count) {
+        </span><span style="color: #0000ff;">this</span>.count =<span style="color: #000000;"> count;
+    }
+    </span><span style="color: #0000ff;">private</span> <span style="color: #0000ff;">int</span><span style="color: #000000;"> id;
+    </span><span style="color: #0000ff;">private</span><span style="color: #000000;"> String name;
+    </span><span style="color: #0000ff;">private</span> <span style="color: #0000ff;">int</span><span style="color: #000000;"> price;
+    </span><span style="color: #0000ff;">private</span> <span style="color: #0000ff;">int</span><span style="color: #000000;"> count;
+}</span></pre>
+</div>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">Customer</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> Customer {
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">int</span><span style="color: #000000;"> getId() {
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> id;
+    }
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span> setId(<span style="color: #0000ff;">int</span><span style="color: #000000;"> id) {
+        </span><span style="color: #0000ff;">this</span>.id =<span style="color: #000000;"> id;
+    }
+    </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> String getName() {
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> name;
+    }
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> setName(String name) {
+        </span><span style="color: #0000ff;">this</span>.name =<span style="color: #000000;"> name;
+    }
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">int</span><span style="color: #000000;"> getBalance() {
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> balance;
+    }
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span> setBalance(<span style="color: #0000ff;">int</span><span style="color: #000000;"> balance) {
+        </span><span style="color: #0000ff;">this</span>.balance =<span style="color: #000000;"> balance;
+    }
+    </span><span style="color: #0000ff;">private</span> <span style="color: #0000ff;">int</span><span style="color: #000000;"> id;
+    </span><span style="color: #0000ff;">private</span><span style="color: #000000;"> String name;
+    </span><span style="color: #0000ff;">private</span> <span style="color: #0000ff;">int</span><span style="color: #000000;"> balance;
+}</span></pre>
+</div>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">②.编写实体类映射文件</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">hibernate-mapping </span><span style="color: #ff0000;">package</span><span style="color: #0000ff;">="springaop.model"</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">class </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="Book"</span><span style="color: #ff0000;"> table</span><span style="color: #0000ff;">="t_book"</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">id </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="id"</span><span style="color: #ff0000;"> type</span><span style="color: #0000ff;">="int"</span><span style="color: #ff0000;"> column</span><span style="color: #0000ff;">="id"</span> <span style="color: #0000ff;">&gt;</span>
+            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">generator </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">="native"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">generator</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">id</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">property </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="name"</span><span style="color: #ff0000;"> type</span><span style="color: #0000ff;">="string"</span><span style="color: #ff0000;"> column</span><span style="color: #0000ff;">="name"</span><span style="color: #0000ff;">/&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">property </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="price"</span><span style="color: #ff0000;"> type</span><span style="color: #0000ff;">="int"</span><span style="color: #ff0000;"> column</span><span style="color: #0000ff;">="price"</span><span style="color: #0000ff;">/&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">property </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="count"</span><span style="color: #ff0000;"> type</span><span style="color: #0000ff;">="int"</span><span style="color: #ff0000;"> column</span><span style="color: #0000ff;">="count"</span><span style="color: #0000ff;">/&gt;</span>
+
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">class</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">hibernate-mapping</span><span style="color: #0000ff;">&gt;</span></pre>
+</div>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">hibernate-mapping </span><span style="color: #ff0000;">package</span><span style="color: #0000ff;">="springaop.model"</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">class </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="Customer"</span><span style="color: #ff0000;"> table</span><span style="color: #0000ff;">="t_customer"</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">id </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="id"</span><span style="color: #ff0000;"> type</span><span style="color: #0000ff;">="int"</span><span style="color: #ff0000;"> column</span><span style="color: #0000ff;">="id"</span> <span style="color: #0000ff;">&gt;</span>
+            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">generator </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">="native"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">generator</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">id</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">property </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="name"</span><span style="color: #ff0000;"> type</span><span style="color: #0000ff;">="string"</span><span style="color: #ff0000;"> column</span><span style="color: #0000ff;">="name"</span><span style="color: #0000ff;">/&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">property </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="balance"</span><span style="color: #ff0000;"> type</span><span style="color: #0000ff;">="int"</span><span style="color: #ff0000;"> column</span><span style="color: #0000ff;">="balance"</span><span style="color: #0000ff;">/&gt;</span>
+
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">class</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">hibernate-mapping</span><span style="color: #0000ff;">&gt;</span></pre>
+</div>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">③.编写dao及daoImpl</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">interface</span><span style="color: #000000;"> ShopRepository {
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">int</span><span style="color: #000000;"> findBookPriceByBookName(String name);
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> updateBookCount(String name);
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span> updateUserBalance(String name,<span style="color: #0000ff;">int</span><span style="color: #000000;"> price);
+}</span></pre>
+</div>
+<div class="cnblogs_code">
+<pre><span style="color: #000000;">@Repository
+</span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span> ShopRepositoryImpl <span style="color: #0000ff;">implements</span><span style="color: #000000;"> ShopRepository{
+
+    @Autowired
+    </span><span style="color: #0000ff;">private</span><span style="color: #000000;"> SessionFactory sessionFactory;
+    
+    </span><span style="color: #0000ff;">private</span><span style="color: #000000;"> Session getSession(){
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> sessionFactory.getCurrentSession();
+    }
+    
+    @Override
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">int</span><span style="color: #000000;"> findBookPriceByBookName(String name) {
+        String sql </span>= "select b.price from Book b where b.name=?"<span style="color: #000000;">;
+        Query query </span>= getSession().createQuery(sql).setString(0<span style="color: #000000;">, name);
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> (Integer)query.uniqueResult();
+    }
+
+    @Override
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> updateBookCount(String name) {
+        String sql1 </span>= "select b.count from Book b where b.name=?"<span style="color: #000000;">;
+        Query query </span>= getSession().createQuery(sql1).setString(0<span style="color: #000000;">,name);
+        </span><span style="color: #0000ff;">int</span> count = (<span style="color: #0000ff;">int</span><span style="color: #000000;">)query.uniqueResult();
+        </span><span style="color: #0000ff;">if</span>(count&lt;=0<span style="color: #000000;">){
+            </span><span style="color: #0000ff;">throw</span> <span style="color: #0000ff;">new</span> RuntimeException("库存不足"<span style="color: #000000;">);
+        }
+        
+        String sql2 </span>= "update Book b set b.count=b.count-1 where b.name=?"<span style="color: #000000;">;
+        getSession().createQuery(sql2).setString(</span>0<span style="color: #000000;">,name).executeUpdate();        
+    }
+
+    @Override
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span> updateUserBalance(String name, <span style="color: #0000ff;">int</span><span style="color: #000000;"> price) {
+        String sql1 </span>= "select c.balance from Customer c where c.name=?"<span style="color: #000000;">;
+        Query query </span>= getSession().createQuery(sql1).setString(0<span style="color: #000000;">,name);
+        </span><span style="color: #0000ff;">int</span> count = (<span style="color: #0000ff;">int</span><span style="color: #000000;">)query.uniqueResult();
+        </span><span style="color: #0000ff;">if</span>(count-price&lt;0<span style="color: #000000;">){
+            </span><span style="color: #0000ff;">throw</span> <span style="color: #0000ff;">new</span> RuntimeException("余额不足"<span style="color: #000000;">);
+        }
+        
+        String sql2 </span>= "update Customer c set c.balance=c.balance-? where c.name=?"<span style="color: #000000;">;
+        getSession().createQuery(sql2).setInteger(</span>0, price).setString(1<span style="color: #000000;">,name).executeUpdate();    
+    }
+
+}</span></pre>
+</div>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">④.编写service及serviceImpl</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">interface</span><span style="color: #000000;"> ShopService {
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> shop(String bookName,String username);
+}</span></pre>
+</div>
+<div class="cnblogs_code">
+<pre><span style="color: #000000;">@Service
+</span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span> ShopServiceImpl <span style="color: #0000ff;">implements</span><span style="color: #000000;"> ShopService{
+
+    @Autowired
+    </span><span style="color: #0000ff;">private</span><span style="color: #000000;"> ShopRepository sr;
+    
+    @Override
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> shop(String bookName, String username) {
+        </span><span style="color: #0000ff;">int</span> price =<span style="color: #000000;"> sr.findBookPriceByBookName(bookName);
+        sr.updateUserBalance(username, price);
+        sr.updateBookCount(bookName);
+    }
+
+}</span></pre>
+</div>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">2.加入Hibernate</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">①．添加hibernate必须的jar包</span></p>
+<p><span style="font-family: 宋体;"><img src="http://images0.cnblogs.com/blog2015/694841/201507/050927013193571.png" alt="" /></span></p>
+<p>&nbsp;</p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">②．添加hibernate.cfg.xml</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">hibernate-configuration</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">session-factory</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #008000;">&lt;!--</span><span style="color: #008000;"> 配置hibernate的基本属性 </span><span style="color: #008000;">--&gt;</span>    
+        <span style="color: #008000;">&lt;!--</span><span style="color: #008000;"> 1.数据源的配置，配置到SpringIOC中，此处不需要再进行配置 </span><span style="color: #008000;">--&gt;</span>
+        <span style="color: #008000;">&lt;!--</span><span style="color: #008000;"> 2.关联实体的映射文件 .hbm.xml文件也在IOC容器配置SessionFactory实例时配置 </span><span style="color: #008000;">--&gt;</span>
+        <span style="color: #008000;">&lt;!--</span><span style="color: #008000;"> 3.配置hibernate的基本属性  方言、sql显示及格式化、数据库表生成策略、二级缓存</span><span style="color: #008000;">--&gt;</span>        
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">property </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="dialect"</span><span style="color: #0000ff;">&gt;</span>org.hibernate.dialect.MySQL5InnoDBDialect<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">property</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">property </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="show_sql"</span><span style="color: #0000ff;">&gt;</span>true<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">property</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">property </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="hbm2ddl.auto"</span><span style="color: #0000ff;">&gt;</span>update<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">property</span><span style="color: #0000ff;">&gt;</span>
+        
+        <span style="color: #008000;">&lt;!--</span><span style="color: #008000;"> 配置hibernate二级缓存相关 </span><span style="color: #008000;">--&gt;</span>
+        
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">session-factory</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">hibernate-configuration</span><span style="color: #0000ff;">&gt;</span></pre>
+</div>
+<p>&nbsp;</p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">3.加入Spring</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">①.导入Spring必须的jar包</span></p>
+<p><img src="http://images0.cnblogs.com/blog2015/694841/201507/050940573571392.png" alt="" /></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">②.配置Spring的applicationContext.xml及db.properties文件</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">beans </span><span style="color: #ff0000;">xmlns</span><span style="color: #0000ff;">="http://www.springframework.org/schema/beans"</span><span style="color: #ff0000;">
+    xmlns:xsi</span><span style="color: #0000ff;">="http://www.w3.org/2001/XMLSchema-instance"</span><span style="color: #ff0000;">
+    xsi:schemaLocation</span><span style="color: #0000ff;">="http://www.springframework.org/schema/beans  
+        http://www.springframework.org/schema/beans/spring-beans.xsd 
+        http://www.springframework.org/schema/util 
+        http://www.springframework.org/schema/util/spring-util-4.0.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx-4.1.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop-4.1.xsd             
+        "</span><span style="color: #ff0000;">
+        xmlns:util</span><span style="color: #0000ff;">="http://www.springframework.org/schema/util"</span><span style="color: #ff0000;">
+        xmlns:p</span><span style="color: #0000ff;">="http://www.springframework.org/schema/p"</span><span style="color: #ff0000;">
+        xmlns:context</span><span style="color: #0000ff;">="http://www.springframework.org/schema/context"</span><span style="color: #ff0000;">    
+        xmlns:tx</span><span style="color: #0000ff;">="http://www.springframework.org/schema/tx"</span><span style="color: #ff0000;">
+        xmlns:aop</span><span style="color: #0000ff;">="http://www.springframework.org/schema/aop"</span>
+        <span style="color: #0000ff;">&gt;</span>
+
+    <span style="color: #008000;">&lt;!--</span><span style="color: #008000;"> 配置Spring扫描的包 </span><span style="color: #008000;">--&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">context:component-scan </span><span style="color: #ff0000;">base-package</span><span style="color: #0000ff;">="springaop"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">context:component-scan</span><span style="color: #0000ff;">&gt;</span>
+
+    <span style="color: #008000;">&lt;!--</span><span style="color: #008000;"> 配置数据源 </span><span style="color: #008000;">--&gt;</span>
+    <span style="color: #008000;">&lt;!--</span><span style="color: #008000;"> 导入资源文件 </span><span style="color: #008000;">--&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">context:property-placeholder </span><span style="color: #ff0000;">location</span><span style="color: #0000ff;">="classpath:db.properties"</span><span style="color: #0000ff;">/&gt;</span>
+    
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">bean </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="dataSource"</span><span style="color: #ff0000;"> class</span><span style="color: #0000ff;">="com.mchange.v2.c3p0.ComboPooledDataSource"</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">property </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="user"</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">="${jdbc.user}"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">property</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">property </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="password"</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">="${jdbc.password}"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">property</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">property </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="driverClass"</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">="${jdbc.driverClass}"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">property</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">property </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="jdbcUrl"</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">="${jdbc.jdbcUrl}"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">property</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">property </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="initialPoolSize"</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">="${jdbc.initialPoolSize}"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">property</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">property </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="maxPoolSize"</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">="${jdbc.maxPoolSize}"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">property</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">bean</span><span style="color: #0000ff;">&gt;</span>
+    
+    <span style="color: #008000;">&lt;!--</span><span style="color: #008000;"> 配置Hibernete的SessionFactory实例 </span><span style="color: #008000;">--&gt;</span>
+    <span style="color: #008000;">&lt;!--</span><span style="color: #008000;"> 通过配置Spring提供的LcalSessionFactory </span><span style="color: #008000;">--&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">bean </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="sessionFactory"</span><span style="color: #ff0000;"> class</span><span style="color: #0000ff;">="org.springframework.orm.hibernate4.LocalSessionFactoryBean"</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">property </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="dataSource"</span><span style="color: #ff0000;"> ref</span><span style="color: #0000ff;">="dataSource"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">property</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">property </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="configLocation"</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">="classpath:hibernate.cfg.xml"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">property</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">property </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="mappingLocations"</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">="classpath:springaop/model/*.hbm.xml"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">property</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">bean</span><span style="color: #0000ff;">&gt;</span>
+    
+    <span style="color: #008000;">&lt;!--</span><span style="color: #008000;"> 配置Spring的声明式事务 </span><span style="color: #008000;">--&gt;</span>
+    <span style="color: #008000;">&lt;!--</span><span style="color: #008000;"> 1.配置事务管理器 </span><span style="color: #008000;">--&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">bean </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="transactionManager"</span><span style="color: #ff0000;"> class</span><span style="color: #0000ff;">="org.springframework.orm.hibernate4.HibernateTransactionManager"</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">property </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="sessionFactory"</span><span style="color: #ff0000;"> ref</span><span style="color: #0000ff;">="sessionFactory"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">property</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">bean</span><span style="color: #0000ff;">&gt;</span>
+    
+    <span style="color: #008000;">&lt;!--</span><span style="color: #008000;"> 2.配置事务属性 </span><span style="color: #008000;">--&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">tx:advice </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="txAdvice"</span><span style="color: #ff0000;"> transaction-manager</span><span style="color: #0000ff;">="transactionManager"</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">tx:attributes</span><span style="color: #0000ff;">&gt;</span>
+            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">tx:method </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="*"</span><span style="color: #0000ff;">/&gt;</span>
+        <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">tx:attributes</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">tx:advice</span><span style="color: #0000ff;">&gt;</span>
+    
+    <span style="color: #008000;">&lt;!--</span><span style="color: #008000;"> 3.配置事务切点，并把切点和事务关联起来， </span><span style="color: #008000;">--&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">aop:config</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">aop:pointcut </span><span style="color: #ff0000;">expression</span><span style="color: #0000ff;">="execution(* springaop.service.*.*(..))"</span><span style="color: #ff0000;"> id</span><span style="color: #0000ff;">="txPointcut"</span><span style="color: #0000ff;">/&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">aop:advisor </span><span style="color: #ff0000;">advice-ref</span><span style="color: #0000ff;">="txAdvice"</span><span style="color: #ff0000;"> pointcut-ref</span><span style="color: #0000ff;">="txPointcut"</span><span style="color: #0000ff;">/&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">aop:config</span><span style="color: #0000ff;">&gt;</span>
+    
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">beans</span><span style="color: #0000ff;">&gt;</span></pre>
+</div>
+<div class="cnblogs_code">
+<pre><span style="color: #000000;">jdbc.user=root
+jdbc.password=1234
+jdbc.driverClass=com.mysql.jdbc.Driver
+jdbc.jdbcUrl=jdbc:mysql:///test
+
+jdbc.initialPoolSize=5
+jdbc.maxPoolSize=10</span></pre>
+</div>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">4.运行测试</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> test {
+    </span><span style="color: #0000ff;">private</span> ApplicationContext context = <span style="color: #0000ff;">null</span><span style="color: #000000;">;
+    
+    </span><span style="color: #0000ff;">private</span> ShopService ss = <span style="color: #0000ff;">null</span><span style="color: #000000;">;
+
+    {
+        context </span>= <span style="color: #0000ff;">new</span> ClassPathXmlApplicationContext("applicationContext.xml"<span style="color: #000000;">);
+        ss</span>= context.getBean(ShopService.<span style="color: #0000ff;">class</span><span style="color: #000000;">);
+    }
+    
+    
+    @Test
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span> test() <span style="color: #0000ff;">throws</span><span style="color: #000000;"> SQLException{
+        DataSource ds </span>= context.getBean(DataSource.<span style="color: #0000ff;">class</span><span style="color: #000000;">);
+        System.out.println(ds.getConnection());
+    }
+    
+    @Test
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> test1(){
+        ss.shop(</span>"Java", "jayjay"<span style="color: #000000;">);
+    }
+    
+    @Test
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> test3(){
+        ss.shop(</span>"C", "jayjay"<span style="color: #000000;">);
+    }
+}</span></pre>
+</div>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">当钱不够的时候，会抛出异常&ldquo;余额不足&rdquo;，并且事务回滚；当钱足够时，正常执行。</span></p>
+<p>&nbsp;</p></div><div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory"></div>
+<div id="EntryTag"></div>
+<div id="blog_post_info">
+</div>
+<div class="clear"></div>
+<div id="post_next_prev"></div>
+</div>
+
+
+		</div>
+		<div class = "postDesc">posted @ <span id="post-date">2015-06-01 09:50</span> <a href='http://www.cnblogs.com/sunniest/'>Sunnier</a> 阅读(<span id="post_view_count">...</span>) 评论(<span id="post_comment_count">...</span>)  <a href ="https://i.cnblogs.com/EditPosts.aspx?postid=4543271" rel="nofollow">编辑</a> <a href="#" onclick="AddToWz(4543271);return false;">收藏</a></div>
+	</div>
+	<script type="text/javascript">var allowComments=true,cb_blogId=205616,cb_entryId=4543271,cb_blogApp=currentBlogApp,cb_blogUserGuid='43282244-7c70-e411-b908-9dcfd8948a71',cb_entryCreatedDate='2015/6/1 9:50:00';loadViewCount(cb_entryId);</script>
+	
+</div><!--end: topics 文章、评论容器-->
+</div><a name="!comments"></a><div id="blog-comments-placeholder"></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id='comment_form' class='commentform'>
+<a name='commentform'></a>
+<div id='divCommentShow'></div>
+<div id='comment_nav'><span id='span_refresh_tips'></span><a href='javascript:void(0);' onclick='return RefreshCommentList();' id='lnk_RefreshComments' runat='server' clientidmode='Static'>刷新评论</a><a href='#' onclick='return RefreshPage();'>刷新页面</a><a href='#top'>返回顶部</a></div>
+<div id='comment_form_container'></div>
+<div class='ad_text_commentbox' id='ad_text_under_commentbox'></div>
+<div id='ad_t2'></div>
+<div id='opt_under_post'></div>
+<div id='cnblogs_c1' class='c_ad_block'></div>
+<div id='under_post_news'></div>
+<div id='cnblogs_c2' class='c_ad_block'></div>
+<div id='under_post_kb'></div>
+<div id='HistoryToday' class='c_ad_block'></div>
+<script type='text/javascript'>
+    fixPostBody();
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);   
+</script>
+</div>
+
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<!--done-->
+<div class="newsItem">
+<h3 class="catListTitle">公告</h3>
+	<div id="blog-news"></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+
+			<div id="calendar"><div id="blog-calendar" style="display:none"></div><script type="text/javascript">loadBlogDefaultCalendar();</script></div>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div><script type="text/javascript">loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		
+<!--done-->
+Copyright &copy;2017 Sunnier
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+</body>
+</html>

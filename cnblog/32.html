@@ -1,0 +1,157 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ASP.NET原理分析 - Sunnier - 博客园</title>
+<link type="text/css" rel="stylesheet" href="/bundles/blog-common.css?v=ChDk9h03-S75WEqNhGvXkWireJ5cCWdK1xRM9NIXfnM1"/>
+<link id="MainCss" type="text/css" rel="stylesheet" href="/skins/SimpleBlue/bundle-SimpleBlue.css?v=jJERBFSojhmgst84aaRDal9S3q1WoO-WcNudmMzGJS81"/>
+<link id="mobile-style" media="only screen and (max-width: 768px)" type="text/css" rel="stylesheet" href="/skins/SimpleBlue/bundle-SimpleBlue-mobile.css?v=z0BacpCfWeLlXDCM0C158kTP_DMqMbGBapID4f-QztI1"/>
+<link title="RSS" type="application/rss+xml" rel="alternate" href="http://www.cnblogs.com/sunniest/rss"/>
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="http://www.cnblogs.com/sunniest/rsd.xml"/>
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="http://www.cnblogs.com/sunniest/wlwmanifest.xml"/>
+<script src="//common.cnblogs.com/script/jquery.js" type="text/javascript"></script>  
+<script type="text/javascript">var currentBlogApp = 'sunniest', cb_enable_mathjax=false;var isLogined=false;</script>
+<script src="/bundles/blog-common.js?v=wUUQbLTt-LocHM-6RVSAUwAYdrfA1Lt3ool1ZdiICfI1" type="text/javascript"></script>
+</head>
+<body>
+<a name="top"></a>
+
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+		
+<!--done-->
+<div class="title"><a id="Header1_HeaderTitle" class="headermaintitle" href="http://www.cnblogs.com/sunniest/">Sunnier</a></div>
+<div class="subtitle"></div>
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li id="nav_sitehome"><a id="blog_nav_sitehome" class="menu" href="http://www.cnblogs.com/">博客园</a></li>
+<li id="nav_myhome"><a id="blog_nav_myhome" class="menu" href="http://www.cnblogs.com/sunniest/">首页</a></li>
+<li id="nav_newpost"><a id="blog_nav_newpost" class="menu" rel="nofollow" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a></li>
+<li id="nav_contact"><a id="blog_nav_contact" class="menu" rel="nofollow" href="https://msg.cnblogs.com/send/Sunnier">联系</a></li>
+<li id="nav_rss"><a id="blog_nav_rss" class="menu" href="http://www.cnblogs.com/sunniest/rss">订阅</a>
+<!--<a id="blog_nav_rss_image" class="aHeaderXML" href="http://www.cnblogs.com/sunniest/rss"><img src="//www.cnblogs.com/images/xml.gif" alt="订阅" /></a>--></li>
+<li id="nav_admin"><a id="blog_nav_admin" class="menu" rel="nofollow" href="https://i.cnblogs.com/">管理</a></li>
+</ul>
+
+		<div class="blogStats">
+			
+			<div id="blog_stats">
+<!--done-->
+随笔-50&nbsp;
+文章-0&nbsp;
+评论-226&nbsp;
+</div>
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		
+<div id="post_detail">
+<!--done-->
+<div id="topics">
+	<div class = "post">
+		<h1 class = "postTitle">
+			<a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/sunniest/p/4445282.html">ASP.NET原理分析</a>
+		</h1>
+		<div class="clear"></div>
+		<div class="postBody">
+			<div id="cnblogs_post_body"><h1><span style="color: #ff0000; background-color: #ffff00;"><strong><span style="font-family: 'Microsoft YaHei';"><span style="line-height: 22px;">ASP.NET请求与处理全过程分析</span></span></strong></span></h1>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">1.用户向服务器的某IP端口发送请求，此端口通过Http.sys来管理，请求报文被Http.sys接收，Http.sys在注册表中找能处理这个请求类型的应用程序，最终找到IIS，请求被提交到IIS服务器处理，IIS判断请求的类型。</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><span style="background-color: #ffffff; color: #ff0000;">如果请求的是静态文件</span>，那么IIS会直接处理，在本地找到请求的静态文件，然后发送给浏览器。</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><span style="color: #ff0000;">如果是动态文件</span>，如aspx或者ashx等动态文件，IIS就会去它的映射表里面去找，实现它接口的那个扩展程序可以处理这样的动态文件，然后IIS发现有个叫做aspnet_isapi的一个扩展程序可以处理处理像.aspx和.ashx这样后缀名的文件，那么IIS则把请求交给aspnet_isapi来处理。</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">2.<strong><span style="color: #ff0000;">aspnet_isapi</span></strong>将启动CLR（公共语言运行时），CLR负责启动asp.net框架的域，然后将请求交给asp.net框架来处理，框架里面有个一HttpRuntime类的对象，拿到用户的请求后，它负责将请求封装成HttpContext对象，调用application对象的ProcessRequest方法（HttpContext对象作为参数）处理请求，最后处理完成后，返回给IIS，IIS再返回给浏览器，浏览器解析渲染呈现给用户。</span></p>
+<p>&nbsp;</p>
+<h2><strong><span style="font-family: 'Microsoft YaHei';">补充说明：</span></strong></h2>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><strong><span style="color: #ff0000;">Http.sys</span></strong>是一个位于Win2003和WinXP SP2中的操作系统核心组件，能够让任何应用程序通过它提供的接口，以http协议进行信息通讯。</span></p>
+<p><strong><span style="color: #ff0000; font-family: 'Microsoft YaHei'; font-size: 15px;">Http.sys的好处:</span></strong><br /><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">1. 缓存 － 静态的内容现在被缓存于内核模式下，这使服务响应速度更快</span><br /><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">2. 记录 （Log）－IIS的log功能更快且标准化了</span><br /><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">3. 带宽控制 － greater scalability control and throttling</span><br /><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">4. 可靠性 － 所有的服务请求会在Http.sys里暂存入队列，而不是由服务程序本身来处理，这样，即使服务程序重启，尚未被处理的请求也不会丢失了</span><br /><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">5. IP端口重用 － 现在，只要是通过Http.sys管理的端口（基本包括了那些著名的端口，比如80），都可以同时允许多个程序同时监听了。</span></p>
+<p>&nbsp;</p></div><div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory"></div>
+<div id="EntryTag"></div>
+<div id="blog_post_info">
+</div>
+<div class="clear"></div>
+<div id="post_next_prev"></div>
+</div>
+
+
+		</div>
+		<div class = "postDesc">posted @ <span id="post-date">2015-04-22 17:17</span> <a href='http://www.cnblogs.com/sunniest/'>Sunnier</a> 阅读(<span id="post_view_count">...</span>) 评论(<span id="post_comment_count">...</span>)  <a href ="https://i.cnblogs.com/EditPosts.aspx?postid=4445282" rel="nofollow">编辑</a> <a href="#" onclick="AddToWz(4445282);return false;">收藏</a></div>
+	</div>
+	<script type="text/javascript">var allowComments=true,cb_blogId=205616,cb_entryId=4445282,cb_blogApp=currentBlogApp,cb_blogUserGuid='43282244-7c70-e411-b908-9dcfd8948a71',cb_entryCreatedDate='2015/4/22 17:17:00';loadViewCount(cb_entryId);</script>
+	
+</div><!--end: topics 文章、评论容器-->
+</div><a name="!comments"></a><div id="blog-comments-placeholder"></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id='comment_form' class='commentform'>
+<a name='commentform'></a>
+<div id='divCommentShow'></div>
+<div id='comment_nav'><span id='span_refresh_tips'></span><a href='javascript:void(0);' onclick='return RefreshCommentList();' id='lnk_RefreshComments' runat='server' clientidmode='Static'>刷新评论</a><a href='#' onclick='return RefreshPage();'>刷新页面</a><a href='#top'>返回顶部</a></div>
+<div id='comment_form_container'></div>
+<div class='ad_text_commentbox' id='ad_text_under_commentbox'></div>
+<div id='ad_t2'></div>
+<div id='opt_under_post'></div>
+<div id='cnblogs_c1' class='c_ad_block'></div>
+<div id='under_post_news'></div>
+<div id='cnblogs_c2' class='c_ad_block'></div>
+<div id='under_post_kb'></div>
+<div id='HistoryToday' class='c_ad_block'></div>
+<script type='text/javascript'>
+    fixPostBody();
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);   
+</script>
+</div>
+
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<!--done-->
+<div class="newsItem">
+<h3 class="catListTitle">公告</h3>
+	<div id="blog-news"></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+
+			<div id="calendar"><div id="blog-calendar" style="display:none"></div><script type="text/javascript">loadBlogDefaultCalendar();</script></div>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div><script type="text/javascript">loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		
+<!--done-->
+Copyright &copy;2017 Sunnier
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+</body>
+</html>

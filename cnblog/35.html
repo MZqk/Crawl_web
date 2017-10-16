@@ -1,0 +1,240 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>微信开发基础教程 - Sunnier - 博客园</title>
+<link type="text/css" rel="stylesheet" href="/bundles/blog-common.css?v=ChDk9h03-S75WEqNhGvXkWireJ5cCWdK1xRM9NIXfnM1"/>
+<link id="MainCss" type="text/css" rel="stylesheet" href="/skins/SimpleBlue/bundle-SimpleBlue.css?v=jJERBFSojhmgst84aaRDal9S3q1WoO-WcNudmMzGJS81"/>
+<link id="mobile-style" media="only screen and (max-width: 768px)" type="text/css" rel="stylesheet" href="/skins/SimpleBlue/bundle-SimpleBlue-mobile.css?v=z0BacpCfWeLlXDCM0C158kTP_DMqMbGBapID4f-QztI1"/>
+<link title="RSS" type="application/rss+xml" rel="alternate" href="http://www.cnblogs.com/sunniest/rss"/>
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="http://www.cnblogs.com/sunniest/rsd.xml"/>
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="http://www.cnblogs.com/sunniest/wlwmanifest.xml"/>
+<script src="//common.cnblogs.com/script/jquery.js" type="text/javascript"></script>  
+<script type="text/javascript">var currentBlogApp = 'sunniest', cb_enable_mathjax=false;var isLogined=false;</script>
+<script src="/bundles/blog-common.js?v=wUUQbLTt-LocHM-6RVSAUwAYdrfA1Lt3ool1ZdiICfI1" type="text/javascript"></script>
+</head>
+<body>
+<a name="top"></a>
+
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+		
+<!--done-->
+<div class="title"><a id="Header1_HeaderTitle" class="headermaintitle" href="http://www.cnblogs.com/sunniest/">Sunnier</a></div>
+<div class="subtitle"></div>
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li id="nav_sitehome"><a id="blog_nav_sitehome" class="menu" href="http://www.cnblogs.com/">博客园</a></li>
+<li id="nav_myhome"><a id="blog_nav_myhome" class="menu" href="http://www.cnblogs.com/sunniest/">首页</a></li>
+<li id="nav_newpost"><a id="blog_nav_newpost" class="menu" rel="nofollow" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a></li>
+<li id="nav_contact"><a id="blog_nav_contact" class="menu" rel="nofollow" href="https://msg.cnblogs.com/send/Sunnier">联系</a></li>
+<li id="nav_rss"><a id="blog_nav_rss" class="menu" href="http://www.cnblogs.com/sunniest/rss">订阅</a>
+<!--<a id="blog_nav_rss_image" class="aHeaderXML" href="http://www.cnblogs.com/sunniest/rss"><img src="//www.cnblogs.com/images/xml.gif" alt="订阅" /></a>--></li>
+<li id="nav_admin"><a id="blog_nav_admin" class="menu" rel="nofollow" href="https://i.cnblogs.com/">管理</a></li>
+</ul>
+
+		<div class="blogStats">
+			
+			<div id="blog_stats">
+<!--done-->
+随笔-50&nbsp;
+文章-0&nbsp;
+评论-226&nbsp;
+</div>
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		
+<div id="post_detail">
+<!--done-->
+<div id="topics">
+	<div class = "post">
+		<h1 class = "postTitle">
+			<a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/sunniest/p/4337369.html">微信开发基础教程</a>
+		</h1>
+		<div class="clear"></div>
+		<div class="postBody">
+			<div id="cnblogs_post_body"><h1><strong>微信开发学习笔记----</strong></h1>
+<h2><span style="color: #ff0000; background-color: #ffff00;">1.正确填写服务器配置信息</span></h2>
+<p><span style="font-size: 15px;"><img src="http://images.cnitblog.com/blog2015/694841/201503/141228257145847.png" alt="" /></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">其中Url为我们的要接收并处理微信服务器发送的消息的一般处理程序地址，如：<span style="color: #ff0000;">http://sadi.qrenlei.cn/WXTest.ashx</span></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">Token是一个开发者自定义的验证字符串，可任意填写。</span></p>
+<p><span style="line-height: 22px; font-family: 'Microsoft YaHei'; font-size: 15px;">点击提交前，需要把咱们的包含一般处理程序的网站发布到服务器上。</span></p>
+<p><span style="font-size: 15px; line-height: 22px;">2.一般处理程序的编写</span></p>
+<p><span style="font-size: 15px; line-height: 22px;"><img src="http://images.cnitblog.com/blog2015/694841/201503/141233519804991.png" alt="" /></span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<div class="cnblogs_code">
+<pre>          <span style="color: #0000ff;">if</span> (Request.HttpMethod.ToLower() == <span style="color: #800000;">"</span><span style="color: #800000;">get</span><span style="color: #800000;">"</span><span style="color: #000000;">)
+            {
+                Validate();
+            } 
+
+        </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> Validate()
+        {
+                 </span><span style="color: #008000;">//</span><span style="color: #008000;">微信接口接入验证代码</span>
+                <span style="color: #0000ff;">string</span> signature = Request[<span style="color: #800000;">"</span><span style="color: #800000;">signature</span><span style="color: #800000;">"</span><span style="color: #000000;">];
+                </span><span style="color: #0000ff;">string</span> token = <span style="color: #800000;">"</span><span style="color: #800000;">Your token</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+                </span><span style="color: #0000ff;">string</span> timestamp = Request[<span style="color: #800000;">"</span><span style="color: #800000;">timestamp</span><span style="color: #800000;">"</span><span style="color: #000000;">];
+                </span><span style="color: #0000ff;">string</span> nonce = Request[<span style="color: #800000;">"</span><span style="color: #800000;">nonce</span><span style="color: #800000;">"</span><span style="color: #000000;">];
+                </span><span style="color: #0000ff;">string</span> echostr = Request[<span style="color: #800000;">"</span><span style="color: #800000;">echostr</span><span style="color: #800000;">"</span><span style="color: #000000;">];
+
+                </span><span style="color: #0000ff;">string</span>[] temp =<span style="color: #000000;"> { token, timestamp, nonce };
+                Array.Sort(temp);
+                </span><span style="color: #0000ff;">string</span> str = <span style="color: #0000ff;">string</span>.Join(<span style="color: #800000;">""</span><span style="color: #000000;">, temp);
+                </span><span style="color: #0000ff;">string</span> sha1Str = FormsAuthentication.HashPasswordForStoringInConfigFile(str, <span style="color: #800000;">"</span><span style="color: #800000;">SHA1</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+
+                </span><span style="color: #0000ff;">if</span> (sha1Str.ToLower() ==<span style="color: #000000;"> signature.ToLower())
+                {
+                    Response.Write(echostr);
+                }
+        }</span></pre>
+</div>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">服务器端配置好后，点击&ldquo;提交&rdquo;按钮，就会提示成功接入的信息。</span></p>
+<h2><span style="color: #ff0000; background-color: #ffff00;">3.接收消息</span></h2>
+<p><span style="font-size: 15px; font-family: 'Microsoft YaHei';">当普通微信用户向公众账号发消息时，微信服务器将POST消息的XML数据包到开发者填写的URL上。</span></p>
+<p><img src="http://images.cnitblog.com/blog2015/694841/201503/141244235747745.png" alt="" /></p>
+<div class="cnblogs_code">
+<pre>            <span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span> (Request.HttpMethod.ToLower() == <span style="color: #800000;">"</span><span style="color: #800000;">post</span><span style="color: #800000;">"</span><span style="color: #000000;">)
+            {
+                </span><span style="color: #008000;">//</span><span style="color: #008000;">微信服务器发送信息是通过post请求，向发送者以流的形式发送xml</span>
+                Stream xmlStream =<span style="color: #000000;"> Request.InputStream;
+                XmlDocument doc </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> XmlDocument();
+                doc.Load(xmlStream);
+                XmlElement root </span>=<span style="color: #000000;"> doc.DocumentElement;
+                </span><span style="color: #0000ff;">string</span> toUserName = root.SelectSingleNode(<span style="color: #800000;">"</span><span style="color: #800000;">ToUserName</span><span style="color: #800000;">"</span><span style="color: #000000;">).InnerText;
+                </span><span style="color: #0000ff;">string</span> fromUserName = root.SelectSingleNode(<span style="color: #800000;">"</span><span style="color: #800000;">FromUserName</span><span style="color: #800000;">"</span><span style="color: #000000;">).InnerText;
+                </span><span style="color: #0000ff;">int</span> createTime = <span style="color: #0000ff;">int</span>.Parse(root.SelectSingleNode(<span style="color: #800000;">"</span><span style="color: #800000;">CreateTime</span><span style="color: #800000;">"</span><span style="color: #000000;">).InnerText);
+                </span><span style="color: #0000ff;">string</span> msgType = root.SelectSingleNode(<span style="color: #800000;">"</span><span style="color: #800000;">MsgType</span><span style="color: #800000;">"</span><span style="color: #000000;">).InnerText;
+                </span><span style="color: #0000ff;">string</span> content = root.SelectSingleNode(<span style="color: #800000;">"</span><span style="color: #800000;">Content</span><span style="color: #800000;">"</span><span style="color: #000000;">).InnerText;
+                </span><span style="color: #0000ff;">long</span> msgId = Int64.Parse(root.SelectSingleNode(<span style="color: #800000;">"</span><span style="color: #800000;">MsgId</span><span style="color: #800000;">"</span><span style="color: #000000;">).InnerText);
+                
+            }<br />
+　　　　　<span style="color: #ff0000;">//因为服务器返回的是时间戳，即现在的时间与1970年1月1日8时0分0秒的秒数差，所以可以用此函数对时间进行处理
+        </span></span><span style="color: #0000ff;">public</span> DateTime GetDateTime(<span style="color: #0000ff;">int</span><span style="color: #000000;"> timeSpan)
+        {
+            </span><span style="color: #0000ff;">return</span> <span style="color: #0000ff;">new</span> DateTime(<span style="color: #800080;">1970</span>,<span style="color: #800080;">1</span>,<span style="color: #800080;">1</span>,<span style="color: #800080;">8</span>,<span style="color: #800080;">0</span>,<span style="color: #800080;">0</span><span style="color: #000000;">).AddSeconds(timeSpan);
+        }
+
+        </span></pre>
+</div>
+<h2><span style="font-family: 'Microsoft YaHei'; color: #ff0000; background-color: #ffff00;">4.返回消息</span></h2>
+<div class="cnblogs_code">
+<pre><span style="color: #008000;">//</span><span style="color: #008000;">微信服务器接收信息是通过post请求，向接收者以流的形式发送xml</span>
+                <span style="color: #008000;">/*</span><span style="color: #008000;">
+                 格式为：
+                    &lt;xml&gt;
+                    &lt;ToUserName&gt;&lt;![CDATA[toUser]]&gt;          &lt;/ToUserName&gt;
+                    &lt;FromUserName&gt;&lt;![CDATA[fromUser]]&gt;&lt;/FromUserName&gt;
+                    &lt;CreateTime&gt;12345678&lt;/CreateTime&gt;
+                    &lt;MsgType&gt;&lt;![CDATA[text]]&gt;&lt;/MsgType&gt;
+                    &lt;Content&gt;&lt;![CDATA[你好]]&gt;&lt;/Content&gt;
+                    &lt;/xml&gt;
+                 </span><span style="color: #008000;">*/</span>
+                <span style="color: #0000ff;">string</span> reXml = <span style="color: #0000ff;">string</span>.Format(<span style="color: #800000;">@"</span><span style="color: #800000;">&lt;xml&gt;
+                    &lt;ToUserName&gt;&lt;![CDATA[{0}]]&gt;&lt;/ToUserName&gt;
+                    &lt;FromUserName&gt;&lt;![CDATA[{1}]]&gt;&lt;/FromUserName&gt;
+                    &lt;CreateTime&gt;{2}&lt;/CreateTime&gt;
+                    &lt;MsgType&gt;&lt;![CDATA[text]]&gt;&lt;/MsgType&gt;
+                    &lt;Content&gt;&lt;![CDATA[{3}]]&gt;&lt;/Content&gt;
+                    &lt;/xml&gt;</span><span style="color: #800000;">"</span>, fromUserName, toUserName, GetSecond(), <span style="color: #800000;">"</span><span style="color: #800000;">已接收到你的消息[服务器自动回复]</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+                Response.Write(reXml);     <br /><br /></span></pre>
+<pre>　　　　　　 public int<span> GetSecond()
+        　　{
+            　　return (int)(DateTime.Now - new DateTime(1970, 1, 1, 8, 0, 0<span>)).TotalSeconds;
+        　　}  </span></span></pre>
+<pre></pre>
+</div>
+<p><span style="font-size: 15px; font-family: 'Microsoft YaHei';">现在可以测试一下你的公众号，向公众号发送一个文本消息，公众号在5秒后会自动回复你！</span></p>
+<p>&nbsp;</p></div><div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory"></div>
+<div id="EntryTag"></div>
+<div id="blog_post_info">
+</div>
+<div class="clear"></div>
+<div id="post_next_prev"></div>
+</div>
+
+
+		</div>
+		<div class = "postDesc">posted @ <span id="post-date">2015-03-14 12:55</span> <a href='http://www.cnblogs.com/sunniest/'>Sunnier</a> 阅读(<span id="post_view_count">...</span>) 评论(<span id="post_comment_count">...</span>)  <a href ="https://i.cnblogs.com/EditPosts.aspx?postid=4337369" rel="nofollow">编辑</a> <a href="#" onclick="AddToWz(4337369);return false;">收藏</a></div>
+	</div>
+	<script type="text/javascript">var allowComments=true,cb_blogId=205616,cb_entryId=4337369,cb_blogApp=currentBlogApp,cb_blogUserGuid='43282244-7c70-e411-b908-9dcfd8948a71',cb_entryCreatedDate='2015/3/14 12:55:00';loadViewCount(cb_entryId);</script>
+	
+</div><!--end: topics 文章、评论容器-->
+</div><a name="!comments"></a><div id="blog-comments-placeholder"></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id='comment_form' class='commentform'>
+<a name='commentform'></a>
+<div id='divCommentShow'></div>
+<div id='comment_nav'><span id='span_refresh_tips'></span><a href='javascript:void(0);' onclick='return RefreshCommentList();' id='lnk_RefreshComments' runat='server' clientidmode='Static'>刷新评论</a><a href='#' onclick='return RefreshPage();'>刷新页面</a><a href='#top'>返回顶部</a></div>
+<div id='comment_form_container'></div>
+<div class='ad_text_commentbox' id='ad_text_under_commentbox'></div>
+<div id='ad_t2'></div>
+<div id='opt_under_post'></div>
+<div id='cnblogs_c1' class='c_ad_block'></div>
+<div id='under_post_news'></div>
+<div id='cnblogs_c2' class='c_ad_block'></div>
+<div id='under_post_kb'></div>
+<div id='HistoryToday' class='c_ad_block'></div>
+<script type='text/javascript'>
+    fixPostBody();
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);   
+</script>
+</div>
+
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<!--done-->
+<div class="newsItem">
+<h3 class="catListTitle">公告</h3>
+	<div id="blog-news"></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+
+			<div id="calendar"><div id="blog-calendar" style="display:none"></div><script type="text/javascript">loadBlogDefaultCalendar();</script></div>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div><script type="text/javascript">loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		
+<!--done-->
+Copyright &copy;2017 Sunnier
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+</body>
+</html>

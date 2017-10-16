@@ -1,0 +1,379 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>编译原理学习 - Sunnier - 博客园</title>
+<link type="text/css" rel="stylesheet" href="/bundles/blog-common.css?v=ChDk9h03-S75WEqNhGvXkWireJ5cCWdK1xRM9NIXfnM1"/>
+<link id="MainCss" type="text/css" rel="stylesheet" href="/skins/SimpleBlue/bundle-SimpleBlue.css?v=jJERBFSojhmgst84aaRDal9S3q1WoO-WcNudmMzGJS81"/>
+<link id="mobile-style" media="only screen and (max-width: 768px)" type="text/css" rel="stylesheet" href="/skins/SimpleBlue/bundle-SimpleBlue-mobile.css?v=z0BacpCfWeLlXDCM0C158kTP_DMqMbGBapID4f-QztI1"/>
+<link title="RSS" type="application/rss+xml" rel="alternate" href="http://www.cnblogs.com/sunniest/rss"/>
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="http://www.cnblogs.com/sunniest/rsd.xml"/>
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="http://www.cnblogs.com/sunniest/wlwmanifest.xml"/>
+<script src="//common.cnblogs.com/script/jquery.js" type="text/javascript"></script>  
+<script type="text/javascript">var currentBlogApp = 'sunniest', cb_enable_mathjax=false;var isLogined=false;</script>
+<script src="/bundles/blog-common.js?v=wUUQbLTt-LocHM-6RVSAUwAYdrfA1Lt3ool1ZdiICfI1" type="text/javascript"></script>
+</head>
+<body>
+<a name="top"></a>
+
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+		
+<!--done-->
+<div class="title"><a id="Header1_HeaderTitle" class="headermaintitle" href="http://www.cnblogs.com/sunniest/">Sunnier</a></div>
+<div class="subtitle"></div>
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li id="nav_sitehome"><a id="blog_nav_sitehome" class="menu" href="http://www.cnblogs.com/">博客园</a></li>
+<li id="nav_myhome"><a id="blog_nav_myhome" class="menu" href="http://www.cnblogs.com/sunniest/">首页</a></li>
+<li id="nav_newpost"><a id="blog_nav_newpost" class="menu" rel="nofollow" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a></li>
+<li id="nav_contact"><a id="blog_nav_contact" class="menu" rel="nofollow" href="https://msg.cnblogs.com/send/Sunnier">联系</a></li>
+<li id="nav_rss"><a id="blog_nav_rss" class="menu" href="http://www.cnblogs.com/sunniest/rss">订阅</a>
+<!--<a id="blog_nav_rss_image" class="aHeaderXML" href="http://www.cnblogs.com/sunniest/rss"><img src="//www.cnblogs.com/images/xml.gif" alt="订阅" /></a>--></li>
+<li id="nav_admin"><a id="blog_nav_admin" class="menu" rel="nofollow" href="https://i.cnblogs.com/">管理</a></li>
+</ul>
+
+		<div class="blogStats">
+			
+			<div id="blog_stats">
+<!--done-->
+随笔-50&nbsp;
+文章-0&nbsp;
+评论-226&nbsp;
+</div>
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		
+<div id="post_detail">
+<!--done-->
+<div id="topics">
+	<div class = "post">
+		<h1 class = "postTitle">
+			<a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/sunniest/p/4194121.html">编译原理学习</a>
+		</h1>
+		<div class="clear"></div>
+		<div class="postBody">
+			<div id="cnblogs_post_body"><h1><span style="font-family: 'Microsoft YaHei';"><strong><span style="background-color: #ffff00; color: #ff0000;">编译原理学习笔记----</span></strong></span></h1>
+<p><span style="font-size: 15px; font-family: 'Microsoft YaHei';"><strong><span style="color: #ff0000; background-color: #ffffff;"><strong>Thompson算法由正规式构造NFA</strong></span></strong></span></p>
+<p><span style="font-size: 15px; color: #000000; font-family: 'Microsoft YaHei';"><span style="background-color: #ffffff;">例如：求正规式 1(0|1)*101 的NFA</span></span></p>
+<p><span style="font-size: 15px; color: #000000; font-family: 'Microsoft YaHei';"><span style="background-color: #ffffff;">首先将正规式r=1（0|1）*101分解成r=r1,r2r3</span></span></p>
+<p><span style="font-family: 'Microsoft YaHei';"><img src="http://images.cnitblog.com/blog/694841/201501/011542463257321.png" alt="" /></span></p>
+<p><span style="font-family: 'Microsoft YaHei';"><img src="http://images.cnitblog.com/blog/694841/201501/011542541533230.png" alt="" /></span></p>
+<p><span style="font-family: 'Microsoft YaHei';"><img src="http://images.cnitblog.com/blog/694841/201501/011543007006096.png" alt="" /></span></p>
+<p><span style="font-family: 'Microsoft YaHei';"><img src="http://images.cnitblog.com/blog/694841/201501/011543102169690.png" alt="" /></span></p>
+<p><span style="font-family: 'Microsoft YaHei';">将r2，r3展开得：</span></p>
+<p><span style="font-family: 'Microsoft YaHei';"><img src="http://images.cnitblog.com/blog/694841/201501/011543176533184.png" alt="" /></span></p>
+<p><span style="font-family: 'Microsoft YaHei';">&nbsp;</span></p>
+<p><span style="font-family: 'Microsoft YaHei';">&nbsp;</span></p>
+<p><span style="font-size: 15px; font-family: 'Microsoft YaHei';"><strong><span style="color: #ff0000; background-color: #ffffff;"><strong>不确定有穷自动机（NFA）</strong></span></strong></span></p>
+<div class="para"><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">一个不确定的有穷自动机T是一个五元组，M={K，&sum;，f,S,Z}</span></div>
+<div class="para"><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">⒈K是一个有穷集他的每一个元素称作一个状态。</span></div>
+<div class="para"><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">⒉&sum;是一个字母表，他的每一个元素称为一个输入符号。</span></div>
+<div class="para"><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">⒊f是一个从Kx&sum;*到K的子集映射即K*&sum;*-&gt;2^K，其中2^K表示K的幂集。</span></div>
+<div class="para"><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">⒋S包含于K集，是一个非空初态集合。</span></div>
+<div class="para"><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">⒌Z包含于K是一个非空的终态集合。</span></div>
+<p><span style="font-family: 'Microsoft YaHei';">&nbsp;</span></p>
+<p><span style="font-family: 'Microsoft YaHei';"><strong><span style="color: #ff0000; background-color: #ffffff;">确定有穷自动机（DFA）</span></strong></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">一个确定的有穷自动机M是一个五元组：M=（K，&nbsp;&sum;<span lang="EN-US">，f，S，Z）其中，</span></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">1)K是一个有穷集，他的每个元素称为一种状态。</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">2）&nbsp;&sum;是一个有穷字母表，他的每个元素称为一个输入符号，所以&sum;称为输入符号表。</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">3）f是转换函数，是KX&sum;--&gt;K 上的映像，例如f（ki，a）=kj这就意味着，当前状态为k，输入字符a后，将转换到下一状态kj，我们把kj称为ki的一个后继状态；</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">4）S属于K，是唯一的一个出态。</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">5）Z属于K，是一个终态，终态也称为可接受状态或结束状态。</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">例如：</span></p>
+<p><span style="font-family: 'Microsoft YaHei';"><img src="http://images.cnitblog.com/blog/694841/201412/301707434039874.png" alt="" /></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">这个DFA可以表示一个状态图：</span></p>
+<p><span style="font-family: 'Microsoft YaHei';"><img src="http://images.cnitblog.com/blog/694841/201412/301708174812764.png" alt="" /></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">也可以用状态矩阵显示，行表示状态，列表示输入符号，终态在表的右端标1，非终态在表的右边标0。</span></p>
+<p><span style="font-family: 'Microsoft YaHei';"><strong><img src="http://images.cnitblog.com/blog/694841/201412/301709247942900.png" alt="" width="443" height="241" /></strong></span></p>
+<p><span style="font-family: 'Microsoft YaHei';">&nbsp;</span></p>
+<p><span style="font-family: 'Microsoft YaHei';"><strong><span style="color: #ff0000; font-size: 15px; background-color: #ffffff;">NFA相对于DFA的2点区别：</span></strong></span></p>
+<p><span style="color: #000000; font-family: 'Microsoft YaHei'; font-size: 15px; background-color: #ffffff;"><span style="color: #ff0000;"><span style="color: #000000;">（</span></span>NFA的不确定性）<br />1.当前状态下，对同一字符可能有多于一个的下一状态。<br />2.可能存在&epsilon;状态转移。</span></p>
+<p><span style="font-family: 'Microsoft YaHei';">&nbsp;</span></p>
+<p><span style="font-size: 15px; font-family: 'Microsoft YaHei';"><strong><span style="color: #ff0000; background-color: #ffffff;">NFA转DFA</span></strong></span></p>
+<p><span style="color: #000000; font-size: 15px; font-family: 'Microsoft YaHei';"><span style="background-color: #ffffff;">例如：给出NFA的图<img src="http://images.cnitblog.com/blog/694841/201412/302229272314546.png" alt="" width="268" height="99" /></span></span></p>
+<p><span style="font-family: 'Microsoft YaHei';">求其最小DFA，求法如下：</span></p>
+<p><span style="font-family: 'Microsoft YaHei';"><img src="http://images.cnitblog.com/blog/694841/201412/302231412477704.png" alt="" /></span></p>
+<p><span style="font-family: 'Microsoft YaHei';"><img src="http://images.cnitblog.com/blog/694841/201412/302231504194869.png" alt="" /></span></p>
+<p><span style="font-family: 'Microsoft YaHei';">(ps:因为集合C和D接收一个输入字符a或b时都得到同一个集合（即同一状态），所以C和D不可区分，可以去掉D这一行)。</span></p>
+<p>&nbsp;</p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><strong><span style="color: #ff0000;">由正规式的NFA构造CFG（上下文无关文法）</span></strong></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><strong>例如：从正规式r=(a|b)*abb的NFA构造CFG</strong></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">正规式对应的NFA为：</span></p>
+<p><span style="font-family: 'Microsoft YaHei';"><img src="http://images.cnitblog.com/blog/694841/201501/071430003752664.png" alt="" /></span></p>
+<p><span style="color: #ff0000; font-family: 'Microsoft YaHei'; font-size: 15px;">一般方法： </span></p>
+<p><span style="color: #ff0000; font-family: 'Microsoft YaHei'; font-size: 15px;">　　A &rarr; HT </span></p>
+<p><span style="color: #ff0000; font-family: 'Microsoft YaHei'; font-size: 15px;">　　H &rarr;&epsilon;| aH | bH </span></p>
+<p><span style="color: #ff0000; font-family: 'Microsoft YaHei'; font-size: 15px;">　　T &rarr; abb</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">所以，可以改写为：</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">　　<strong>A0 &rarr; aA0|bA0|aA1 </strong></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><strong>　　A1 &rarr; bA2 </strong></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><strong>　　A2 &rarr; bA3 </strong></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><strong>　　A3 &rarr; &epsilon;</strong></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">将每一个状态看做一个非终结符，相当于照图写出状态经一步能达到的状态转移。</span></p>
+<p>&nbsp;</p>
+<p><span style="color: #ff0000; font-family: 'Microsoft YaHei'; font-size: 15px;"><span style="line-height: 22px;"><strong>文法类型</strong></span></span></p>
+<p><span style="color: #ff0000; font-family: 'Microsoft YaHei'; font-size: 15px;"><span style="line-height: 22px;">若文法G=(N，T，P，S)的每个产生式&alpha;&rarr;&beta;中，均有&alpha;&isin;(N&cup;T)*，且至少含有一个非终结符，&beta;&isin;(N&cup;T)*，则称G为0型文法。</span></span></p>
+<p>&nbsp;</p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">对0型文法施加以下第i条限制，即得到i型文法。 </span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><span style="color: #ff0000;">1</span>.G的任何产生式&alpha;&rarr;&beta;（S&rarr;&epsilon;除外）满足|&alpha;|&le;|&beta;|； </span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><span style="color: #ff0000;">2</span>.G的任何产生式形如A&rarr;&beta;，其中A&isin;N，&beta;&isin;(N&cup;T)*； </span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><span style="color: #ff0000;">3</span>.G的任何产生式形如A&rarr;a或者A&rarr;aB(或者A&rarr;Ba)，其中A和B&isin;N，a&isin;T。</span></p>
+<p>&nbsp;</p>
+<p><img src="http://images.cnitblog.com/blog/694841/201501/071449303436465.png" alt="" /></p>
+<p>&nbsp;</p>
+<p><strong><span style="color: #ff0000;">LL（1）文法：一种自上而下的分析方法</span></strong></p>
+<div class="para">对文法G的句子进行确定的自顶向下语法分析的充分必要条件是，G的任意两个具有相同左部的</div>
+<div class="para">产生式A&mdash;&gt;&alpha;|&beta; 满足下列条件：</div>
+<div class="para">　　<span style="color: #ff0000;">（1）如果&alpha;、&beta;均不能推导出&epsilon;，则 FIRST(&alpha;) &cap; FIRST(&beta;) = &Phi;。</span></div>
+<div class="para"><span style="color: #ff0000;">　　（2）&alpha; 和 &beta; 至多有一个能推导出 &epsilon;。</span></div>
+<div class="para"><span style="color: #ff0000;">　　（3）如果 &beta; *═&gt; &epsilon;，则 FIRST(&alpha;) &cap; FOLLOW(A) = &Phi;。</span></div>
+<div class="para">将满足上述条件的文法称为LL(1)文法。</div>
+<div class="para"><span style="color: #ff0000;">通俗的来说，所谓LL（1）分析法，就是指从左到右扫描输入串，同时采用最左推导，且对每次直接推导只需向前看一个输入符号，便可确定当前所应当选择的规则。</span></div>
+<div class="para"><span style="color: #ff0000;">这个文法应该满足：无二义性，无左递归，无左公因子。</span></div>
+<p><span style="font-family: 'Microsoft YaHei';">&nbsp;</span></p>
+<p><span style="color: #ff0000; font-size: 15px; font-family: 'Microsoft YaHei';"><strong>构造LL(1)文法：</strong></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">第一步：计算first集合</span></p>
+<p><span style="font-size: 15px; font-family: 'Microsoft YaHei';"><span style="color: #ff0000;">算法：每次选取右部第一个符号，推导直至右部第一个符号是终结符，把其加入First集合中。</span><span style="color: #ff0000;"><br /></span></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; color: #000000; font-size: 15px;">例如：计算以下文法的First集合</span></p>
+<p><strong><span style="font-size: 15px; font-family: 'Microsoft YaHei';">　　L &rarr;E;L|&epsilon; </span></strong></p>
+<p><strong><span style="font-size: 15px; font-family: 'Microsoft YaHei';">　　E &rarr;TE' </span></strong></p>
+<p><strong><span style="font-size: 15px; font-family: 'Microsoft YaHei';">　　E'&rarr;+TE'|-TE'|&epsilon; </span></strong></p>
+<p><strong><span style="font-size: 15px; font-family: 'Microsoft YaHei';">　　T &rarr;FT' </span></strong></p>
+<p><strong><span style="font-size: 15px; font-family: 'Microsoft YaHei';">　　T'&rarr;*FT'|/FT'|mod FT'|&epsilon; </span></strong></p>
+<p><strong><span style="font-size: 15px; font-family: 'Microsoft YaHei';">　　F &rarr;(E)|id|num</span></strong></p>
+<p><span style="font-size: 15px; font-family: 'Microsoft YaHei'; color: #ff0000;">计算First集合要自下而上分析。</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; background-color: #ffff00;"><span style="font-size: 15px; line-height: 22px;">因为<span style="color: #ff0000;">(E)</span>第一个符号为终结符，所以将<span style="color: #ff0000;">（</span>直接加入First集合，同理<span style="color: #ff0000;">id，num</span>也加入First集合。</span></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; background-color: #ffff00;"><span style="font-size: 15px; line-height: 22px;">再如：T-&gt;FT'，右部第一个符号是非终结符<span style="color: #ff0000;">F</span>，将其推导至F-&gt;(E)|id|num，发现3个推导式中第一个符号都为终结符，所以将他们都加入First集合。</span></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; background-color: #ffff00;"><span style="font-size: 15px; line-height: 22px;">需要注意的是，若产生式中包含&epsilon;<span style="color: #000000;">也要加入First集合。</span></span></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><span style="line-height: 22px;">由以上的分析方法可计算出：</span></span></p>
+<p><strong><span style="font-size: 15px; font-family: 'Microsoft YaHei';">FIRST(F/T/E)= {( id num} </span></strong></p>
+<p><strong><span style="font-size: 15px; font-family: 'Microsoft YaHei';">FIRST(T') = {* / mod &epsilon;} </span></strong></p>
+<p><strong><span style="font-size: 15px; font-family: 'Microsoft YaHei';">FIRST(E') = {+ - &epsilon;} </span></strong></p>
+<p><strong><span style="font-size: 15px; font-family: 'Microsoft YaHei';">FIRST(L) = {&epsilon; ( id num}</span></strong></p>
+<p>&nbsp;</p>
+<p><span style="font-family: 'Microsoft YaHei';"><span style="font-family: 'Microsoft YaHei';"><span style="font-size: 15px; line-height: 22px;">第二步：计算Follow集合（Folow集合的算法稍微复杂一些，教科书上的解释很复杂，我自己总结了一下，通俗的描述出来）</span></span></span></p>
+<p><span style="font-family: 'Microsoft YaHei';"><span style="font-size: 15px; line-height: 22px;">算法：</span></span><span style="font-family: 'Microsoft YaHei';"><span style="font-size: 15px; line-height: 22px;">4条规则( &nbsp;求Follow(U) &nbsp;)</span></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; color: #000000; background-color: #ffff00;"><span style="font-size: 15px; line-height: 22px;">1.U是文法开始符号，则直接加入&nbsp;<span style="color: #ff0000;">#&nbsp;</span>。</span></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; color: #000000; background-color: #ffff00;"><span style="font-size: 15px; line-height: 22px;">2.形如&nbsp;<span style="color: #ff0000;">...Ua...&nbsp;</span>，加入&nbsp;<span style="color: #ff0000;">a&nbsp;</span>。</span></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; color: #000000; background-color: #ffff00;"><span style="font-size: 15px; line-height: 22px;">3.形如&nbsp;<span style="color: #ff0000;">S-&gt;...UP...&nbsp;</span>，加入First(P)，并且，如果First(P)中包含&nbsp;<span style="color: #ff0000;">&epsilon;&nbsp;</span>符号时，要去掉&nbsp;<span style="color: #ff0000;">&epsilon;&nbsp;</span>并加入Follow(S)。</span></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; color: #000000; background-color: #ffff00;"><span style="font-size: 15px; line-height: 22px;">4.形如 &nbsp;<span style="color: #ff0000;">P-&gt;...U&nbsp;</span>，加入Follow(P)。</span></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">例如：计算以下文法的Follow集合</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><strong>　　L &rarr;E;L|&epsilon;</strong></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><strong>　　E &rarr;TE'</strong></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><strong>　　E'&rarr;+TE'|-TE'|&epsilon;</strong></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><strong>　　T &rarr;FT'</strong></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><strong>　　T'&rarr;*FT'|/FT'|mod FT'|&epsilon;</strong></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><strong>　　F &rarr;(E)|id|num</strong></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">计算Follow集合要自上而下分析。</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">因为L是开始符号，所以Follow(L)={#}</span></p>
+<p><span style="font-family: 'Microsoft YaHei';"><span style="font-size: 15px; line-height: 22px;">求E的Follow集合时，先将跟E有关的式子列出</span></span></p>
+<p><span style="font-family: 'Microsoft YaHei';"><span style="font-size: 15px; line-height: 22px;"><strong>L &rarr;E;L|&epsilon;</strong></span></span></p>
+<p><span style="font-family: 'Microsoft YaHei';"><span style="font-size: 15px; line-height: 22px;"><strong><strong>F &rarr;(E)|id|num</strong></strong></span></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><span style="line-height: 22px;">形如<span style="color: #ff0000;">...Ua...</span>，所以将<span style="color: #ff0000;">；<span style="color: #000000;">和</span>）</span>加入Follow(E)集合。</span></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><span style="line-height: 22px;">由以上分析方法即可求出：</span></span></p>
+<p><strong><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">FOLLOW(L) = {#} </span></strong></p>
+<p><strong><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">FOLL0W(E/E')= {) ;} </span></strong></p>
+<p><strong><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">FOLLOW(T/T')= {+ - ; )} </span></strong></p>
+<p><strong><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">FOLLOW(F) = {+ - * / mod ) ;}</span></strong></p>
+<p>&nbsp;</p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">第三步：构造预测分析表</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">首先观察一下预测分析表和咱们求出的First和Follow集合：</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><strong>FIRST(F/T/E)= {( id num}</strong></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><strong>FIRST(T') = {* / mod &epsilon;}</strong></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><strong>FIRST(E') = {+ - &epsilon;}</strong></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><strong>FIRST(L) = {&epsilon; ( id num}</strong></span></p>
+<p>&nbsp;</p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><strong>FOLLOW(L) = {#}</strong></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><strong>FOLL0W(E/E')= {) ;}</strong></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><strong>FOLLOW(T/T')= {+ - ; )}</strong></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><strong>FOLLOW(F) = {+ - * / mod ) ;}</strong></span></p>
+<p><img src="http://images.cnitblog.com/blog/694841/201501/081602348757646.png" alt="" /></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">比如，求L这行，发现First(L)集合中有<strong><span style="color: #ff0000;">&epsilon; ( id num</span></strong><span style="color: #ff0000;"><span style="color: #000000;">这几个符号，因此在这行的这几个符号中填入L的产生式（<span style="color: #ff0000;"><strong>&epsilon;</strong></span>产生式可以忽略，并且如果有多个产生式，就填相关的产生式），又因为First(L)中包含<span style="color: #ff0000;"><strong>&epsilon;</strong><span style="color: #000000;">，因此将这行存在于Follow(L)集合中所有的终结符填入</span><strong>&epsilon;</strong><span style="color: #000000;">。</span></span></span></span></span></p>
+<p>&nbsp;</p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">第四步：根据预测分析表以格局的形式写出对某输入序列的分析过程。</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">例如：</span></p>
+<p><img src="http://images.cnitblog.com/blog/694841/201501/121338588396067.png" alt="" /></p>
+<p><img src="http://images.cnitblog.com/blog/694841/201501/121339084649160.png" alt="" /></p>
+<p><img src="http://images.cnitblog.com/blog/694841/201501/121339168392968.png" alt="" /></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">匹配过程就是匹配到栈内容中的非终结符时，根据当前输入中匹配的终结符查预测分析表，选取相应的产生式，将产生式倒过来写，替换栈中匹配的非终结符。</span></p>
+<p>&nbsp;</p>
+<p><span style="color: #ff0000; font-family: 'Microsoft YaHei'; font-size: 15px;">LL(1)文法的判别：</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">简单判断：<span style="color: #ff0000;">看看文法有无左因子，有无左递归，有就不是。</span></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">定义判断：</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">假设文法中有A-&gt;B|C</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px; color: #ff0000;">1.若First(B)&cap;First(C)有终结符，则不是LL(1)文法。</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px; color: #ff0000;">2.若B=&gt;*&epsilon; 而且 C=&gt;*&epsilon;，则不是LL(1)文法。</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px; color: #ff0000;">3.若B=&gt;*&epsilon; 且First(C)&cap;Follow(A)有终结符，则不是LL(1)文法。</span></p>
+<p>&nbsp;</p>
+<p><span style="color: #ff0000;"><strong><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">LR(0)文法：</span></strong></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><span style="color: #ff0000;">LR(0)项目集</span>：产生式右部用.分隔。例如：E-&gt;T*F 的LR(0)项目有 </span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">E-&gt;.T*F</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">E-&gt;T.*F</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">E-&gt;T*.F</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">E-&gt;T*F.</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><span style="color: #ff0000;">识别活前缀的DFA</span>：</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">例如：文法为</span></p>
+<p><strong><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">E&rarr;E*T|T</span></strong></p>
+<p><strong><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">T&rarr;T+F|F</span></strong></p>
+<p><strong><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">F&rarr;id </span></strong></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">给出它的识别活前缀的DFA。</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">解答：</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><img src="http://images.cnitblog.com/blog/694841/201501/121538533861360.png" alt="" /></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">就是将LR(0)项目集进行推导，直至产生式推导完毕。但是，要注意的是，如果推导出的产生式的 . 后面有非终结符，要将非终结符的活前缀一起写出来。例如，I5状态中的 <span style="color: #ff0000;">E-&gt;E.*T</span> 经过&nbsp;<span style="color: #ff0000;">*&nbsp;</span>推导出 <span style="color: #ff0000;">E-&gt;E*.T</span> , <span style="color: #ff0000;">T&nbsp;</span>是非终结符，所以，下一个状态中要加入 </span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><span style="color: #ff0000;">T-&gt;.T+F</span>&nbsp; &nbsp;</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><span style="color: #ff0000;">T-&gt;.F</span>&nbsp; &nbsp;</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><span style="color: #ff0000;">F-&gt;.id&nbsp;</span></span></p>
+<p>&nbsp;</p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><span style="color: #ff0000;">项目集存在移进/归约冲突</span>：某一状态即可归约（.在产生式最后，推导完毕）又可以经过某字符到达下一状态。</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">例如：某文法活前缀的DFA</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><img src="http://images.cnitblog.com/blog/694841/201501/121551009488617.png" alt="" /></span></p>
+<p><strong><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">分析可知：I2 , I11存在移进/归约冲突。</span></strong></p>
+<p>&nbsp;</p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><span style="color: #ff0000;">LR(0)文法判断</span>：存在<span style="color: #ff0000;">移进/归约</span>或者<span style="color: #ff0000;">归约/归约</span>冲突冲突就不是LR(0)，如果冲突可解决就是SLR(1)。</span></p>
+<p>&nbsp;</p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><span style="color: #ff0000;">SLR(1)文法判断</span>：</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">当LR(0)文法存在移进/归约冲突时即状态集中同时存在</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><span style="color: #ff0000;">A&rarr;&beta;1.&beta;2</span> 和 <span style="color: #ff0000;">B&rarr;&beta;.</span></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">如果<span style="color: #ff0000;">FIRST(&beta;2)&cap;FOLLOW(B)=&Phi;</span>，则冲突可解决，是SLR(1)文法。</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">存在归约/归约冲突时即同时存在</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px; color: #ff0000;">A&rarr;&alpha;. 和 B&rarr;&beta;.</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">如果<span style="color: #ff0000;">FOLLOW(A)&cap;FOLLOW(B)=&Phi;</span>，则冲突可解决，是SLR(1)文法。</span></p>
+<p>&nbsp;</p>
+<p><span style="color: #ff0000;"><strong><span style="font-family: 'Microsoft YaHei';"><span style="font-family: 'Microsoft YaHei';"><span style="font-size: 15px; line-height: 22px;">句型、短语、直接短语、句柄</span></span></span></strong></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><span style="line-height: 22px;">短语：以非终结符为根子树中所有从左到右的叶子。</span></span></p>
+<p><span style="font-size: 15px; font-family: 'Microsoft YaHei';"><span><span style="line-height: 22px;">直接短语：子树中只有父子两代的子树的叶子节点。</span></span></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><span style="line-height: 22px;">句柄：<span lang="zh-CN">子树中最左边的那棵只有父子两代的子树的所有叶子结点自左至右排列起来，就是该句型的句柄。</span></span></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><span style="line-height: 22px;">例如：有文法</span></span></p>
+<p><span style="font-size: 15px; font-family: 'Microsoft YaHei';">E&rarr;E+T|T </span></p>
+<p><span style="font-size: 15px; font-family: 'Microsoft YaHei';">T&rarr;T*F|F </span></p>
+<p><span style="font-size: 15px; font-family: 'Microsoft YaHei';">F&rarr;id</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">和句型：id1+id2*id3。</span></p>
+<p><span style="font-family: 'Microsoft YaHei';"><span style="font-size: 15px; line-height: 22px;">画出其分析树：</span></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><img src="http://images.cnitblog.com/blog/694841/201501/082145057818063.png" alt="" /></span></p>
+<p>&nbsp;</p>
+<p><img src="http://images.cnitblog.com/blog/694841/201501/082147335782409.png" alt="" /></p>
+<p><img src="http://images.cnitblog.com/blog/694841/201501/082147440939830.png" alt="" /></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><span style="color: #ff0000;">句柄</span>：因为最左部有子树F1-id1只有父子两代关系，所以句柄为id1。</span></p>
+<p>&nbsp;</p>
+<p><span style="color: #ff0000; font-family: 'Microsoft YaHei'; font-size: 15px;"><strong><span><span style="line-height: 22px;">后缀式、三地址码、三元式、四元式</span></span></strong></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><span style="line-height: 22px;"><span style="color: #ff0000;">后缀式计算方法</span>：将最后计算的计算符号放到最后，把它的左操作数放到开始(ps：左操作数如果是一个表示达也要重复之前操作并将结果放到中间)，右操作数如果是一个表达式，则重复之前的操作将结果放到中间。</span></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">例如：求&nbsp;<strong>3+5*2/7</strong> 的后缀式</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">分析：最后运算的符号是<span style="color: #ff0000;">+</span>，左操作数是<span style="color: #ff0000;">3</span>，右操作数是表达式<span style="color: #ff0000;">5*2/7</span>，将<span style="color: #ff0000;">3</span>放到最前面，<span style="color: #ff0000;">+</span>放到最后面，接着计算<span style="color: #ff0000;">5*2/7</span>的后缀式，同样<span style="color: #ff0000;">5</span>放到最前面，<span style="color: #ff0000;">*</span>放到最后并加入到之前的后缀式中间，计算<span style="color: #ff0000;">2/7</span>的后缀式，<span style="color: #ff0000;">2</span>放到最前面，<span style="color: #ff0000;">/</span>放到最后面，右操作数<span style="color: #ff0000;">7</span>放到中间，并将其整体加入到之前的后缀式中间。</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">因此，得到</span></p>
+<p><strong><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">3 5 2 * 7 / +</span></strong></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">&nbsp;</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px; color: #ff0000;">三元式、四元式</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">例如：计算 x:=(a+b)*(a+b) 的三元式和四元式。</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">首先画出它的注释语法树：</span></p>
+<p><img src="http://images.cnitblog.com/blog/694841/201501/091439485939753.png" alt="" /></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">由注释语法树从叶子节点写到根结点很容易可得三元式：</span></p>
+<p><strong><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">(1)(+, a, b ) </span></strong></p>
+<p><strong><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">(2)(+, a, b ) </span></strong></p>
+<p><strong><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">(3)(*,(1),(2)) </span></strong></p>
+<p><strong><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">(4)(:=,x, (3))</span></strong></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">和四元式：</span></p>
+<p><strong><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">(1)(+, a, b, T1) </span></strong></p>
+<p><strong><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">(2)(+, a, b, T2) </span></strong></p>
+<p><strong><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">(3)(*, T1,T2,T3) </span></strong></p>
+<p><strong><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">(4)(:=,x, T3,T4)</span></strong></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">其实四元式也就是给三元式每一步生成的式子用一个变量表示。</span></p>
+<p>&nbsp;</p>
+<p><span style="color: #ff0000; font-family: 'Microsoft YaHei'; font-size: 15px;">三地址码计算方法</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">例如，求 x := a + b * c 的三地址码序列：</span>&nbsp;</p>
+<p><strong><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">(*,b,c,T1)</span></strong>&nbsp;</p>
+<p><strong><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">(+,a,T1,T2)</span></strong></p>
+<p><strong><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">(:=,x,T2,T3)</span></strong></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">将最先运算的表达式用一个变量T1表示，依次用T2，T3...表示其他运算，三地址码序列就是将表达式树用四元式组表示。</span></p></div><div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory"></div>
+<div id="EntryTag"></div>
+<div id="blog_post_info">
+</div>
+<div class="clear"></div>
+<div id="post_next_prev"></div>
+</div>
+
+
+		</div>
+		<div class = "postDesc">posted @ <span id="post-date">2014-12-30 17:23</span> <a href='http://www.cnblogs.com/sunniest/'>Sunnier</a> 阅读(<span id="post_view_count">...</span>) 评论(<span id="post_comment_count">...</span>)  <a href ="https://i.cnblogs.com/EditPosts.aspx?postid=4194121" rel="nofollow">编辑</a> <a href="#" onclick="AddToWz(4194121);return false;">收藏</a></div>
+	</div>
+	<script type="text/javascript">var allowComments=true,cb_blogId=205616,cb_entryId=4194121,cb_blogApp=currentBlogApp,cb_blogUserGuid='43282244-7c70-e411-b908-9dcfd8948a71',cb_entryCreatedDate='2014/12/30 17:23:00';loadViewCount(cb_entryId);</script>
+	
+</div><!--end: topics 文章、评论容器-->
+</div><a name="!comments"></a><div id="blog-comments-placeholder"></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id='comment_form' class='commentform'>
+<a name='commentform'></a>
+<div id='divCommentShow'></div>
+<div id='comment_nav'><span id='span_refresh_tips'></span><a href='javascript:void(0);' onclick='return RefreshCommentList();' id='lnk_RefreshComments' runat='server' clientidmode='Static'>刷新评论</a><a href='#' onclick='return RefreshPage();'>刷新页面</a><a href='#top'>返回顶部</a></div>
+<div id='comment_form_container'></div>
+<div class='ad_text_commentbox' id='ad_text_under_commentbox'></div>
+<div id='ad_t2'></div>
+<div id='opt_under_post'></div>
+<div id='cnblogs_c1' class='c_ad_block'></div>
+<div id='under_post_news'></div>
+<div id='cnblogs_c2' class='c_ad_block'></div>
+<div id='under_post_kb'></div>
+<div id='HistoryToday' class='c_ad_block'></div>
+<script type='text/javascript'>
+    fixPostBody();
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);   
+</script>
+</div>
+
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<!--done-->
+<div class="newsItem">
+<h3 class="catListTitle">公告</h3>
+	<div id="blog-news"></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+
+			<div id="calendar"><div id="blog-calendar" style="display:none"></div><script type="text/javascript">loadBlogDefaultCalendar();</script></div>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div><script type="text/javascript">loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		
+<!--done-->
+Copyright &copy;2017 Sunnier
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+</body>
+</html>

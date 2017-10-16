@@ -1,0 +1,210 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ASP.NET MVC学习之Log4Net配置（日志记录） - Sunnier - 博客园</title>
+<link type="text/css" rel="stylesheet" href="/bundles/blog-common.css?v=ChDk9h03-S75WEqNhGvXkWireJ5cCWdK1xRM9NIXfnM1"/>
+<link id="MainCss" type="text/css" rel="stylesheet" href="/skins/SimpleBlue/bundle-SimpleBlue.css?v=jJERBFSojhmgst84aaRDal9S3q1WoO-WcNudmMzGJS81"/>
+<link id="mobile-style" media="only screen and (max-width: 768px)" type="text/css" rel="stylesheet" href="/skins/SimpleBlue/bundle-SimpleBlue-mobile.css?v=z0BacpCfWeLlXDCM0C158kTP_DMqMbGBapID4f-QztI1"/>
+<link title="RSS" type="application/rss+xml" rel="alternate" href="http://www.cnblogs.com/sunniest/rss"/>
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="http://www.cnblogs.com/sunniest/rsd.xml"/>
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="http://www.cnblogs.com/sunniest/wlwmanifest.xml"/>
+<script src="//common.cnblogs.com/script/jquery.js" type="text/javascript"></script>  
+<script type="text/javascript">var currentBlogApp = 'sunniest', cb_enable_mathjax=false;var isLogined=false;</script>
+<script src="/bundles/blog-common.js?v=wUUQbLTt-LocHM-6RVSAUwAYdrfA1Lt3ool1ZdiICfI1" type="text/javascript"></script>
+</head>
+<body>
+<a name="top"></a>
+
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+		
+<!--done-->
+<div class="title"><a id="Header1_HeaderTitle" class="headermaintitle" href="http://www.cnblogs.com/sunniest/">Sunnier</a></div>
+<div class="subtitle"></div>
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li id="nav_sitehome"><a id="blog_nav_sitehome" class="menu" href="http://www.cnblogs.com/">博客园</a></li>
+<li id="nav_myhome"><a id="blog_nav_myhome" class="menu" href="http://www.cnblogs.com/sunniest/">首页</a></li>
+<li id="nav_newpost"><a id="blog_nav_newpost" class="menu" rel="nofollow" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a></li>
+<li id="nav_contact"><a id="blog_nav_contact" class="menu" rel="nofollow" href="https://msg.cnblogs.com/send/Sunnier">联系</a></li>
+<li id="nav_rss"><a id="blog_nav_rss" class="menu" href="http://www.cnblogs.com/sunniest/rss">订阅</a>
+<!--<a id="blog_nav_rss_image" class="aHeaderXML" href="http://www.cnblogs.com/sunniest/rss"><img src="//www.cnblogs.com/images/xml.gif" alt="订阅" /></a>--></li>
+<li id="nav_admin"><a id="blog_nav_admin" class="menu" rel="nofollow" href="https://i.cnblogs.com/">管理</a></li>
+</ul>
+
+		<div class="blogStats">
+			
+			<div id="blog_stats">
+<!--done-->
+随笔-50&nbsp;
+文章-0&nbsp;
+评论-226&nbsp;
+</div>
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		
+<div id="post_detail">
+<!--done-->
+<div id="topics">
+	<div class = "post">
+		<h1 class = "postTitle">
+			<a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/sunniest/p/4151854.html">ASP.NET MVC学习之Log4Net配置（日志记录）</a>
+		</h1>
+		<div class="clear"></div>
+		<div class="postBody">
+			<div id="cnblogs_post_body"><h1><span style="font-family: 'Microsoft YaHei';">Log4Net配置笔记----</span></h1>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">首先，添加对log4net.dll的引用。</span></p>
+<p><span style="font-family: 'Microsoft YaHei';"><span style="font-size: 15px; line-height: 22px;">在Web.config文件下的Configuration节点下添加Log4Net的配置信息：</span></span></p>
+<p>&nbsp;</p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;"> 1</span> <span style="color: #008000;">&lt;!--</span><span style="color: #008000;">Log4Net配置节点</span><span style="color: #008000;">--&gt;</span>
+<span style="color: #008080;"> 2</span>   <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">configSections</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 3</span>     <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">section </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="log4net"</span><span style="color: #ff0000;"> type</span><span style="color: #0000ff;">="log4net.Config.Log4NetConfigurationSectionHandler, log4net"</span><span style="color: #0000ff;">/&gt;</span>
+<span style="color: #008080;"> 4</span>   <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">configSections</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 5</span>   <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">log4net</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 6</span>     <span style="color: #008000;">&lt;!--</span><span style="color: #008000;"> Define some output appenders </span><span style="color: #008000;">--&gt;</span>
+<span style="color: #008080;"> 7</span>     <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">appender </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="RollingLogFileAppender"</span><span style="color: #ff0000;"> type</span><span style="color: #0000ff;">="log4net.Appender.RollingFileAppender"</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 8</span>       <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">file </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">="log.txt"</span><span style="color: #0000ff;">/&gt;</span>
+<span style="color: #008080;"> 9</span>       <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">appendToFile </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">="true"</span><span style="color: #0000ff;">/&gt;</span>
+<span style="color: #008080;">10</span>       <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">maxSizeRollBackups </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">="10"</span><span style="color: #0000ff;">/&gt;</span>
+<span style="color: #008080;">11</span>       <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">maximumFileSize </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">="10240KB"</span><span style="color: #0000ff;">/&gt;</span>
+<span style="color: #008080;">12</span>       <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">rollingStyle </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">="Size"</span><span style="color: #0000ff;">/&gt;</span>
+<span style="color: #008080;">13</span>       <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">staticLogFileName </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">="true"</span><span style="color: #0000ff;">/&gt;</span>
+<span style="color: #008080;">14</span>       <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">layout </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">="log4net.Layout.PatternLayout"</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">15</span>         <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">conversionPattern </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">="%date [%thread] %-5level %logger - %message%newline"</span><span style="color: #0000ff;">/&gt;</span>
+<span style="color: #008080;">16</span>       <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">layout</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">17</span>     <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">appender</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">18</span>     <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">root</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">19</span>       <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">level </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">="DEBUG"</span><span style="color: #0000ff;">/&gt;</span>
+<span style="color: #008080;">20</span>       <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">appender-ref </span><span style="color: #ff0000;">ref</span><span style="color: #0000ff;">="RollingLogFileAppender"</span><span style="color: #0000ff;">/&gt;</span>
+<span style="color: #008080;">21</span>     <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">root</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">22</span>   <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">log4net</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">23</span>   <span style="color: #008000;">&lt;!--</span><span style="color: #008000;">Log4Net配置节点结束</span><span style="color: #008000;">--&gt;</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>添加一个类MyExceptionFilterAttribute.cs：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;"> 1</span> <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> MyExceptionFilterAttribute:HandleErrorAttribute
+</span><span style="color: #008080;"> 2</span> <span style="color: #000000;">{
+</span><span style="color: #008080;"> 3</span> 
+<span style="color: #008080;"> 4</span>         <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">override</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> OnException(ExceptionContext filterContext)
+</span><span style="color: #008080;"> 5</span> <span style="color: #000000;">    {
+</span><span style="color: #008080;"> 6</span>             <span style="color: #0000ff;">base</span><span style="color: #000000;">.OnException(filterContext);
+</span><span style="color: #008080;"> 7</span> 
+<span style="color: #008080;"> 8</span>             <span style="color: #008000;">//</span><span style="color: #008000;">处理错误消息。跳转到一个错误页面</span>
+<span style="color: #008080;"> 9</span> <span style="color: #000000;">            LogHelper.WriteLog(filterContext.Exception.ToString());
+</span><span style="color: #008080;">10</span>             <span style="color: #008000;">//</span><span style="color: #008000;">页面跳转到错误页面</span>
+<span style="color: #008080;">11</span>             filterContext.HttpContext.Response.Redirect(<span style="color: #800000;">"/Shared</span><span style="color: #800000;">/Error</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+</span><span style="color: #008080;">12</span> <span style="color: #000000;">     }
+</span><span style="color: #008080;">13</span> }</pre>
+</div>
+<p>在Common类库中添加LogHelper.cs，添加日志写入函数：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;">1</span> <span style="color: #0000ff;">private</span> <span style="color: #0000ff;">static</span> ILog log = LogManager.GetLogger(<span style="color: #800000;">"</span><span style="color: #800000;">LogHelper</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+</span><span style="color: #008080;">2</span> <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">static</span> <span style="color: #0000ff;">void</span> WriteLog(<span style="color: #0000ff;">string</span><span style="color: #000000;"> errorMsg)
+</span><span style="color: #008080;">3</span> <span style="color: #000000;">{
+</span><span style="color: #008080;">4</span>             log.Error(<span style="color: #800000;">"\n</span><span style="color: #800000;">----------------出错开始-------------------\n</span><span style="color: #800000;">"</span>+errorMsg+<span style="color: #800000;">"\n</span><span style="color: #800000;">----------------出错结束-------------------\n</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+</span><span style="color: #008080;">5</span> }</pre>
+</div>
+<p>在Global.asax文件的Application_Start()方法中加入以下代码：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;">1</span> <span style="color: #008000;">//</span><span style="color: #008000;">让Log4Net配置节点起作用，并注册我们的过滤器</span>
+<span style="color: #008080;">2</span> <span style="color: #000000;">log4net.Config.XmlConfigurator.Configure();
+</span><span style="color: #008080;">3</span> GlobalFilters.Filters.Add(<span style="color: #0000ff;">new</span> MyExceptionFilterAttribute());</pre>
+</div>
+<p>一切大功告成！</p>
+<p>&nbsp;</p></div><div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory"></div>
+<div id="EntryTag"></div>
+<div id="blog_post_info">
+</div>
+<div class="clear"></div>
+<div id="post_next_prev"></div>
+</div>
+
+
+		</div>
+		<div class = "postDesc">posted @ <span id="post-date">2014-12-08 20:16</span> <a href='http://www.cnblogs.com/sunniest/'>Sunnier</a> 阅读(<span id="post_view_count">...</span>) 评论(<span id="post_comment_count">...</span>)  <a href ="https://i.cnblogs.com/EditPosts.aspx?postid=4151854" rel="nofollow">编辑</a> <a href="#" onclick="AddToWz(4151854);return false;">收藏</a></div>
+	</div>
+	<script type="text/javascript">var allowComments=true,cb_blogId=205616,cb_entryId=4151854,cb_blogApp=currentBlogApp,cb_blogUserGuid='43282244-7c70-e411-b908-9dcfd8948a71',cb_entryCreatedDate='2014/12/8 20:16:00';loadViewCount(cb_entryId);</script>
+	
+</div><!--end: topics 文章、评论容器-->
+</div><a name="!comments"></a><div id="blog-comments-placeholder"></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id='comment_form' class='commentform'>
+<a name='commentform'></a>
+<div id='divCommentShow'></div>
+<div id='comment_nav'><span id='span_refresh_tips'></span><a href='javascript:void(0);' onclick='return RefreshCommentList();' id='lnk_RefreshComments' runat='server' clientidmode='Static'>刷新评论</a><a href='#' onclick='return RefreshPage();'>刷新页面</a><a href='#top'>返回顶部</a></div>
+<div id='comment_form_container'></div>
+<div class='ad_text_commentbox' id='ad_text_under_commentbox'></div>
+<div id='ad_t2'></div>
+<div id='opt_under_post'></div>
+<div id='cnblogs_c1' class='c_ad_block'></div>
+<div id='under_post_news'></div>
+<div id='cnblogs_c2' class='c_ad_block'></div>
+<div id='under_post_kb'></div>
+<div id='HistoryToday' class='c_ad_block'></div>
+<script type='text/javascript'>
+    fixPostBody();
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);   
+</script>
+</div>
+
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<!--done-->
+<div class="newsItem">
+<h3 class="catListTitle">公告</h3>
+	<div id="blog-news"></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+
+			<div id="calendar"><div id="blog-calendar" style="display:none"></div><script type="text/javascript">loadBlogDefaultCalendar();</script></div>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div><script type="text/javascript">loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		
+<!--done-->
+Copyright &copy;2017 Sunnier
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+</body>
+</html>

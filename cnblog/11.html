@@ -1,0 +1,256 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>深入理解java垃圾回收机制 - Sunnier - 博客园</title>
+<link type="text/css" rel="stylesheet" href="/bundles/blog-common.css?v=ChDk9h03-S75WEqNhGvXkWireJ5cCWdK1xRM9NIXfnM1"/>
+<link id="MainCss" type="text/css" rel="stylesheet" href="/skins/SimpleBlue/bundle-SimpleBlue.css?v=jJERBFSojhmgst84aaRDal9S3q1WoO-WcNudmMzGJS81"/>
+<link id="mobile-style" media="only screen and (max-width: 768px)" type="text/css" rel="stylesheet" href="/skins/SimpleBlue/bundle-SimpleBlue-mobile.css?v=z0BacpCfWeLlXDCM0C158kTP_DMqMbGBapID4f-QztI1"/>
+<link title="RSS" type="application/rss+xml" rel="alternate" href="http://www.cnblogs.com/sunniest/rss"/>
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="http://www.cnblogs.com/sunniest/rsd.xml"/>
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="http://www.cnblogs.com/sunniest/wlwmanifest.xml"/>
+<script src="//common.cnblogs.com/script/jquery.js" type="text/javascript"></script>  
+<script type="text/javascript">var currentBlogApp = 'sunniest', cb_enable_mathjax=false;var isLogined=false;</script>
+<script src="/bundles/blog-common.js?v=wUUQbLTt-LocHM-6RVSAUwAYdrfA1Lt3ool1ZdiICfI1" type="text/javascript"></script>
+</head>
+<body>
+<a name="top"></a>
+
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+		
+<!--done-->
+<div class="title"><a id="Header1_HeaderTitle" class="headermaintitle" href="http://www.cnblogs.com/sunniest/">Sunnier</a></div>
+<div class="subtitle"></div>
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li id="nav_sitehome"><a id="blog_nav_sitehome" class="menu" href="http://www.cnblogs.com/">博客园</a></li>
+<li id="nav_myhome"><a id="blog_nav_myhome" class="menu" href="http://www.cnblogs.com/sunniest/">首页</a></li>
+<li id="nav_newpost"><a id="blog_nav_newpost" class="menu" rel="nofollow" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a></li>
+<li id="nav_contact"><a id="blog_nav_contact" class="menu" rel="nofollow" href="https://msg.cnblogs.com/send/Sunnier">联系</a></li>
+<li id="nav_rss"><a id="blog_nav_rss" class="menu" href="http://www.cnblogs.com/sunniest/rss">订阅</a>
+<!--<a id="blog_nav_rss_image" class="aHeaderXML" href="http://www.cnblogs.com/sunniest/rss"><img src="//www.cnblogs.com/images/xml.gif" alt="订阅" /></a>--></li>
+<li id="nav_admin"><a id="blog_nav_admin" class="menu" rel="nofollow" href="https://i.cnblogs.com/">管理</a></li>
+</ul>
+
+		<div class="blogStats">
+			
+			<div id="blog_stats">
+<!--done-->
+随笔-50&nbsp;
+文章-0&nbsp;
+评论-226&nbsp;
+</div>
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		
+<div id="post_detail">
+<!--done-->
+<div id="topics">
+	<div class = "post">
+		<h1 class = "postTitle">
+			<a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/sunniest/p/4575144.html">深入理解java垃圾回收机制</a>
+		</h1>
+		<div class="clear"></div>
+		<div class="postBody">
+			<div id="cnblogs_post_body"><h1><span style="font-family: 'Microsoft YaHei'; background-color: #ffff00; color: #ff0000;">深入理解java垃圾回收机制----</span></h1>
+<h2><span style="font-family: 'Microsoft YaHei'; background-color: #ffff00;">一、垃圾回收机制的意义</span></h2>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">　　Java语言中一个显著的特点就是引入了垃圾回收机制，使c++程序员最头疼的内存管理的问题迎刃而解，它使得Java程序员在编写程序的时候不再需要考虑内存管理。由于有个垃圾回收机制，Java中的对象不再有&ldquo;作用域&rdquo;的概念，只有对象的引用才有&ldquo;作用域&rdquo;。<span style="color: #ff0000;">垃圾回收可以有效的防止内存泄露，有效的使用空闲的内存。</span></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">　　<span style="color: #ff0000;">ps:内存泄露是指该内存空间使用完毕之后未回收，在不涉及复杂数据结构的一般情况下，Java&nbsp;的内存泄露表现为一个内存对象的生命周期超出了程序需要它的时间长度，我们有时也将其称为&ldquo;对象游离&rdquo;。</span></span></p>
+<p>&nbsp;</p>
+<h2><span style="font-family: 'Microsoft YaHei'; background-color: #ffff00;">二、垃圾回收机制中的算法</span></h2>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">　　Java语言规范没有明确地说明JVM使用哪种垃圾回收算法，但是任何一种垃圾回收算法一般要做2件基本的事情：（1）发现无用信息对象；（2）回收被无用对象占用的内存空间，使该空间可被程序再次使用。<span>　　</span></span></p>
+<p><span style="background-color: #ffff00;"><strong><span style="font-family: 'Microsoft YaHei'; font-size: 15px; color: #ff0000;">1.引用计数法(Reference Counting Collector)</span></strong></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">1.1算法分析　</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">　　引用计数是垃圾收集器中的早期策略。在这种方法中，堆中每个对象实例都有一个引用计数。当一个对象被创建时，且将该对象实例分配给一个变量，该变量计数设置为1。当任何其它变量被赋值为这个对象的引用时，计数加1（a&nbsp;=&nbsp;b,则b引用的对象实例的计数器+1），但当一个对象实例的某个引用超过了生命周期或者被设置为一个新值时，对象实例的引用计数器减1。任何引用计数器为0的对象实例可以被当作垃圾收集。当一个对象实例被垃圾收集时，它引用的任何对象实例的引用计数器减1。</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">1.2优缺点</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">优点：</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">　　引用计数收集器可以很快的执行，交织在程序运行中。对程序需要不被长时间打断的实时环境比较有利。</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">缺点：&nbsp;</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">　　<span style="color: #ff0000;">无法检测出循环引用。</span>如父对象有一个对子对象的引用，子对象反过来引用父对象。这样，他们的引用计数永远不可能为0.</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">1.3引用计数算法无法解决循环引用问题，例如：</span></p>
+<p>&nbsp;</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">public</span>&nbsp;<span style="color: #0000ff;">class</span><span style="color: #000000;">&nbsp;Main {
+&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">public</span>&nbsp;<span style="color: #0000ff;">static</span>&nbsp;<span style="color: #0000ff;">void</span><span style="color: #000000;">&nbsp;main(String[] args) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MyObject object1 </span>=&nbsp;<span style="color: #0000ff;">new</span><span style="color: #000000;">&nbsp;MyObject();
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MyObject object2 </span>=&nbsp;<span style="color: #0000ff;">new</span><span style="color: #000000;">&nbsp;MyObject();
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;object1.object </span>=<span style="color: #000000;"> object2;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;object2.object </span>=<span style="color: #000000;"> object1;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;object1 </span>=&nbsp;<span style="color: #0000ff;">null</span><span style="color: #000000;">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;object2 </span>=&nbsp;<span style="color: #0000ff;">null</span><span style="color: #000000;">;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+}</span></pre>
+</div>
+<p>&nbsp;</p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">　　<span style="color: #ff0000;">最后面两句将object1和object2赋值为null，也就是说object1和object2指向的对象已经不可能再被访问，但是由于它们互相引用对方，导致它们的引用计数器都不为0，那么垃圾收集器就永远不会回收它们。</span></span></p>
+<p><span style="color: #ff0000; font-family: 'Microsoft YaHei'; font-size: 15px;"><strong><span style="background-color: #ffff00;">2.tracing算法(Tracing Collector) 或&nbsp;标记-清除算法(mark and sweep)</span></strong></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">2.1根搜索算法</span></p>
+<p><img src="http://images0.cnblogs.com/blog2015/694841/201506/141050566294022.jpg" alt="" /></p>
+<p>　　<span style="font-family: 'Microsoft YaHei'; font-size: 15px;">根搜索算法是从离散数学中的图论引入的，程序把所有的引用关系看作一张图，从一个节点GC ROOT开始，寻找对应的引用节点，找到这个节点以后，继续寻找这个节点的引用节点，当所有的引用节点寻找完毕之后，剩余的节点则被认为是没有被引用到的节点，即无用的节点。</span></p>
+<p><span style="color: #ff0000; font-family: 'Microsoft YaHei'; font-size: 15px;">java中可作为GC Root的对象有</span></p>
+<p><span style="color: #ff0000; font-family: 'Microsoft YaHei'; font-size: 15px;">　　1.虚拟机栈中引用的对象（本地变量表）</span></p>
+<p><span style="color: #ff0000; font-family: 'Microsoft YaHei'; font-size: 15px;">　　2.方法区中静态属性引用的对象</span></p>
+<p><span style="color: #ff0000; font-family: 'Microsoft YaHei'; font-size: 15px;">　　3.&nbsp;方法区中常量引用的对象</span></p>
+<p><span style="color: #ff0000; font-family: 'Microsoft YaHei'; font-size: 15px;">　　4.本地方法栈中引用的对象（Native对象）</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><strong><span style="color: #ff0000; background-color: #ffff00;">2.2tracing算法的示意图</span></strong></span></p>
+<p>　　<img src="http://images0.cnblogs.com/blog2015/694841/201506/141048430359736.jpg" alt="" /></p>
+<p><strong><span style="font-family: 'Microsoft YaHei'; font-size: 15px; background-color: #ffff00; color: #ff0000;">2.3标记-清除算法分析</span></strong></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">　　标记-清除算法采用从根集合进行扫描，对存活的对象对象标记，标记完毕后，再扫描整个空间中未被标记的对象，进行回收，如上图所示。标记-清除算法不需要进行对象的移动，并且仅对不存活的对象进行处理，在存活对象比较多的情况下极为高效，但由于标记-清除算法直接回收不存活的对象，因此会造成内存碎片。</span></p>
+<p><span style="background-color: #ffff00; color: #ff0000;"><strong><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">3.compacting算法 或&nbsp;标记-整理算法</span></strong></span></p>
+<p><img src="http://images0.cnblogs.com/blog2015/694841/201506/141120037076681.jpg" alt="" /></p>
+<p>&nbsp;　　<span style="font-family: 'Microsoft YaHei'; font-size: 15px;">标记-整理算法采用标记-清除算法一样的方式进行对象的标记，但在清除时不同，在回收不存活的对象占用的空间后，会将所有的存活对象往左端空闲空间移动，并更新对应的指针。标记-整理算法是在标记-清除算法的基础上，又进行了对象的移动，因此成本更高，但是却解决了内存碎片的问题。在基于Compacting算法的收集器的实现中，一般增加句柄和句柄表。</span></p>
+<p><strong><span style="font-family: 'Microsoft YaHei'; font-size: 15px; background-color: #ffff00; color: #ff0000;">4.copying算法(Compacting Collector)</span></strong></p>
+<p>　　<img src="http://images0.cnblogs.com/blog2015/694841/201506/141112115351233.jpg" alt="" /></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">　　该算法的提出是为了克服句柄的开销和解决堆碎片的垃圾回收。它开始时把堆分成&nbsp;一个对象&nbsp;面和多个空闲面，&nbsp;程序从对象面为对象分配空间，当对象满了，基于copying算法的垃圾&nbsp;收集就从根集中扫描活动对象，并将每个&nbsp;活动对象复制到空闲面(使得活动对象所占的内存之间没有空闲洞)，这样空闲面变成了对象面，原来的对象面变成了空闲面，程序会在新的对象面中分配内存。一种典型的基于coping算法的垃圾回收是stop-and-copy算法，它将堆分成对象面和空闲区域面，在对象面与空闲区域面的切换过程中，程序暂停执行。</span></p>
+<p><strong><span style="font-family: 'Microsoft YaHei'; font-size: 15px; background-color: #ffff00; color: #ff0000;">5.generation算法(Generational Collector)</span></strong></p>
+<p><img src="http://images0.cnblogs.com/blog2015/694841/201506/141332429573819.jpg" alt="" /></p>
+<p>　　<span style="font-family: 'Microsoft YaHei'; font-size: 15px;">分代的垃圾回收策略，是基于这样一个事实：<strong>不同的对象的生命周期是不一样的</strong>。因此，不同生命周期的对象可以采取不同的回收算法，以便提高回收效率。</span></p>
+<p><strong><span style="font-family: 'Microsoft YaHei'; font-size: 15px; color: #ff0000;">年轻代（Young Generation）</span></strong></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">　　1.<span style="color: #ff0000;">所有新生成的对象首先都是放在年轻代的。</span>年轻代的目标就是尽可能快速的收集掉那些生命周期短的对象。</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">　　2.新生代内存按照<span style="color: #ff0000;">8:1:1</span>的比例分为一个eden区和两个survivor(survivor0,survivor1)区。一个Eden区，两个 Survivor区(一般而言)。大部分对象在Eden区中生成。回收时先将eden区存活对象复制到一个survivor0区，然后清空eden区，当这个survivor0区也存放满了时，则将eden区和survivor0区存活对象复制到另一个survivor1区，然后清空eden和这个survivor0区，此时survivor0区是空的，然后将survivor0区和survivor1区交换，即保持survivor1区为空，&nbsp;如此往复。</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">　　3.当survivor1区不足以存放 eden和survivor0的存活对象时，就将存活对象直接存放到老年代。若是老年代也满了就会触发一次Full GC，也就是新生代、老年代都进行回收</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">　　4.新生代发生的GC也叫做Minor GC，MinorGC发生频率比较高(不一定等Eden区满了才触发)</span></p>
+<p><strong><span style="font-family: 'Microsoft YaHei'; font-size: 15px; color: #ff0000;">年老代（Old Generation）</span></strong></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">　　1.在年轻代中经历了N次垃圾回收后仍然存活的对象，就会被放到年老代中。因此，可以认为年老代中存放的都是一些生命周期较长的对象。</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">　　2.<span style="color: #ff0000;">内存比新生代也大很多(大概比例是1:2)</span>，当老年代内存满时触发Major GC即Full GC，Full GC发生频率比较低，老年代对象存活时间比较长，存活率标记高。</span></p>
+<p><strong><span style="font-family: 'Microsoft YaHei'; font-size: 15px; color: #ff0000;">持久代（Permanent Generation）</span></strong></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">　　<span style="color: #ff0000;">用于存放静态文件，如Java类、方法等。</span>持久代对垃圾回收没有显著影响，但是有些应用可能动态生成或者调用一些class，例如Hibernate 等，在这种时候需要设置一个比较大的持久代空间来存放这些运行过程中新增的类。</span></p>
+<p>&nbsp;</p>
+<h2><span style="font-family: 'Microsoft YaHei'; background-color: #ffff00;">三.GC（垃圾收集器）</span></h2>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px; color: #ff0000;">新生代收集器使用的收集器：Serial、PraNew、Parallel Scavenge</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px; color: #ff0000;">老年代收集器使用的收集器：Serial Old、Parallel Old、CMS</span></p>
+<p><img src="http://images0.cnblogs.com/blog2015/694841/201506/141513122384006.jpg" alt="" /></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><strong><span style="color: #ff0000;">Serial收集器<span style="line-height: 1.5;">（复制算法)</span></span></strong></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><span style="line-height: 1.5;">　　</span>新生代单线程收集器，标记和清理都是单线程，优点是简单高效。</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><strong><span style="color: #ff0000;">Serial Old收集器(标记-整理算法)</span></strong></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">　　老年代单线程收集器，Serial收集器的老年代版本。</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><strong><span style="color: #ff0000;">ParNew收集器(停止-复制算法)　</span></strong></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">　　新生代收集器，可以认为是Serial收集器的多线程版本,在多核CPU环境下有着比Serial更好的表现。</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><strong><span style="color: #ff0000;">Parallel&nbsp;Scavenge收集器(停止-复制算法)</span></strong></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">　　并行收集器，追求高吞吐量，高效利用CPU。吞吐量一般为99%，&nbsp;吞吐量=&nbsp;用户线程时间/(用户线程时间+GC线程时间)。适合后台应用等对交互相应要求不高的场景。</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><strong><span style="color: #ff0000;">Parallel&nbsp;Old收集器(停止-复制算法)</span></strong></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">　　Parallel&nbsp;Scavenge收集器的老年代版本，并行收集器，吞吐量优先</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><strong><span style="color: #ff0000;">CMS(Concurrent&nbsp;Mark&nbsp;Sweep)收集器（标记-清理算法）</span></strong></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">　　高并发、低停顿，追求最短GC回收停顿时间，cpu占用比较高，响应时间快，停顿时间短，多核cpu&nbsp;追求高响应时间的选择</span></p>
+<p>&nbsp;</p>
+<h2><span style="font-family: 'Microsoft YaHei'; background-color: #ffff00;">四、GC的执行机制</span></h2>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">　　由于对象进行了分代处理，因此垃圾回收区域、时间也不一样。GC有两种类型：<span style="color: #ff0000;">Scavenge GC</span>和<span style="color: #ff0000;">Full GC</span>。</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px; color: #ff0000;"><strong>Scavenge GC</strong></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">&nbsp;&nbsp; &nbsp;一般情况下，当新对象生成，并且在Eden申请空间失败时，就会触发Scavenge GC，对Eden区域进行GC，清除非存活对象，并且把尚且存活的对象移动到Survivor区。然后整理Survivor的两个区。这种方式的GC是对年轻代的Eden区进行，不会影响到年老代。因为大部分对象都是从Eden区开始的，同时Eden区不会分配的很大，所以Eden区的GC会频繁进行。因而，一般在这里需要使用速度快、效率高的算法，使Eden去能尽快空闲出来。</span></p>
+<p>&nbsp;</p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px; color: #ff0000;"><strong>Full GC</strong></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">&nbsp;&nbsp; &nbsp;对整个堆进行整理，包括Young、Tenured和Perm。Full GC因为需要对整个堆进行回收，所以比Scavenge GC要慢，因此应该尽可能减少Full GC的次数。在对JVM调优的过程中，很大一部分工作就是对于FullGC的调节。有如下原因可能导致Full GC：</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px; color: #ff0000;">　　1.年老代（Tenured）被写满</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px; color: #ff0000;">　　2.持久代（Perm）被写满&nbsp;</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px; color: #ff0000;">　　3.System.gc()被显示调用&nbsp;</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px; color: #ff0000;">　　4.上一次GC之后Heap的各域分配策略动态变化</span></p>
+<p>&nbsp;</p>
+<h2><span style="font-family: 'Microsoft YaHei'; background-color: #ffff00;">五、Java有了GC同样会出现内存泄露问题</span></h2>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px; color: #ff0000;">1.静态集合类像HashMap、Vector等的使用最容易出现内存泄露，这些静态变量的生命周期和应用程序一致，所有的对象Object也不能被释放，因为他们也将一直被Vector等应用着。</span></p>
+<div class="cnblogs_code">
+<pre>Static Vector v = <span style="color: #0000ff;">new</span><span style="color: #000000;"> Vector();&nbsp;
+</span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = 1; i&lt;100; i++<span style="color: #000000;">)&nbsp;
+{&nbsp;
+&nbsp; &nbsp; Object o </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> Object();&nbsp;
+&nbsp; &nbsp; v.add(o);&nbsp;
+&nbsp; &nbsp; o </span>= <span style="color: #0000ff;">null</span><span style="color: #000000;">;&nbsp;
+}</span></pre>
+</div>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">　　在这个例子中，代码栈中存在Vector&nbsp;对象的引用&nbsp;v&nbsp;和&nbsp;Object&nbsp;对象的引用&nbsp;o&nbsp;。在&nbsp;For&nbsp;循环中，我们不断的生成新的对象，然后将其添加到&nbsp;Vector&nbsp;对象中，之后将&nbsp;o&nbsp;引用置空。问题是当&nbsp;o&nbsp;引用被置空后，如果发生&nbsp;GC，我们创建的&nbsp;Object&nbsp;对象是否能够被&nbsp;GC&nbsp;回收呢？答案是否定的。因为，&nbsp;GC&nbsp;在跟踪代码栈中的引用时，会发现&nbsp;v&nbsp;引用，而继续往下跟踪，就会发现&nbsp;v&nbsp;引用指向的内存空间中又存在指向&nbsp;Object&nbsp;对象的引用。也就是说尽管o&nbsp;引用已经被置空，但是&nbsp;Object&nbsp;对象仍然存在其他的引用，是可以被访问到的，所以&nbsp;GC&nbsp;无法将其释放掉。如果在此循环之后，&nbsp;Object&nbsp;对象对程序已经没有任何作用，那么我们就认为此&nbsp;Java&nbsp;程序发生了内存泄漏。</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px; color: #ff0000;">2.各种连接，数据库连接，网络连接，IO连接等没有显示调用close关闭，不被GC回收导致内存泄露。</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px; color: #ff0000;">3.监听器的使用，在释放对象的同时没有相应删除监听器的时候也可能导致内存泄露。</span></p></div><div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory"></div>
+<div id="EntryTag"></div>
+<div id="blog_post_info">
+</div>
+<div class="clear"></div>
+<div id="post_next_prev"></div>
+</div>
+
+
+		</div>
+		<div class = "postDesc">posted @ <span id="post-date">2015-06-14 15:36</span> <a href='http://www.cnblogs.com/sunniest/'>Sunnier</a> 阅读(<span id="post_view_count">...</span>) 评论(<span id="post_comment_count">...</span>)  <a href ="https://i.cnblogs.com/EditPosts.aspx?postid=4575144" rel="nofollow">编辑</a> <a href="#" onclick="AddToWz(4575144);return false;">收藏</a></div>
+	</div>
+	<script type="text/javascript">var allowComments=true,cb_blogId=205616,cb_entryId=4575144,cb_blogApp=currentBlogApp,cb_blogUserGuid='43282244-7c70-e411-b908-9dcfd8948a71',cb_entryCreatedDate='2015/6/14 15:36:00';loadViewCount(cb_entryId);</script>
+	
+</div><!--end: topics 文章、评论容器-->
+</div><a name="!comments"></a><div id="blog-comments-placeholder"></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id='comment_form' class='commentform'>
+<a name='commentform'></a>
+<div id='divCommentShow'></div>
+<div id='comment_nav'><span id='span_refresh_tips'></span><a href='javascript:void(0);' onclick='return RefreshCommentList();' id='lnk_RefreshComments' runat='server' clientidmode='Static'>刷新评论</a><a href='#' onclick='return RefreshPage();'>刷新页面</a><a href='#top'>返回顶部</a></div>
+<div id='comment_form_container'></div>
+<div class='ad_text_commentbox' id='ad_text_under_commentbox'></div>
+<div id='ad_t2'></div>
+<div id='opt_under_post'></div>
+<div id='cnblogs_c1' class='c_ad_block'></div>
+<div id='under_post_news'></div>
+<div id='cnblogs_c2' class='c_ad_block'></div>
+<div id='under_post_kb'></div>
+<div id='HistoryToday' class='c_ad_block'></div>
+<script type='text/javascript'>
+    fixPostBody();
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);   
+</script>
+</div>
+
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<!--done-->
+<div class="newsItem">
+<h3 class="catListTitle">公告</h3>
+	<div id="blog-news"></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+
+			<div id="calendar"><div id="blog-calendar" style="display:none"></div><script type="text/javascript">loadBlogDefaultCalendar();</script></div>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div><script type="text/javascript">loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		
+<!--done-->
+Copyright &copy;2017 Sunnier
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+</body>
+</html>

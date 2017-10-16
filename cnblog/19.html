@@ -1,0 +1,316 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>WorkFlow基础实战 - Sunnier - 博客园</title>
+<link type="text/css" rel="stylesheet" href="/bundles/blog-common.css?v=ChDk9h03-S75WEqNhGvXkWireJ5cCWdK1xRM9NIXfnM1"/>
+<link id="MainCss" type="text/css" rel="stylesheet" href="/skins/SimpleBlue/bundle-SimpleBlue.css?v=jJERBFSojhmgst84aaRDal9S3q1WoO-WcNudmMzGJS81"/>
+<link id="mobile-style" media="only screen and (max-width: 768px)" type="text/css" rel="stylesheet" href="/skins/SimpleBlue/bundle-SimpleBlue-mobile.css?v=z0BacpCfWeLlXDCM0C158kTP_DMqMbGBapID4f-QztI1"/>
+<link title="RSS" type="application/rss+xml" rel="alternate" href="http://www.cnblogs.com/sunniest/rss"/>
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="http://www.cnblogs.com/sunniest/rsd.xml"/>
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="http://www.cnblogs.com/sunniest/wlwmanifest.xml"/>
+<script src="//common.cnblogs.com/script/jquery.js" type="text/javascript"></script>  
+<script type="text/javascript">var currentBlogApp = 'sunniest', cb_enable_mathjax=false;var isLogined=false;</script>
+<script src="/bundles/blog-common.js?v=wUUQbLTt-LocHM-6RVSAUwAYdrfA1Lt3ool1ZdiICfI1" type="text/javascript"></script>
+</head>
+<body>
+<a name="top"></a>
+
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+		
+<!--done-->
+<div class="title"><a id="Header1_HeaderTitle" class="headermaintitle" href="http://www.cnblogs.com/sunniest/">Sunnier</a></div>
+<div class="subtitle"></div>
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li id="nav_sitehome"><a id="blog_nav_sitehome" class="menu" href="http://www.cnblogs.com/">博客园</a></li>
+<li id="nav_myhome"><a id="blog_nav_myhome" class="menu" href="http://www.cnblogs.com/sunniest/">首页</a></li>
+<li id="nav_newpost"><a id="blog_nav_newpost" class="menu" rel="nofollow" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a></li>
+<li id="nav_contact"><a id="blog_nav_contact" class="menu" rel="nofollow" href="https://msg.cnblogs.com/send/Sunnier">联系</a></li>
+<li id="nav_rss"><a id="blog_nav_rss" class="menu" href="http://www.cnblogs.com/sunniest/rss">订阅</a>
+<!--<a id="blog_nav_rss_image" class="aHeaderXML" href="http://www.cnblogs.com/sunniest/rss"><img src="//www.cnblogs.com/images/xml.gif" alt="订阅" /></a>--></li>
+<li id="nav_admin"><a id="blog_nav_admin" class="menu" rel="nofollow" href="https://i.cnblogs.com/">管理</a></li>
+</ul>
+
+		<div class="blogStats">
+			
+			<div id="blog_stats">
+<!--done-->
+随笔-50&nbsp;
+文章-0&nbsp;
+评论-226&nbsp;
+</div>
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		
+<div id="post_detail">
+<!--done-->
+<div id="topics">
+	<div class = "post">
+		<h1 class = "postTitle">
+			<a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/sunniest/p/4320078.html">WorkFlow基础实战</a>
+		</h1>
+		<div class="clear"></div>
+		<div class="postBody">
+			<div id="cnblogs_post_body"><h1><span style="background-color: #ffffff; color: #000000; font-family: 'Microsoft YaHei';"><strong>WorkFlow使用笔记----</strong></span></h1>
+<h2><span style="background-color: #ffff00; color: #ff0000; font-family: 'Microsoft YaHei';"><strong>状态机工作流的使用：</strong></span></h2>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">1.首先，项目的目标框架要选择.Net4.5版本，才有状态机工作流。</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">2.新建&ldquo;活动&rdquo;项，先从工具栏拖出一个StateMachine，然后添加其他状态，通过调整状态间的连线，使两状态成为上一状态和下一状态的关系，每种状态都要有一个终态。</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px; color: #ff0000;">下面会有代码介绍如何新建一个工作流。</span></p>
+<h2><strong><span style="font-family: 'Microsoft YaHei'; color: #ff0000; background-color: #ffff00;">WorkFlow实例化：</span></strong></h2>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">1.定位到&nbsp;<span style="color: #ff0000;">C:\Windows\Microsoft.NET\Framework\v4.0.30319\SQL\en</span> 文件夹，需要用到&nbsp;<span style="color: #ff0000;">SqlWorkflowInstanceStoreSchema.sql</span> 和&nbsp;<span style="color: #ff0000;">SqlWorkflowInstanceStoreLogic.sql</span> 这两个sql文件。</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">2.打开需要加入工作流持久化的数据库，右击该数据库，选择新建查询，先后执行两个脚本，则看到数据库中多了几张表（如下图）</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><img src="http://images.cnitblog.com/blog2015/694841/201503/071050502273917.jpg" alt="" /></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">3.创建一个空闲时自动实例化的工作流</span></p>
+<div class="cnblogs_code">
+<pre><span style="font-family: 'Microsoft YaHei'; font-size: 13px;"><span style="color: #008080;"> 1</span>             <span style="color: #008000;">//</span><span style="color: #008000;">如果你想要使用工作流进行序列化和持久化。</span>
+<span style="color: #008080;"> 2</span>             WorkflowApplication application = <span style="color: #0000ff;">new</span> WorkflowApplication(<span style="color: #0000ff;">new</span><span style="color: #000000;"> TestActivity());
+</span><span style="color: #008080;"> 3</span> 
+<span style="color: #008080;"> 4</span>             
+<span style="color: #008080;"> 5</span> 
+<span style="color: #008080;"> 6</span>             SqlWorkflowInstanceStore store = <span style="color: #0000ff;">new</span><span style="color: #000000;"> SqlWorkflowInstanceStore(conStr);
+</span><span style="color: #008080;"> 7</span>             <span style="color: #008000;">//</span><span style="color: #008000;">让当前的我们的applicaton实例跟 数据库关联一块</span>
+<span style="color: #008080;"> 8</span>             application.InstanceStore =<span style="color: #000000;"> store;
+</span><span style="color: #008080;"> 9</span> 
+<span style="color: #008080;">10</span>             <span style="color: #008000;">//</span><span style="color: #008000;">当工作流空闲的时候立即让我们工作流进行卸载，之前先序列化到 咱们的  数据库里面去。</span>
+<span style="color: #008080;">11</span> 
+<span style="color: #008080;">12</span>             application.PersistableIdle = arg =&gt; { <span style="color: #0000ff;">return</span><span style="color: #000000;"> PersistableIdleAction.Unload; };
+</span><span style="color: #008080;">13</span>             <span style="color: #008000;">//</span><span style="color: #008000;">当工作流被卸载时显示卸载信息</span>
+<span style="color: #008080;">14</span>             application.Unloaded += a =&gt; { Console.WriteLine(<span style="color: #800000;">"</span><span style="color: #800000;">工作流停下来了</span><span style="color: #800000;">"</span><span style="color: #000000;">); };
+</span><span style="color: #008080;">15</span>             application.Run();<span style="color: #008000;">//</span><span style="color: #008000;">启动一个新的线程帮助我们执行工作流。</span></span></pre>
+</div>
+<h2><span style="font-family: 'Microsoft YaHei'; color: #ff0000; background-color: #ffff00;">简单的工作流实例化例子以及书签（暂停工作流）的编写和使用：</span></h2>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">1.新建一个winform项目，更改项目输出类型为&ldquo;控制台&rdquo;。</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">2.新建&ldquo;代码活动&rdquo;项，修改新建项的代码如下：</span></p>
+<div class="cnblogs_code">
+<pre><span style="font-family: 'Microsoft YaHei'; font-size: 13px;"><span style="color: #008080;"> 1</span> <span style="color: #0000ff;">using</span><span style="color: #000000;"> System;
+</span><span style="color: #008080;"> 2</span> <span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Collections.Generic;
+</span><span style="color: #008080;"> 3</span> <span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Linq;
+</span><span style="color: #008080;"> 4</span> <span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Text;
+</span><span style="color: #008080;"> 5</span> <span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Activities;
+</span><span style="color: #008080;"> 6</span> 
+<span style="color: #008080;"> 7</span> <span style="color: #0000ff;">namespace</span><span style="color: #000000;"> TestWF
+</span><span style="color: #008080;"> 8</span> <span style="color: #000000;">{
+</span><span style="color: #008080;"> 9</span>     <span style="color: #008000;">//</span><span style="color: #008000;">书签有4步
+</span><span style="color: #008080;">10</span>     <span style="color: #008000;">//</span><span style="color: #008000;">1.改基类：CodeActivity改为NativeActivity
+</span><span style="color: #008080;">11</span>     <span style="color: #008000;">//</span><span style="color: #008000;">2.重写属性CanInduceIdle，改为return true;
+</span><span style="color: #008080;">12</span>     <span style="color: #008000;">//</span><span style="color: #008000;">3.修改Execute方法的传入参数类型CodeActivityContext改为NativeActivityContext
+</span><span style="color: #008080;">13</span>     <span style="color: #008000;">//</span><span style="color: #008000;">4.利用context.CreateBookmark(text,new BookmarkCallback(MyCallBack));创建书签</span>
+<span style="color: #008080;">14</span>     <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">sealed</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> BookMarkActivity : NativeActivity
+</span><span style="color: #008080;">15</span> <span style="color: #000000;">    {
+</span><span style="color: #008080;">16</span>         <span style="color: #008000;">//</span><span style="color: #008000;"> 定义一个字符串类型的活动输入参数</span>
+<span style="color: #008080;">17</span>         <span style="color: #0000ff;">public</span> InArgument&lt;<span style="color: #0000ff;">string</span>&gt; Text { <span style="color: #0000ff;">get</span>; <span style="color: #0000ff;">set</span><span style="color: #000000;">; }
+</span><span style="color: #008080;">18</span> 
+<span style="color: #008080;">19</span>         <span style="color: #0000ff;">protected</span> <span style="color: #0000ff;">override</span> <span style="color: #0000ff;">bool</span><span style="color: #000000;"> CanInduceIdle
+</span><span style="color: #008080;">20</span> <span style="color: #000000;">        {
+</span><span style="color: #008080;">21</span>             <span style="color: #0000ff;">get</span>
+<span style="color: #008080;">22</span> <span style="color: #000000;">            {
+</span><span style="color: #008080;">23</span>                 <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">true</span><span style="color: #000000;">;
+</span><span style="color: #008080;">24</span> <span style="color: #000000;">            }
+</span><span style="color: #008080;">25</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;">26</span> 
+<span style="color: #008080;">27</span>         
+<span style="color: #008080;">28</span>         <span style="color: #008000;">//</span><span style="color: #008000;"> 如果活动返回值，则从 CodeActivity&lt;TResult&gt;
+</span><span style="color: #008080;">29</span>         <span style="color: #008000;">//</span><span style="color: #008000;"> 派生并从 Execute 方法返回该值。</span>
+<span style="color: #008080;">30</span>         <span style="color: #0000ff;">protected</span> <span style="color: #0000ff;">override</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> Execute(NativeActivityContext context)
+</span><span style="color: #008080;">31</span> <span style="color: #000000;">        {
+</span><span style="color: #008080;">32</span>             <span style="color: #008000;">//</span><span style="color: #008000;"> 获取 Text 输入参数的运行时值
+</span><span style="color: #008080;">33</span>             <span style="color: #008000;">//</span><span style="color: #008000;">string text = context.GetValue(this.Text);</span>
+<span style="color: #008080;">34</span> 
+<span style="color: #008080;">35</span>             context.CreateBookmark(<span style="color: #800000;">"</span><span style="color: #800000;">TestWF</span><span style="color: #800000;">"</span><span style="color: #000000;">,MyCallBack);
+</span><span style="color: #008080;">36</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;">37</span> 
+<span style="color: #008080;">38</span>         <span style="color: #0000ff;">private</span> <span style="color: #0000ff;">void</span> MyCallBack(NativeActivityContext context, Bookmark bookmark, <span style="color: #0000ff;">object</span><span style="color: #000000;"> value)
+</span><span style="color: #008080;">39</span> <span style="color: #000000;">        {
+</span><span style="color: #008080;">40</span>             <span style="color: #008000;">//</span><span style="color: #008000;">可以在书签中操作书签的返回值</span>
+<span style="color: #008080;">41</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;">42</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">43</span> }</span></pre>
+</div>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">3.新建&ldquo;活动&rdquo;项，拖出工作流如下图所示：</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><img src="http://images.cnitblog.com/blog2015/694841/201503/121932535893087.png" alt="" /></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">在审查金额状态中，添加如下项（如果工具栏中不存在BookMark项，请重新生成解决方案试试）：</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><img src="http://images.cnitblog.com/blog2015/694841/201503/121935418862271.jpg" alt="" /></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">4.在项目中添加app.config配置文件，添加连接字符串的appSetting项：</span></p>
+<div class="cnblogs_code">
+<pre><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><span style="color: #008080;">1</span> <span style="color: #0000ff;">&lt;?</span><span style="color: #ff00ff;">xml version="1.0" encoding="utf-8" </span><span style="color: #0000ff;">?&gt;</span>
+<span style="color: #008080;">2</span> <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">configuration</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">3</span>     <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">startup</span><span style="color: #0000ff;">&gt;</span> 
+<span style="color: #008080;">4</span>         <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">supportedRuntime </span><span style="color: #ff0000;">version</span><span style="color: #0000ff;">="v4.0"</span><span style="color: #ff0000;"> sku</span><span style="color: #0000ff;">=".NETFramework,Version=v4.5"</span> <span style="color: #0000ff;">/&gt;</span>
+<span style="color: #008080;">5</span>     <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">startup</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">6</span>   <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">appSettings</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">7</span>     <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">add </span><span style="color: #ff0000;">key</span><span style="color: #0000ff;">="conStr"</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">="Data Source=./;Initial Catalog=MyOA;Integrated Security=true; "</span><span style="color: #0000ff;">/&gt;</span>
+<span style="color: #008080;">8</span>   <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">appSettings</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">9</span> <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">configuration</span><span style="color: #0000ff;">&gt;</span></span></pre>
+</div>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">5.Form1窗口的设计：</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><img src="http://images.cnitblog.com/blog2015/694841/201503/121940583704290.png" alt="" /></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">6.在Form1.cs中添加代码：</span></p>
+<div class="cnblogs_code">
+<pre><span style="font-family: 'Microsoft YaHei'; font-size: 13px;"><span style="color: #008080;"> 1</span> <span style="color: #0000ff;">using</span><span style="color: #000000;"> System;
+</span><span style="color: #008080;"> 2</span> <span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Activities;
+</span><span style="color: #008080;"> 3</span> <span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Activities.DurableInstancing;
+</span><span style="color: #008080;"> 4</span> <span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Collections.Generic;
+</span><span style="color: #008080;"> 5</span> <span style="color: #0000ff;">using</span><span style="color: #000000;"> System.ComponentModel;
+</span><span style="color: #008080;"> 6</span> <span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Configuration;
+</span><span style="color: #008080;"> 7</span> <span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Data;
+</span><span style="color: #008080;"> 8</span> <span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Drawing;
+</span><span style="color: #008080;"> 9</span> <span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Linq;
+</span><span style="color: #008080;">10</span> <span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Text;
+</span><span style="color: #008080;">11</span> <span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Threading.Tasks;
+</span><span style="color: #008080;">12</span> <span style="color: #0000ff;">using</span><span style="color: #000000;"> System.Windows.Forms;
+</span><span style="color: #008080;">13</span> 
+<span style="color: #008080;">14</span> <span style="color: #0000ff;">namespace</span><span style="color: #000000;"> TestWF
+</span><span style="color: #008080;">15</span> <span style="color: #000000;">{
+</span><span style="color: #008080;">16</span>     
+<span style="color: #008080;">17</span>     <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">partial</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> Form1 : Form
+</span><span style="color: #008080;">18</span> <span style="color: #000000;">    {
+</span><span style="color: #008080;">19</span>         <span style="color: #0000ff;">public</span><span style="color: #000000;"> Form1()
+</span><span style="color: #008080;">20</span> <span style="color: #000000;">        {
+</span><span style="color: #008080;">21</span> <span style="color: #000000;">            InitializeComponent();
+</span><span style="color: #008080;">22</span>             textBox1.Text =<span style="color: #000000;"> Clipboard.GetText();
+</span><span style="color: #008080;">23</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;">24</span> 
+<span style="color: #008080;">25</span>         <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">static</span> <span style="color: #0000ff;">string</span> conStr = ConfigurationManager.AppSettings[<span style="color: #800000;">"</span><span style="color: #800000;">conStr</span><span style="color: #800000;">"</span><span style="color: #000000;">];
+</span><span style="color: #008080;">26</span>         <span style="color: #0000ff;">private</span> <span style="color: #0000ff;">void</span> button3_Click(<span style="color: #0000ff;">object</span><span style="color: #000000;"> sender, EventArgs e)
+</span><span style="color: #008080;">27</span> <span style="color: #000000;">        {
+</span><span style="color: #008080;">28</span>             <span style="color: #0000ff;">#region</span> 开启工作流代码
+<span style="color: #008080;">29</span>             <span style="color: #008000;">//</span><span style="color: #008000;">如果你想要使用工作流进行序列化和持久化。</span>
+<span style="color: #008080;">30</span>             WorkflowApplication application = <span style="color: #0000ff;">new</span> WorkflowApplication(<span style="color: #0000ff;">new</span><span style="color: #000000;"> TestActivity());
+</span><span style="color: #008080;">31</span> 
+<span style="color: #008080;">32</span>             
+<span style="color: #008080;">33</span> 
+<span style="color: #008080;">34</span>             SqlWorkflowInstanceStore store = <span style="color: #0000ff;">new</span><span style="color: #000000;"> SqlWorkflowInstanceStore(conStr);
+</span><span style="color: #008080;">35</span>             <span style="color: #008000;">//</span><span style="color: #008000;">让当前的我们的applicaton实例跟 数据库关联一块</span>
+<span style="color: #008080;">36</span>             application.InstanceStore =<span style="color: #000000;"> store;
+</span><span style="color: #008080;">37</span> 
+<span style="color: #008080;">38</span>             <span style="color: #008000;">//</span><span style="color: #008000;">当工作流空闲的时候立即让我们工作流进行卸载，之前先序列化到 咱们的  数据库里面去。</span>
+<span style="color: #008080;">39</span> 
+<span style="color: #008080;">40</span>             application.PersistableIdle = arg =&gt; { <span style="color: #0000ff;">return</span><span style="color: #000000;"> PersistableIdleAction.Unload; };
+</span><span style="color: #008080;">41</span>             <span style="color: #008000;">//</span><span style="color: #008000;">当工作流被卸载时显示卸载信息</span>
+<span style="color: #008080;">42</span>             application.Unloaded += a =&gt; { Console.WriteLine(<span style="color: #800000;">"</span><span style="color: #800000;">工作流停下来了</span><span style="color: #800000;">"</span><span style="color: #000000;">); };
+</span><span style="color: #008080;">43</span>             application.Run();<span style="color: #008000;">//</span><span style="color: #008000;">启动一个新的线程帮助我们执行工作流。</span>
+<span style="color: #008080;">44</span>             <span style="color: #0000ff;">#endregion</span>
+<span style="color: #008080;">45</span>             textBox1.Text =<span style="color: #000000;"> application.Id.ToString();
+</span><span style="color: #008080;">46</span>             <span style="color: #008000;">//</span><span style="color: #008000;">将工作流的guid粘贴到剪贴板中，以便下一次程序启动时能取到</span>
+<span style="color: #008080;">47</span> <span style="color: #000000;">            Clipboard.SetText(textBox1.Text);
+</span><span style="color: #008080;">48</span>             
+<span style="color: #008080;">49</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;">50</span> 
+<span style="color: #008080;">51</span>         <span style="color: #0000ff;">private</span> <span style="color: #0000ff;">void</span> button2_Click(<span style="color: #0000ff;">object</span><span style="color: #000000;"> sender, EventArgs e)
+</span><span style="color: #008080;">52</span> <span style="color: #000000;">        {
+</span><span style="color: #008080;">53</span>             <span style="color: #0000ff;">#region</span> 恢复工作流代码
+<span style="color: #008080;">54</span>             WorkflowApplication application = <span style="color: #0000ff;">new</span> WorkflowApplication(<span style="color: #0000ff;">new</span><span style="color: #000000;"> TestActivity());
+</span><span style="color: #008080;">55</span> 
+<span style="color: #008080;">56</span>             SqlWorkflowInstanceStore store = <span style="color: #0000ff;">new</span><span style="color: #000000;"> SqlWorkflowInstanceStore(conStr);
+</span><span style="color: #008080;">57</span>             <span style="color: #008000;">//</span><span style="color: #008000;">让当前的我们的applicaton实例跟 数据库关联一块</span>
+<span style="color: #008080;">58</span>             application.InstanceStore =<span style="color: #000000;"> store;
+</span><span style="color: #008080;">59</span> 
+<span style="color: #008080;">60</span>             <span style="color: #008000;">//</span><span style="color: #008000;">当工作流空闲的时候立即让我们工作流进行卸载，之前先序列化到 咱们的  数据库里面去。</span>
+<span style="color: #008080;">61</span>             application.PersistableIdle = arg =&gt; { <span style="color: #0000ff;">return</span><span style="color: #000000;"> PersistableIdleAction.Unload; };
+</span><span style="color: #008080;">62</span> 
+<span style="color: #008080;">63</span> <span style="color: #000000;">            application.Load(Guid.Parse(textBox1.Text));
+</span><span style="color: #008080;">64</span>             application.ResumeBookmark(<span style="color: #800000;">"</span><span style="color: #800000;">TestWF</span><span style="color: #800000;">"</span>,<span style="color: #800000;">""</span><span style="color: #000000;">);
+</span><span style="color: #008080;">65</span>             <span style="color: #0000ff;">#endregion</span>
+<span style="color: #008080;">66</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;">67</span> 
+<span style="color: #008080;">68</span> 
+<span style="color: #008080;">69</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">70</span> }</span></pre>
+</div>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">7.运行结果如下图：</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;"><img src="http://images.cnitblog.com/blog2015/694841/201503/121942287926614.png" alt="" /></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">当点击&ldquo;开启工作流&rdquo;时，提示&ldquo;请输入金额&rdquo;，当输入金额回车后由于有书签，工作流停下来被实例化到数据库中程序打印出&ldquo;工作流停下来了&rdquo;，再点击&ldquo;重新开启工作流&rdquo;，工作流继续运行到其他FinalState状态。</span></p></div><div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory"></div>
+<div id="EntryTag"></div>
+<div id="blog_post_info">
+</div>
+<div class="clear"></div>
+<div id="post_next_prev"></div>
+</div>
+
+
+		</div>
+		<div class = "postDesc">posted @ <span id="post-date">2015-03-12 19:56</span> <a href='http://www.cnblogs.com/sunniest/'>Sunnier</a> 阅读(<span id="post_view_count">...</span>) 评论(<span id="post_comment_count">...</span>)  <a href ="https://i.cnblogs.com/EditPosts.aspx?postid=4320078" rel="nofollow">编辑</a> <a href="#" onclick="AddToWz(4320078);return false;">收藏</a></div>
+	</div>
+	<script type="text/javascript">var allowComments=true,cb_blogId=205616,cb_entryId=4320078,cb_blogApp=currentBlogApp,cb_blogUserGuid='43282244-7c70-e411-b908-9dcfd8948a71',cb_entryCreatedDate='2015/3/12 19:56:00';loadViewCount(cb_entryId);</script>
+	
+</div><!--end: topics 文章、评论容器-->
+</div><a name="!comments"></a><div id="blog-comments-placeholder"></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id='comment_form' class='commentform'>
+<a name='commentform'></a>
+<div id='divCommentShow'></div>
+<div id='comment_nav'><span id='span_refresh_tips'></span><a href='javascript:void(0);' onclick='return RefreshCommentList();' id='lnk_RefreshComments' runat='server' clientidmode='Static'>刷新评论</a><a href='#' onclick='return RefreshPage();'>刷新页面</a><a href='#top'>返回顶部</a></div>
+<div id='comment_form_container'></div>
+<div class='ad_text_commentbox' id='ad_text_under_commentbox'></div>
+<div id='ad_t2'></div>
+<div id='opt_under_post'></div>
+<div id='cnblogs_c1' class='c_ad_block'></div>
+<div id='under_post_news'></div>
+<div id='cnblogs_c2' class='c_ad_block'></div>
+<div id='under_post_kb'></div>
+<div id='HistoryToday' class='c_ad_block'></div>
+<script type='text/javascript'>
+    fixPostBody();
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);   
+</script>
+</div>
+
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<!--done-->
+<div class="newsItem">
+<h3 class="catListTitle">公告</h3>
+	<div id="blog-news"></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+
+			<div id="calendar"><div id="blog-calendar" style="display:none"></div><script type="text/javascript">loadBlogDefaultCalendar();</script></div>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div><script type="text/javascript">loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		
+<!--done-->
+Copyright &copy;2017 Sunnier
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+</body>
+</html>

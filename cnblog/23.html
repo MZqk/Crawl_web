@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>深入理解JVM结构 - Sunnier - 博客园</title>
+<link type="text/css" rel="stylesheet" href="/bundles/blog-common.css?v=ChDk9h03-S75WEqNhGvXkWireJ5cCWdK1xRM9NIXfnM1"/>
+<link id="MainCss" type="text/css" rel="stylesheet" href="/skins/SimpleBlue/bundle-SimpleBlue.css?v=jJERBFSojhmgst84aaRDal9S3q1WoO-WcNudmMzGJS81"/>
+<link id="mobile-style" media="only screen and (max-width: 768px)" type="text/css" rel="stylesheet" href="/skins/SimpleBlue/bundle-SimpleBlue-mobile.css?v=z0BacpCfWeLlXDCM0C158kTP_DMqMbGBapID4f-QztI1"/>
+<link title="RSS" type="application/rss+xml" rel="alternate" href="http://www.cnblogs.com/sunniest/rss"/>
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="http://www.cnblogs.com/sunniest/rsd.xml"/>
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="http://www.cnblogs.com/sunniest/wlwmanifest.xml"/>
+<script src="//common.cnblogs.com/script/jquery.js" type="text/javascript"></script>  
+<script type="text/javascript">var currentBlogApp = 'sunniest', cb_enable_mathjax=false;var isLogined=false;</script>
+<script src="/bundles/blog-common.js?v=wUUQbLTt-LocHM-6RVSAUwAYdrfA1Lt3ool1ZdiICfI1" type="text/javascript"></script>
+</head>
+<body>
+<a name="top"></a>
+
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+		
+<!--done-->
+<div class="title"><a id="Header1_HeaderTitle" class="headermaintitle" href="http://www.cnblogs.com/sunniest/">Sunnier</a></div>
+<div class="subtitle"></div>
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li id="nav_sitehome"><a id="blog_nav_sitehome" class="menu" href="http://www.cnblogs.com/">博客园</a></li>
+<li id="nav_myhome"><a id="blog_nav_myhome" class="menu" href="http://www.cnblogs.com/sunniest/">首页</a></li>
+<li id="nav_newpost"><a id="blog_nav_newpost" class="menu" rel="nofollow" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a></li>
+<li id="nav_contact"><a id="blog_nav_contact" class="menu" rel="nofollow" href="https://msg.cnblogs.com/send/Sunnier">联系</a></li>
+<li id="nav_rss"><a id="blog_nav_rss" class="menu" href="http://www.cnblogs.com/sunniest/rss">订阅</a>
+<!--<a id="blog_nav_rss_image" class="aHeaderXML" href="http://www.cnblogs.com/sunniest/rss"><img src="//www.cnblogs.com/images/xml.gif" alt="订阅" /></a>--></li>
+<li id="nav_admin"><a id="blog_nav_admin" class="menu" rel="nofollow" href="https://i.cnblogs.com/">管理</a></li>
+</ul>
+
+		<div class="blogStats">
+			
+			<div id="blog_stats">
+<!--done-->
+随笔-50&nbsp;
+文章-0&nbsp;
+评论-226&nbsp;
+</div>
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		
+<div id="post_detail">
+<!--done-->
+<div id="topics">
+	<div class = "post">
+		<h1 class = "postTitle">
+			<a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/sunniest/p/4574563.html">深入理解JVM结构</a>
+		</h1>
+		<div class="clear"></div>
+		<div class="postBody">
+			<div id="cnblogs_post_body"><h1><span style="font-family: 'Microsoft YaHei'; background-color: #ffff00; color: #ff0000;">JVM结构探究----</span></h1>
+<h2><span style="font-family: 'Microsoft YaHei'; background-color: #ffff00;">1.JVM结构示意图</span></h2>
+<p><img src="http://images0.cnblogs.com/blog2015/694841/201506/132232520196087.jpg" alt="" /></p>
+<h2><span style="font-family: 'Microsoft YaHei'; background-color: #ffff00;">2.JVM运行时数据区</span></h2>
+<p><span style="background-color: #ffff00;"><strong><span style="font-family: 'Microsoft YaHei'; font-size: 15px; color: #ff0000;">1)程序计数器(Program Counter Register)</span></strong></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">　　程序计数器是用于存储每个线程下一步将执行的JVM指令，如该方法为native的，则程序计数器中不存储任何信息</span></p>
+<p><span style="color: #ff0000; background-color: #ffff00;"><strong><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">2)JVM栈(JVM Stack)</span></strong></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">　　JVM栈是线程私有的，每个线程创建的同时都会创建JVM栈，JVM栈中存放的为<span style="color: #ff0000;">当前线程中局部基本类型的变量</span>（java中定义的<span style="color: #ff0000;">八种基本类型</span>：boolean、char、byte、short、int、long、float、double）、部分的返回结果以及Stack&nbsp;Frame，非基本类型的对象在JVM栈上仅存放一个指向堆上的地址</span></p>
+<p><span style="color: #ff0000; background-color: #ffff00;"><strong><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">3)堆(heap)</span></strong></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">　　它是JVM用来存储对象实例以及数组值的区域，可以认为Java中所有通过new创建的对象的内存都在此分配，Heap中的对象的内存需要等待GC进行回收。</span></p>
+<p class="p"><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">　　（1）堆是JVM中所有线程共享的，因此在其上进行对象内存的分配均需要进行加锁，这也导致了new对象的开销是比较大的</span></p>
+<p class="p"><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">　　（2）Sun&nbsp;Hotspot&nbsp;JVM为了提升对象内存分配的效率，对于所创建的线程都会分配一块独立的空间<span style="color: #ff0000;">TLAB</span>（Thread&nbsp;Local&nbsp;Allocation&nbsp;Buffer），其大小由JVM根据运行的情况计算而得，在TLAB上分配对象时不需要加锁，因此JVM在给线程的对象分配内存时会尽量的在TLAB上分配，在这种情况下JVM中分配对象内存的性能和C基本是一样高效的，但如果对象过大的话则仍然是直接使用堆空间分配</span></p>
+<p class="p"><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">　　（3）TLAB仅作用于新生代的Eden&nbsp;Space，因此在编写Java程序时，通常多个小的对象比大的对象分配起来更加高效。</span></p>
+<p><span style="background-color: #ffff00;"><strong><span style="font-family: 'Microsoft YaHei'; font-size: 15px; color: #ff0000;">4)方法区（Method&nbsp;Area）</span></strong></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">　　（1）在Sun&nbsp;JDK中这块区域对应的为PermanetGeneration，又称为持久代。</span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">　　（2）方法区域存放了所加载的类的信息（名称、修饰符等）、类中的静态变量、类中定义为final类型的常量、类中的Field信息、类中的方法信息，当开发人员在程序中通过Class对象中的getName、isInterface等方法来获取信息时，这些数据都来源于方法区域，同时方法区域也是全局共享的，在一定的条件下它也会被GC，当方法区域需要使用的内存超过其允许的大小时，会抛出OutOfMemory的错误信息。</span></p>
+<p><span style="background-color: #ffff00;"><strong><span style="font-family: 'Microsoft YaHei'; font-size: 15px; color: #ff0000;">5)本地方法栈（Native&nbsp;Method&nbsp;Stacks）</span></strong></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">　　JVM采用本地方法栈来<span style="color: #ff0000;">支持native方法的执行</span>，此区域用于存储每个native方法调用的状态。</span></p>
+<p><span style="color: #ff0000; background-color: #ffff00;"><strong><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">6)运行时常量池（Runtime&nbsp;Constant&nbsp;Pool）</span></strong></span></p>
+<p><span style="font-family: 'Microsoft YaHei'; font-size: 15px;">　　存放的为类中的固定的常量信息、方法和Field的引用信息等，<span style="color: #ff0000;">其空间从方法区域中分配</span>。JVM在加载类时会<span style="color: #ff0000;">为每个class分配一个独立的常量池</span>，但是运行时常量池中的<span style="color: #ff0000;">字符串常量池是全局共享的</span>。</span></p></div><div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory"></div>
+<div id="EntryTag"></div>
+<div id="blog_post_info">
+</div>
+<div class="clear"></div>
+<div id="post_next_prev"></div>
+</div>
+
+
+		</div>
+		<div class = "postDesc">posted @ <span id="post-date">2015-06-14 08:55</span> <a href='http://www.cnblogs.com/sunniest/'>Sunnier</a> 阅读(<span id="post_view_count">...</span>) 评论(<span id="post_comment_count">...</span>)  <a href ="https://i.cnblogs.com/EditPosts.aspx?postid=4574563" rel="nofollow">编辑</a> <a href="#" onclick="AddToWz(4574563);return false;">收藏</a></div>
+	</div>
+	<script type="text/javascript">var allowComments=true,cb_blogId=205616,cb_entryId=4574563,cb_blogApp=currentBlogApp,cb_blogUserGuid='43282244-7c70-e411-b908-9dcfd8948a71',cb_entryCreatedDate='2015/6/14 8:55:00';loadViewCount(cb_entryId);</script>
+	
+</div><!--end: topics 文章、评论容器-->
+</div><a name="!comments"></a><div id="blog-comments-placeholder"></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id='comment_form' class='commentform'>
+<a name='commentform'></a>
+<div id='divCommentShow'></div>
+<div id='comment_nav'><span id='span_refresh_tips'></span><a href='javascript:void(0);' onclick='return RefreshCommentList();' id='lnk_RefreshComments' runat='server' clientidmode='Static'>刷新评论</a><a href='#' onclick='return RefreshPage();'>刷新页面</a><a href='#top'>返回顶部</a></div>
+<div id='comment_form_container'></div>
+<div class='ad_text_commentbox' id='ad_text_under_commentbox'></div>
+<div id='ad_t2'></div>
+<div id='opt_under_post'></div>
+<div id='cnblogs_c1' class='c_ad_block'></div>
+<div id='under_post_news'></div>
+<div id='cnblogs_c2' class='c_ad_block'></div>
+<div id='under_post_kb'></div>
+<div id='HistoryToday' class='c_ad_block'></div>
+<script type='text/javascript'>
+    fixPostBody();
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);   
+</script>
+</div>
+
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<!--done-->
+<div class="newsItem">
+<h3 class="catListTitle">公告</h3>
+	<div id="blog-news"></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+
+			<div id="calendar"><div id="blog-calendar" style="display:none"></div><script type="text/javascript">loadBlogDefaultCalendar();</script></div>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div><script type="text/javascript">loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		
+<!--done-->
+Copyright &copy;2017 Sunnier
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+</body>
+</html>
