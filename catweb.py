@@ -7,16 +7,16 @@ def getHtml(url):
     html = page.read()
     return html   
 
-def mkdir(path):  
+def mkdir(path): 
+    #判断参数
+    if len(sys.argv) < 2:
+        pass 
+    else:
+        path = sys.argv[1]  
     #绝对路径
     path = os.path.join(os.getcwd(), path)
     #相对路径
     #path = path.strip()
-    #判断参数
-    if len(sys.argv) < 2:
-        pass
-    else:
-        path = sys.argv[1] 
     #建立文件夹
     if not os.path.exists(path):
     	os.makedirs(path)

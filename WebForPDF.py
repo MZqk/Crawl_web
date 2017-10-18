@@ -1,4 +1,4 @@
-# coding=utf-8  
+#-*-coding=utf-8-*-  
 import os  
 import re  
 import time  
@@ -26,7 +26,7 @@ html_template = """
 
 #----------------------------------------------------------------------
 def parse_url_to_html(url, name):  
-    """ 
+    """ \
     解析URL，返回HTML内容 
     :param url:解析的url 
     :param name: 保存的html文件名 
@@ -147,13 +147,12 @@ def main():
 
 #----------------------------------------------------------------------
 def changeDir(dir_name):
-    """
-    目录切换
-    """
-    if not os.path.exists(dir_name):
-        os.mkdir(dir_name)
-
-    os.chdir(dir_name)
+    path = os.path.join(os.getcwd(), dir_name)
+    if not os.path.exists(path):
+        os.makedirs(path)
+        os.chdir(path)  
+    else:   
+        print '%s 文件已建立 ' % path  
 #----------------------------------------------------------------------
 if __name__ == '__main__':
     #存放文件的路径
