@@ -53,7 +53,7 @@ def saveImages(imglist,name):
             data = u.read()  
             f = open(fileName,'wb+')  
             f.write(data)  
-            print u'正在保存的一张图片为',fileName  
+            print '正在保存的一张图片为',fileName  
             f.close()  
         except urllib2.URLError as e:  
             print (e.reason)  
