@@ -17,7 +17,7 @@ class Xitek():
         self.url="http://photo.xitek.com/"
         user_agent="Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)"
         self.headers={"User-Agent":user_agent}
-        self.last_page=self.__get_last_page() 
+        self.last_page=self.__get_last_page()
 
 
     def __get_last_page(self):
@@ -44,12 +44,12 @@ class Xitek():
 
     def __download(self,url):
         p=re.compile(r'href="(/photoid/\d+)"')
-        
+
         html=self.__getContentAuto(url)
 
         content = p.findall(html)
         for i in content:
-            print i
+            print(i)
             photoid=self.__getContentAuto(self.url+i)
             bs=BeautifulSoup(photoid,"html.parser")
             final_link=bs.find('img',class_="mimg")['src']
@@ -58,13 +58,13 @@ class Xitek():
             filename = re.sub('[\/:*?"<>|]', '-', title)
             filename=filename+'.jpg'
             try:
-                print filename
-                print final_link
+                print(filename)
+                print(final_link)
                 urllib.urlretrieve(final_link,filename)
-                #time.sleep(5)
+                time.sleep(5)
             except :
                 pass
-                print "download file fail"
+                print("download file fail")
 
     def getPhoto(self):
         start=0
@@ -72,8 +72,8 @@ class Xitek():
         photo_url="http://photo.xitek.com/style/0/p/"
         for i in range(start,self.last_page+1):
             url=photo_url+str(i)
-            print url
-            #time.sleep(1)
+            print(url)
+            time.sleep(1)
             self.__download(url)
 
 def mkdir(path):

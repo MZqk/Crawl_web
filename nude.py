@@ -1,8 +1,12 @@
-import sys
+#-*-coding=utf-8-*-
 import os
-import _io
+import sys
 from collections import namedtuple
+
 from PIL import Image
+
+import _io
+
 
 class Nude(object):
 
@@ -419,6 +423,6 @@ if __name__ == "__main__":
             n.parse()
             if args.visualization:
                 n.showSkinRegions()
-            print(n.result, n.inspect())
+            print(n.result,n.inspect())
         else:
             print(fname, "is not a file")

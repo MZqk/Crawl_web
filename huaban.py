@@ -1,13 +1,12 @@
-#!/usr/bin/env python
-# -*- coding: utf8 -*-
+#coding=utf-8
 import sys
 import re
-import urllib2
+import urllib
 import os
 import urllib
 import time
 import random
-from PIL import Image  
+from PIL import Image
 
 beauty_url = "http://huaban.com/favorite/beauty/"
 pin_re = '<a href="/pins/(.+?)/"'
@@ -21,9 +20,9 @@ def mkdir(path):
         try:
             os.makedirs(local_path)
         except e:
-            print e
+            print(e)
             sys.exit(1)
-    print "pin images will saved to: %s" % local_path
+    print("pin images will saved to: %s" % local_path)
 
 def getpage():
     #将网页缓存至临时目录（windows不支持curl）
@@ -46,19 +45,18 @@ def get_img_url(pin):
         img_url = re.findall(img_url_re, content)[0]
         time.sleep(2*random.random())
     except:
-        print re.findall(img_url_re, content)
+        print(re.findall(img_url_re, content))
         sys.exit(1)
     return img_url
-    
+
 if __name__ == "__main__":
     path = "./huaban"
     mkdir(path)
     pins = getpage()
-    
+
     for pin in pins:
         img_url = get_img_url(pin)
         img_date = "http:" + img_url
         urllib.urlretrieve(img_date, "%s/%s.jpeg" % (path,pin))
         picdir = '%s/%s.jpeg' %  (path,pin)
-        print '正在保存图片 %s' % picdir
-
+        print('正在保存图片 %s' % picdir)
